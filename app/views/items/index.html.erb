@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>String</th>
+      <th>String</th>
+      <th>Text</th>
+      <th>Integer</th>
+      <th>Float</th>
+      <th>Integer</th>
+      <th>Integer</th>
+      <th>Integer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.string %></td>
+        <td><%= item.string %></td>
+        <td><%= item.text %></td>
+        <td><%= item.integer %></td>
+        <td><%= item.float %></td>
+        <td><%= item.integer %></td>
+        <td><%= item.integer %></td>
+        <td><%= item.integer %></td>
+        <td><%= link_to 'Show', item %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Item', new_item_path %>

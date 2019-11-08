@@ -1,0 +1,2 @@
+class PostPerson < ApplicationRecord
+end

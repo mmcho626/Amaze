@@ -1,0 +1,2 @@
+class ItemPerson < ApplicationRecord
+end
