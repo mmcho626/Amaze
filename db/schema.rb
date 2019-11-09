@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_11_08_160909) do
   end
 
   create_table "item_people", force: :cascade do |t|
-    t.integer "item_people"
+    t.integer "item_person"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -62,9 +62,8 @@ ActiveRecord::Schema.define(version: 2019_11_08_160909) do
     t.string "item_image"
     t.text "item_body"
     t.integer "price"
-    t.float "rate"
     t.integer "item_category_id"
-    t.integer "item_people_id"
+    t.integer "item_person_id"
     t.integer "item_time_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -77,7 +76,7 @@ ActiveRecord::Schema.define(version: 2019_11_08_160909) do
   end
 
   create_table "post_people", force: :cascade do |t|
-    t.integer "post_people"
+    t.integer "post_person"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -92,8 +91,9 @@ ActiveRecord::Schema.define(version: 2019_11_08_160909) do
     t.integer "item_id"
     t.string "post_image"
     t.text "post_body"
+    t.float "star"
     t.integer "post_category_id"
-    t.integer "post_people_id"
+    t.integer "post_person_id"
     t.integer "post_times_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -110,8 +110,6 @@ ActiveRecord::Schema.define(version: 2019_11_08_160909) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "user_name", default: "", null: false
-    t.string "user_name_id", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
