@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2019_11_08_160909) do
     t.float "star"
     t.integer "post_category_id"
     t.integer "post_person_id"
-    t.integer "post_times_id"
+    t.integer "post_time_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -7,7 +7,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.float :star
       t.integer :post_category_id
       t.integer :post_person_id
-      t.integer :post_times_id
+      t.integer :post_time_id
 
       t.timestamps
     end
