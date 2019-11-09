@@ -1,4 +1,22 @@
 <h1>New Post</h1>
 
+<%= form_for(@post) do |f| %>
+
+    <%= f.label :post_image %>
+	<%= f.attachment_field :post_image %>
+
+	<%= f.label :post_person_id %>
+    <%= f.collection_select :post_person_id, PostPerson.all, :id, :label_name, :prompt => '選んでください' %>
+
+	<%= f.label :post_time_id %>
+    <%= f.collection_select :post_time_id, PostTime.all, :id, :label_name, :prompt => '選んでください' %>
+
+	<%= f.label :post_category_id %>
+    <%= f.collection_select :post_category_id, PostCategory.all, :id, :label_name, :prompt => '選んでください' %>
+
+<% end %>
+
+
+
 
 <%= link_to 'Back', posts_path %>
