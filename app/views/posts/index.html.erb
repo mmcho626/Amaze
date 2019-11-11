@@ -2,38 +2,16 @@
 
 <h1>Posts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Integer</th>
-      <th>Integer</th>
-      <th>String</th>
-      <th>String</th>
-      <th>Integer</th>
-      <th>Integer</th>
-      <th>Integer</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @posts.each do |post| %>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.integer %></td>
-        <td><%= post.integer %></td>
-        <td><%= post.string %></td>
-        <td><%= post.string %></td>
-        <td><%= post.integer %></td>
-        <td><%= post.integer %></td>
-        <td><%= post.integer %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <%= attachment_image_tag post, :post1_image, fallback:"no_image.jpg", size: "165x165" %>
 
-<br>
+  <%= attachment_image_tag post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
+
+  <%= post.post_body %>
+
+  <%= link_to 'もっと見る', post_path(post.id) %>
+
+<% end %>
 
 <%= link_to 'New Post', new_post_path %>
