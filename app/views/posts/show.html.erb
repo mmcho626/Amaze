@@ -13,6 +13,8 @@
 
   <%= attachment_image_tag comment.user, :user_image, :fill, 60, 60, fallback: "no_image.jpg" %>
 
+  <%= comment.user.name %>
+
   <%= comment.created_at.strftime('%Y-%m-%d %H:%M:%S') %>
   <%= comment.comment %>
 
