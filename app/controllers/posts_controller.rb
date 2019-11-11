@@ -31,7 +31,7 @@ class PostsController < ApplicationController
       else
         redirect_to new_post_path
       end
-　end
+  end
 
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
@@ -61,5 +61,4 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:item_id, :post_image, :post_body, :star, :post_category_id, :post_person_id, :post_time_id)
     end
-  end
 end
