@@ -14,6 +14,9 @@
 	<%= f.label :post_category_id %>
     <%= f.collection_select :post_category_id, PostCategory.all, :id, :label_name, :prompt => '選んでください' %>
 
+    <%= f.label :post_body %>
+    <%= f.text_area :post_body %>
+
 <% end %>
 
 
