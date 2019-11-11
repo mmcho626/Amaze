@@ -2,6 +2,13 @@
 
 <%= form_for(@post) do |f| %>
 
+	<%= f.label :post1_image %>
+	<%= f.attachment_field :post1_image %>
+
+	<%= f.label :post2_image %>
+	<%= f.attachment_field :post2_image %>
+
+
 	<%= f.label :post_person_id %>
     <%= f.collection_select :post_person_id, PostPerson.all, :id, :post_person, :prompt => '選んでください' %>
 
