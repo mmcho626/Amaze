@@ -1,39 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Integer:</strong>
-  <%= @post.integer %>
-</p>
 
-<p>
-  <strong>Integer:</strong>
-  <%= @post.integer %>
-</p>
 
-<p>
-  <strong>String:</strong>
-  <%= @post.string %>
-</p>
+<%= @post.comments.count %>件
 
-<p>
-  <strong>String:</strong>
-  <%= @post.string %>
-</p>
+<% @post.comments.each do |comment| %>
+<%= comment.user.user_image %>
+<%= comment.user.user_name %>
+<%= comment.user.user_age %>
+<%= comment.user.user_gender %>
+<%= comment.created_at.strftime('%Y-%m-%d %H:%M:%S') %>
+<%= comment.comment %>
+<% end %>
 
-<p>
-  <strong>Integer:</strong>
-  <%= @post.integer %>
-</p>
-
-<p>
-  <strong>Integer:</strong>
-  <%= @post.integer %>
-</p>
-
-<p>
-  <strong>Integer:</strong>
-  <%= @post.integer %>
-</p>
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.text_area :comment ,placeholder:"コメントを追加" %>
+  <%= f.submit "送信" %>
+<% end %>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   attachment :user_image #refileの記述
 
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
+
 end

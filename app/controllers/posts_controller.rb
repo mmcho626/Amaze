@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-
   # GET /posts
   # GET /posts.json
   def index
@@ -10,6 +8,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @post = Post.find(params[:id])
+    @comment = Comment.new
   end
 
   # GET /posts/new
@@ -24,14 +24,14 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+    post = Post.new(post_params)
 
-      if @post.save
+      if post.save!
         redirect_to posts_path
       else
         redirect_to new_post_path
       end
-    end
+　end
 
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
-    end
+  end
 
   # DELETE /posts/1
   # DELETE /posts/1.json
@@ -57,13 +57,9 @@ class PostsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:item_id, :post_image, :post_body, :star, :post_category_id, :post_person_id, :post_time_id )
+      params.require(:post).permit(:item_id, :post_image, :post_body, :star, :post_category_id, :post_person_id, :post_time_id)
     end
+  end
 end
