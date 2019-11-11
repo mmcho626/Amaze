@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2019_11_09_171840) do
 
   create_table "items", force: :cascade do |t|
     t.string "item_name"
-    t.string "item_image"
+    t.string "item_image_id"
     t.text "item_body"
     t.integer "price"
     t.integer "item_category_id"
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 2019_11_09_171840) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false, null: false
-    t.string "user_image"
+    t.string "user_image_id"
     t.text "user_introduction"
     t.string "user_age"
     t.string "user_gender"
