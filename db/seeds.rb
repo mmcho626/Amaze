@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+
+PostCategory.create!(:post_category_name=>"カテゴリー1")
+PostTime.create!(:post_time=>10)
+PostPerson.create!(:post_person=>1)
