@@ -12,3 +12,11 @@ PostCategory.create!(:post_category_name=>"カテゴリー1")
 PostTime.create!(:post_time=>10)
 PostPerson.create!(:post_person=>1)
 User.create!(:email=>"user1@com", :password=>"000000", :user_introduction=>"紹介文１",:sex=>0, :name =>"ユーザ名")
+
+
+
+age = [1,2,3,4,5,6,7,8,9]
+
+age.each do |i|
+	Age.create!(age: "#{i*=10}代")
+end
