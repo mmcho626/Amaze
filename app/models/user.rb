@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  enum sex: { 未選択: 0, 男性: 1, 女性: 2 }
+
 end
