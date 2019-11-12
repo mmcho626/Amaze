@@ -4,6 +4,9 @@
 	<%= f.label :user_image %>
 	<%= f.attachment_field :user_image %>
 
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+
 	<%= f.label :sex %>
 	<%= f.select :sex, User.sexes.keys.to_a, {} %>
 

@@ -11,7 +11,7 @@
 PostCategory.create!(:post_category_name=>"カテゴリー1")
 PostTime.create!(:post_time=>10)
 PostPerson.create!(:post_person=>1)
-User.create!(:email=>"user1@com", :password=>"000000", :user_introduction=>"紹介文１",:sex=>0, :name =>"ユーザ名")
+User.create!(:email=>"user1@com", :password=>"000000", :user_introduction=>"紹介文１",:sex=>0, :name =>"ユーザ名",:age_id=>1)
 
 
 

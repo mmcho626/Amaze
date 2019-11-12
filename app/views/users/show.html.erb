@@ -1,0 +1,17 @@
+
+
+
+<%= attachment_image_tag @user, :user_image, fallback:"no_image.jpg", size: "150x150" %>
+
+<%= @user.name %>
+
+<%= @user.sex %>
+
+<%= @user.age.age %>
+
+<%= @user.user_introduction %>
+
+
+<% if @user == current_user %>
+<%= link_to '設定', edit_user_path(@user.id) %>
+<% end %>
