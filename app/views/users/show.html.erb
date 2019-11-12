@@ -1,6 +1,4 @@
 
-
-
 <%= attachment_image_tag @user, :user_image, fallback:"no_image.jpg", size: "150x150" %>
 
 <%= @user.name %>
@@ -12,6 +10,19 @@
 <%= @user.user_introduction %>
 
 
+<% @posts.each do |user_post| %>
+
+	<%= attachment_image_tag user_post, :post1_image, fallback:"no_image.jpg", size: "165x165" %>
+
+	<%= attachment_image_tag user_post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
+
+	<%= user_post.post_body %>
+
+<% end %>
+
+
 <% if @user == current_user %>
-<%= link_to '設定', edit_user_path(@user.id) %>
+
+	<%= link_to '設定', edit_user_path(@user.id) %>
+
 <% end %>
