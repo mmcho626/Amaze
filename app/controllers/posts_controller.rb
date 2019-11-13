@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
+    @favorite = Favorite.new
   end
 
   # GET /posts/new
