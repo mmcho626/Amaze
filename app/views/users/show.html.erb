@@ -1,3 +1,29 @@
+<div>
+
+	<%= @user.follower.count %>フォロー
+
+	<%= @user.followed.count %>フォロワー
+
+</div>
+
+<div>
+
+	<% if @user != current_user %>
+
+		<% if current_user.following?(@user) %>
+
+			<%= link_to 'フォロー解除', unfollow_path(@user.id), method: :POST %>
+
+		<% else %>
+
+			<%= link_to 'フォローする', follow_path(@user.id), method: :POST %>
+
+		<% end %>
+
+	<% end %>
+
+</div>
+
 
 <%= attachment_image_tag @user, :user_image, fallback:"no_image.jpg", size: "150x150" %>
 
