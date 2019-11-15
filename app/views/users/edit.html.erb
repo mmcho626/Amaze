@@ -10,10 +10,12 @@
 	<%= f.label :sex %>
 	<%= f.select :sex, User.sexes.keys.to_a, {} %>
 
-	<%= f.label :age_id %>
-	<%= f.collection_select :age_id, Age.all, :id, :age, :prompt => '未選択' %>
+	<%= f.label :age %>
+	<%= f.select :age, User.ages.keys.to_a, {} %>
 
 	<%= f.label :user_introduction %>
 	<%= f.text_area :user_introduction %>
+
+	<%= f.submit '保存' %>
 
 <% end %>
