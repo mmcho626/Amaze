@@ -7,14 +7,20 @@ Rails.application.routes.draw do
   resources :items
 
   resources :posts do
-  	  resources :comments, only:[:create]
-  	  resources :favorites, only:[:create, :destroy]
+	  resources :comments, only:[:create]
+	  resources :favorites, only:[:create, :destroy]
+
+    member do
+      get :favorites
+    end
   end
 
   resources :users, except:[:new, :create] do
     member do
       get :follower
       get :followed
+
+      get :favorites
     end
   end
 
@@ -25,4 +31,5 @@ Rails.application.routes.draw do
   #ユーザ詳細用
   post 'follow/:id' => 'relationships#follow', as: "follow" # フォローする。follow_pathの作成。
   post 'unfollow/:id' => 'relationships#unfollow', as: "unfollow" # フォロー外す。unfollow_pathの作成。
+
 end

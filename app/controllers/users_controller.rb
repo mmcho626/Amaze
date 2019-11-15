@@ -19,6 +19,10 @@ class UsersController < ApplicationController
   def destroy
   end
 
+  def favorites
+    @user = User.find(params[:id])
+  end
+
   def follower
     @user = User.find(params[:id])
     render 'show_follow'

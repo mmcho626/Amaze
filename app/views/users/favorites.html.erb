@@ -1,0 +1,15 @@
+<h2>いいねした投稿一覧</h2>
+
+<% @user.favorited_posts.each do |post| %>
+
+	<%= link_to post_path(post) do %>
+
+		<%= attachment_image_tag post, :post1_image, fallback:"no_image_jpg", size: "50x50" %>
+
+		<%= attachment_image_tag post, :post2_image, fallback:"no_image_jpg", size: "50x50" %>
+
+		<%= post.post_body %>
+
+	<% end %>
+
+<% end %>

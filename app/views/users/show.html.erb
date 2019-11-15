@@ -1,11 +1,23 @@
 <div>
 
 	<%= link_to follower_user_path do %>
+
 		<%= @user.follower.count %>フォロー
+
 	<% end %>
 
+
 	<%= link_to followed_user_path do %>
+
 		<%= @user.followed.count %>フォロワー
+
+	<% end %>
+
+
+	<%= link_to favorites_user_path do %>
+
+		<%= @user.favorites.count %>いいね
+
 	<% end %>
 
 </div>
