@@ -11,7 +11,12 @@ Rails.application.routes.draw do
   	  resources :favorites, only:[:create, :destroy]
   end
 
-  resources :users, except:[:new, :create] #deviseを使っているため
+  resources :users, except:[:new, :create] do
+    member do
+      get :follower
+      get :followed
+    end
+  end
 
   #ユーザ一覧用
   post 'follows/:id' => 'relationships#follows', as: "follows" # フォローする。follows_pathの作成。

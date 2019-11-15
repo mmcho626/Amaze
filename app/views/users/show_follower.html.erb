@@ -1,0 +1,10 @@
+<% @user.follower_user.each do |user| %>
+<!-- follower_user は user.rbで命名したテーブル -->
+
+	<%= link_to user_path(user) do %>
+
+		 <%= user.email %>
+
+	 <% end %>
+
+ <% end %>
