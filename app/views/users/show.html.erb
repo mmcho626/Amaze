@@ -60,6 +60,10 @@
 
 	<%= user_post.post_body %>
 
+	<%= time_ago_in_words(user_post.created_at) %>前
+	<!-- ViewHelper の time_ago_in_words 使用 -->
+
+
 <% end %>
 
 
