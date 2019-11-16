@@ -50,9 +50,13 @@
 
 <% @post.comments.each do |comment| %>
 
-  <%= attachment_image_tag comment.user, :user_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+  <%= link_to user_path(comment.user) do %>
 
-  <%= comment.user.name %>
+    <%= attachment_image_tag comment.user, :user_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+
+    <%= comment.user.name %>
+
+<% end %>
 
   <%= time_ago_in_words(comment.created_at) %>前
   <!-- ViewHelper の time_ago_in_words 使用 -->
