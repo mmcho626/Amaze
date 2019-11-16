@@ -11,6 +11,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @favorite = Favorite.new
+    @user = User.find(params[:id])
   end
 
   # GET /posts/new
