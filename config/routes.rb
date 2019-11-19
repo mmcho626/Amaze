@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :items
 
   resources :posts do
-	  resources :comments, only:[:create]
+	  resources :comments, only:[:create, :destroy]
 	  resources :favorites, only:[:create, :destroy]
 
     member do
