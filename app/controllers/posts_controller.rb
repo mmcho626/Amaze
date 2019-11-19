@@ -21,6 +21,11 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    @post = Post.find(params[:id])
+    if @post.user_id != current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to posts_path
+    end
   end
 
   # POST /posts
@@ -38,13 +43,14 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-
+      @post = Post.find(params[:id])
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post }
+        flash[:notice] = "投稿内容を更新しました"
+        redirect_to post_path(@post)
       else
-        format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        @post = Post.find
+        flash[:notice] = "投稿内容を更新できませんでした"
+        redirect_to edit_post_path(@post)
       end
   end
 

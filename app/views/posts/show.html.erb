@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to '編集する', edit_post_path(@post) %>
 <%= link_to '削除する', post_path(@post), method: :delete, data: { confirm: '本当に消しますか'} %>
 
 <%= link_to user_path(@user) do %>
@@ -9,7 +10,6 @@
   <%= @user.name %>/<%= @user.age %>/<%= @user.sex %>
 
 <% end %>
-
 
   <%= attachment_image_tag @post, :post1_image, fallback:"no_image.jpg", size: "165x165" %>
 
