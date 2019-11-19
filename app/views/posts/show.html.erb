@@ -1,7 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to '編集する', edit_post_path(@post) %>
-<%= link_to '削除する', post_path(@post), method: :delete, data: { confirm: '本当に消しますか'} %>
+
+<% if @post.user == current_user %>
+
+  <%= link_to '編集する', edit_post_path(@post) %>
+
+  <%= link_to '削除する', post_path(@post), method: :delete, data: { confirm: '本当に消しますか'} %>
+
+<% end %>
+
 
 <%= link_to user_path(@user) do %>
 
@@ -11,11 +18,13 @@
 
 <% end %>
 
+
   <%= attachment_image_tag @post, :post1_image, fallback:"no_image.jpg", size: "165x165" %>
 
   <%= attachment_image_tag @post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
 
   <%= @post.post_body %>
+
 
 <% if @post.favorited_by?(current_user) %>
 
@@ -23,25 +32,33 @@
 
 		<i class="fa fa-heart" class="fa-heart"></i>
 
-	<% end %>
+  <% end %>
+
 
 <% else %>
 
-	<%= link_to post_favorites_path(@post),method: :post do %>
 
-		<i class="fa fa-heart-o" aria-hidden="true"></i>
+  <%= link_to post_favorites_path(@post),method: :post do %>
 
-	<% end %>
+  	<i class="fa fa-heart-o" aria-hidden="true"></i>
+
+  <% end %>
+
 
 <% end %>
+
+
 
 <%= link_to favorites_post_path do %>
 
   <%= @post.favorites.count %>いいね
+
 <% end %>
+
 
   投稿日時：<%= time_ago_in_words(@post.created_at) %>前
   <!-- ViewHelper の time_ago_in_words 使用 -->
+
 
 
 <%= @post.comments.count %>件
@@ -59,6 +76,7 @@
 
 <% end %>
 
+
   <%= time_ago_in_words(comment.created_at) %>前
   <!-- ViewHelper の time_ago_in_words 使用 -->
 
@@ -74,5 +92,6 @@
   <%= f.submit "送信" %>
 
 <% end %>
+
 
 <%= link_to '一覧に戻る', posts_path %>
