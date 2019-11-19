@@ -1,0 +1,27 @@
+<% if @user_or_post == "1"%>
+
+
+    <h1>ユーザの検索結果</h1>
+
+        <% @users.each do |user| %>
+            <%= user.name %>
+        <% end %>
+
+
+<% else %> <!-- @user_or_post == "2"のとき -->
+
+
+    <h2>口コミの検索結果</h2>
+
+    <% @posts.each do |post| %>
+
+        <%= attachment_image_tag post, :post1_image, fallback:"no_image.jpg", size: "165x165" %>
+
+        <%= attachment_image_tag post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
+
+        <%= post.post_body %>
+
+    <% end %>
+
+
+<% end %>

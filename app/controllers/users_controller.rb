@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def index
     @users = User.all
   end
@@ -21,11 +22,11 @@ class UsersController < ApplicationController
       flash[:notice] = "保存できませんでした"
       render :edit
     end
-
   end
 
   def destroy
   end
+
 
   def favorites
     @user = User.find(params[:id])
@@ -39,6 +40,19 @@ class UsersController < ApplicationController
   def followed
     @user = User.find(params[:id])
     render 'show_follower'
+  end
+
+
+  #検索機能
+  def search
+    @user_or_post = params[:option]
+    if @user_or_post == "1"
+      @users = User.search(params[:search], @user_or_post)
+      # Userモデルのsearchメソッドはuser.rbに記載。
+    else
+      @posts = Post.search(params[:search], @user_or_post)
+      # Postモデルのsearchメソッドはpost.rbに記載。
+    end
   end
 
   private

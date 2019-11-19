@@ -22,6 +22,20 @@
       </ul>
     <% end %>
 
+    <!-- 検索フォーム　ここから -->
+
+    <%= form_tag(search_path, :method => 'get') do %>
+
+      <%= select_tag(:option, options_for_select([["ユーザ", "1"],["口コミ","2"]]))%>
+      <!-- セレクトボックスの作成。optionはプロパティ名。 -->
+      <%= text_field_tag :search %>
+
+      <%= submit_tag '検索' %>
+
+    <% end %>
+
+    <!-- 検索フォーム　ここまで -->
+
     <%= yield %>
   </body>
 </html>

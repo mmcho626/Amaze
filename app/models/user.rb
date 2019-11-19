@@ -59,4 +59,15 @@ class User < ApplicationRecord
     following_user.include?(user)
   end
 
+
+
+  #検索機能
+  def User.search(search, user_or_post)
+    if user_or_post == "1"
+       User.where(['name LIKE ?', "%#{search}%"]) #前方一致検索
+    else
+       User.all
+    end
+  end
+
 end

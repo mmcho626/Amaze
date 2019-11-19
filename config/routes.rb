@@ -32,4 +32,6 @@ Rails.application.routes.draw do
   post 'follow/:id' => 'relationships#follow', as: "follow" # フォローする。follow_pathの作成。
   post 'unfollow/:id' => 'relationships#unfollow', as: "unfollow" # フォロー外す。unfollow_pathの作成。
 
+  get "search" => "users#search"
+
 end
