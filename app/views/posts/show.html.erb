@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to '削除する', post_path(@post), method: :delete, data: { confirm: '本当に消しますか'} %>
 
 <%= link_to user_path(@user) do %>
 
