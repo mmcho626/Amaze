@@ -8,6 +8,9 @@
 	<%= f.label :post2_image %>
 	<%= f.attachment_field :post2_image %>
 
+	<%= f.label :search_item %>
+	<%= text_field_tag :post_search_item, '', :placeholder =>  "ボードゲーム名を入力" %>
+
 
 	<%= f.label :post_person_id %>
     <%= f.collection_select :post_person_id, PostPerson.all, :id, :post_person, :prompt => '選んでください' %>
