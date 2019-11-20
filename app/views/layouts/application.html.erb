@@ -22,6 +22,17 @@
       </ul>
     <% end %>
 
+
+    <% if admin_signed_in? %>
+      <ul>
+        <li><%= link_to  destroy_admin_session_path, method: :delete do %>管理者 logout<% end %></li>
+      </ul>
+    <% else %>
+      <ul>
+        <li><%= link_to  new_admin_session_path do %>管理者 login<% end %></li>
+      </ul>
+    <% end %>
+
     <!-- 検索フォーム　ここから -->
 
     <%= form_tag(search_path, :method => 'get') do %>
