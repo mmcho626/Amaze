@@ -1,14 +1,63 @@
 Rails.application.routes.draw do
 
+
+  #管理者側　ここから
+
+
+
+  #管理者用のdevise
+  devise_for :admins, controllers: {
+  sessions:      'admins/sessions',
+  passwords:     'admins/passwords',
+  }
+
+  namespace :admins do
+
+    resources :users, expect:[:new, :create] do
+
+      get :follower
+      get :followed
+
+      get :favorites
+
+    end
+
+
+    resources :posts do
+
+      resources :comment, only:[:create, :destroy]
+      resources :favorites, only:[:create, :destroy]
+
+      member do
+        get :favorites
+      end
+
+    end
+
+    resources :items
+
+  end
+
+  #管理者側　ここまで
+
+
+
+  #ユーザ用のdevise
+  devise_for :users, controllers: {
+    sessions:      'users/sessions',
+    passwords:     'users/passwords',
+    registrations: 'users/registrations'
+  }
+
+
   root 'posts#index'
 
-  devise_for :admins
-  devise_for :users
+
   resources :items
 
   resources :posts do
-	  resources :comments, only:[:create, :destroy]
-	  resources :favorites, only:[:create, :destroy]
+    resources :comments, only:[:create, :destroy]
+    resources :favorites, only:[:create, :destroy]
 
     member do
       get :favorites
