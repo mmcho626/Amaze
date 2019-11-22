@@ -43,6 +43,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @posts = @item.posts
   end
 
   def edit

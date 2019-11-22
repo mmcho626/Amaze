@@ -1,44 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>String:</strong>
-  <%= @item.string %>
-</p>
+<% if admin_signed_in? %>
 
-<p>
-  <strong>String:</strong>
-  <%= @item.string %>
-</p>
+  <%= link_to '編集する', edit_admin_item_path(item) %>
 
-<p>
-  <strong>Text:</strong>
-  <%= @item.text %>
-</p>
+<% else %>
 
-<p>
-  <strong>Integer:</strong>
-  <%= @item.integer %>
-</p>
+  <!-- 商品画像 -->
+  <%= @item.item_image_id %>
 
-<p>
-  <strong>Float:</strong>
-  <%= @item.float %>
-</p>
+  <!-- 商品名 -->
+  <%= @item.item_name %>
 
-<p>
-  <strong>Integer:</strong>
-  <%= @item.integer %>
-</p>
+  <!-- 商品のカテゴリ -->
+  <!-- <= @item.item_category.item_category_name > -->
 
-<p>
-  <strong>Integer:</strong>
-  <%= @item.integer %>
-</p>
+  <!-- 商品のプレイ時間 -->
+  <!-- <= @item.item_time.item_time > -->
 
-<p>
-  <strong>Integer:</strong>
-  <%= @item.integer %>
-</p>
+  <!-- 商品のプレイ人数 -->
+  <!-- <= @item.item_person.item_person > -->
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+  <!-- 商品紹介文 -->
+  <%= @item.item_body %>
+
+
+  <!-- 商品の口コミ一覧 -->
+
+  <h2>この商品の口コミ一覧</h2>
+
+  <% @posts.each do |item_post| %>
+
+    <%= link_to post_path(item_post) do %>
+
+      <%= attachment_image_tag item_post, :post1_image, fallback:"no_image.jpg", size: "165x165" %>
+
+      <%= attachment_image_tag item_post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
+
+      <%= item_post.post_body %>
+
+    <% end %>
+
+    <%= time_ago_in_words(item_post.created_at) %>前
+      <!-- ViewHelper の time_ago_in_words 使用 -->
+
+  <% end %>
+
+
+<% end %>
