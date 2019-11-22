@@ -1,2 +1,36 @@
-<h1>Admin::Items#edit</h1>
-<p>Find me in app/views/admin/items/edit.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+
+<h1>Edit Item</h1>
+
+<%= form_for(@item) do |f| %>
+
+
+	<%= f.label :item_image %>
+	<%= f.attachment_field :item_image %>
+
+	<%= f.label :item_name %>
+	<%= f.text_field :item_name %>
+
+	<%= f.label :item_person_id %>
+    <%= f.collection_select :item_person_id, ItemPerson.all, :id, :item_person, :prompt => '選んでください' %>
+
+	<%= f.label :item_time_id %>
+    <%= f.collection_select :item_time_id, ItemTime.all, :id, :item_time, :prompt => '選んでください' %>
+
+	<%= f.label :item_category_id %>
+    <%= f.collection_select :item_category_id, ItemCategory.all, :id, :item_category_name, :prompt => '選んでください' %>
+
+	<%= f.label :item_body %>
+	<%= f.text_area :item_body %>
+
+	<%= f.label :price %>
+	<%= f.number_field :price %>
+
+
+    <%= f.submit '更新' %>
+
+<% end %>
+
+
+<%= link_to 'Back', items_path %>

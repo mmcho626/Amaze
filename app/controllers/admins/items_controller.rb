@@ -46,9 +46,18 @@ class Admins::ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      flash[:notice] = "更新しました."
+      redirect_to admins_items_path
+    else
+      flash[:notice] = "更新できませんでした."
+      redirect_to edit_admins_item_path(item)
+    end
   end
 
   def destroy
