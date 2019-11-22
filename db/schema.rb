@@ -62,9 +62,9 @@ ActiveRecord::Schema.define(version: 2019_11_09_171840) do
     t.string "item_image_id"
     t.text "item_body"
     t.integer "price"
-    t.integer "item_category_id"
-    t.integer "item_person_id"
-    t.integer "item_time_id"
+    t.integer "item_category"
+    t.integer "item_person"
+    t.integer "item_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -94,9 +94,6 @@ ActiveRecord::Schema.define(version: 2019_11_09_171840) do
     t.string "post2_image_id"
     t.text "post_body"
     t.float "star"
-    t.integer "post_category_id"
-    t.integer "post_person_id"
-    t.integer "post_time_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
