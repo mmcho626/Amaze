@@ -2,40 +2,31 @@
 
 <h1>Items</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>String</th>
-      <th>String</th>
-      <th>Text</th>
-      <th>Integer</th>
-      <th>Float</th>
-      <th>Integer</th>
-      <th>Integer</th>
-      <th>Integer</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @items.each do |item| %>
 
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.string %></td>
-        <td><%= item.string %></td>
-        <td><%= item.text %></td>
-        <td><%= item.integer %></td>
-        <td><%= item.float %></td>
-        <td><%= item.integer %></td>
-        <td><%= item.integer %></td>
-        <td><%= item.integer %></td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <%= link_to item_path(item) do %>
 
-<br>
+    <!-- 商品画像 -->
+    <%= attachment_image_tag item, :item_image, fallback:"no_image.jpg", size: "165x165" %>
 
-<%= link_to 'New Item', new_item_path %>
+    <!-- 商品名 -->
+    <%= item.item_name %>
+
+    <!-- 商品のカテゴリ -->
+    <!-- <= item.item_category.item_category_name > -->
+
+    <!-- 商品のプレイ時間 -->
+    <!-- <= item.item_time.item_time > -->
+
+    <!-- 商品のプレイ人数 -->
+    <!-- <= item.item_person.item_person > -->
+
+    <!-- 商品価格 -->
+     <%= item.price %>
+
+  <% end %>
+
+<% end %>
+
+
+<%= link_to 'New Item', new_admins_item_path %>
