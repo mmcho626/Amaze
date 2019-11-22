@@ -1,4 +1,4 @@
-class Admins::ItemsController < ApplicationController
+class ItemsController < ApplicationController
 
   def new
     @item = Item.new
@@ -8,11 +8,11 @@ class Admins::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      flash[:notice] = "保存しました."
-      redirect_to admins_items_path
+	    flash[:notice] = "保存しました."
+	    redirect_to admins_items_path
     else
-      flash[:notice] = "保存できませんでした."
-      redirect_to new_admins_item_path
+	    flash[:notice] = "保存できませんでした."
+	    redirect_to new_admins_item_path
     end
 
 
