@@ -75,18 +75,34 @@
 
 <% @posts.each do |user_post| %>
 
-	<%= link_to post_path(user_post) do %>
+	<% if admin_signed_in? %> <!-- 管理者ログイン時 -->
 
-		<%= attachment_image_tag user_post, :post1_image, fallback:"no_image.jpg", size: "165x165" %>
+		<%= link_to admins_post_path(user_post) do %>
 
-		<%= attachment_image_tag user_post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
+			<%= attachment_image_tag user_post, :post1_image, fallback:"no_image.jpg", size: "165x165" %>
 
-		<%= user_post.post_body %>
+			<%= attachment_image_tag user_post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
+
+			<%= user_post.post_body %>
+
+		<% end %>
+
+	<% else %><!-- 管理者ログアウト時 -->
+
+		<%= link_to post_path(user_post) do %>
+
+			<%= attachment_image_tag user_post, :post1_image, fallback:"no_image.jpg", size: "165x165" %>
+
+			<%= attachment_image_tag user_post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
+
+			<%= user_post.post_body %>
+
+		<% end %>
 
 	<% end %>
 
-	<%= time_ago_in_words(user_post.created_at) %>前
-		<!-- ViewHelper の time_ago_in_words 使用 -->
+		<%= time_ago_in_words(user_post.created_at) %>前
+			<!-- ViewHelper の time_ago_in_words 使用 -->
 
 <% end %>
 
@@ -94,5 +110,9 @@
 <% if @user == current_user %>
 
 	<%= link_to '設定', edit_user_path(@user.id) %>
+
+<% elsif admin_signed_in? %>
+
+	<%= link_to '設定', edit_admins_user_path(@user.id) %>
 
 <% end %>
