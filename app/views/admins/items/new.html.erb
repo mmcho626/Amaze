@@ -5,27 +5,33 @@
 
 <%= form_for(@item) do |f| %>
 
-
+	<!-- 商品画像 -->
 	<%= f.label :item_image %>
 	<%= f.attachment_field :item_image %>
 
+	<!-- 商品名 -->
 	<%= f.label :item_name %>
 	<%= f.text_field :item_name %>
 
-	<%= f.label :item_person_id %>
-    <%= f.collection_select :item_person_id, ItemPerson.all, :id, :item_person, :prompt => '選んでください' %>
+	<!-- カテゴリ -->
+	<%= f.label :category, :class=>'label' %>
+	<%= f.select :category, Item.categories.keys.to_a, {} %>
 
-	<%= f.label :item_time_id %>
-    <%= f.collection_select :item_time_id, ItemTime.all, :id, :item_time, :prompt => '選んでください' %>
+	<!-- プレイ時間 -->
+	<%= f.label :time, :class=>'label' %>
+	<%= f.select :time, Item.times.keys.to_a, {} %>
 
-	<%= f.label :item_category_id %>
-    <%= f.collection_select :item_category_id, ItemCategory.all, :id, :item_category_name, :prompt => '選んでください' %>
+	<!-- プレイ人数 -->
+	<%= f.label :person, :class=>'label' %>
+	<%= f.select :person, Item.people.keys.to_a, {} %>
 
+	<!-- 紹介文 -->
 	<%= f.label :item_body %>
 	<%= f.text_area :item_body %>
 
+	<!-- 価格 -->
 	<%= f.label :price %>
-	<%= f.number_field :price %>
+	<%= f.number_field :price %>円
 
 
     <%= f.submit '保存' %>
