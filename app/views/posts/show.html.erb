@@ -26,21 +26,42 @@
   <%= @post.post_body %>
 
 
-<% if @post.favorited_by?(current_user) %>
 
-	<%= link_to post_favorite_path(@post),method: :delete do %>
+<!-- いいね機能　ここから -->
 
-		<i class="fa fa-heart" class="fa-heart"></i>
+
+<% if user_signed_in? %><!-- ユーザログイン時 -->
+
+
+  <% if @post.favorited_by?(current_user) %><!--いいね済のとき-->
+
+  	<%= link_to post_favorite_path(@post),method: :delete do %>
+
+  		<i class="fa fa-heart" class="fa-heart"></i>
+
+    <% end %>
+
+
+  <% else %><!-- いいねしていないとき -->
+
+    <%= link_to post_favorites_path(@post),method: :post do %>
+
+    	<i class="fa fa-heart-o" aria-hidden="true"></i>
+
+    <% end %>
+
 
   <% end %>
 
 
-<% else %>
+
+<% else %><!-- ログアウト時 -->
 
 
-  <%= link_to post_favorites_path(@post),method: :post do %>
+  <!-- 空のハートを押すとログイン画面に遷移する -->
+  <%= link_to new_user_session_path do %>
 
-  	<i class="fa fa-heart-o" aria-hidden="true"></i>
+    <i class="fa fa-heart-o" aria-hidden="true"></i>
 
   <% end %>
 
@@ -48,12 +69,15 @@
 <% end %>
 
 
+<%= link_to favorites_post_path do %><!-- いいねしたユーザの一覧ページに遷移 -->
 
-<%= link_to favorites_post_path do %>
-
-  <%= @post.favorites.count %>いいね
+  <%= @post.favorites.count %>いいね <!-- いいねされた数 -->
 
 <% end %>
+
+
+<!-- いいね機能　ここまで -->
+
 
 
   投稿日時：<%= time_ago_in_words(@post.created_at) %>前
