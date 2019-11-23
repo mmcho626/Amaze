@@ -1,37 +1,60 @@
 <p id="notice"><%= notice %></p>
 
+
 <% if admin_signed_in? %>
 
-  <%= link_to '編集する', edit_admin_item_path(@item) %>
+  <%= link_to '編集する', edit_admins_item_path(@item) %>
 
-  <%= link_to '削除する', item_path(@item), method: :delete, data: { confirm: '本当に消しますか'} %>
+  <%= link_to '削除する', admins_item_path(@item), method: :delete, data: { confirm: '本当に消しますか'} %>
 
-<% else %>
-
-  <!-- 商品画像 -->
-  <%= @item.item_image_id %>
-
-  <!-- 商品名 -->
-  <%= @item.item_name %>
-
-  <!-- 商品のカテゴリ -->
-  <!-- <= @item.item_category.item_category_name > -->
-
-  <!-- 商品のプレイ時間 -->
-  <!-- <= @item.item_time.item_time > -->
-
-  <!-- 商品のプレイ人数 -->
-  <!-- <= @item.item_person.item_person > -->
-
-  <!-- 商品紹介文 -->
-  <%= @item.item_body %>
+<% end %>
 
 
-  <!-- 商品の口コミ一覧 -->
 
-  <h2>この商品の口コミ一覧</h2>
+<!-- 商品画像 -->
+<%= attachment_image_tag @item, :item_image, fallback:"no_image.jpg", size: "200x200" %>
 
-  <% @posts.each do |item_post| %>
+<!-- 商品名 -->
+<%= @item.item_name %>
+
+<!-- 商品のカテゴリ -->
+<%= @item.category %>
+
+<!-- 商品のプレイ時間 -->
+<%= @item.time %>
+
+<!-- 商品のプレイ人数 -->
+<%= @item.person %>
+
+<!-- 商品紹介文 -->
+<%= @item.item_body %>
+
+
+
+
+<!-- 商品の口コミ一覧 -->
+
+<h2>この商品の口コミ一覧</h2>
+
+<% @posts.each do |item_post| %>
+
+
+  <!-- クリックで投稿者の詳細ページに遷移　ここから -->
+
+
+  <% if admin_signed_in? %> <!-- 管理者ログイン時 -->
+
+
+    <%= link_to admins_user_path(item_post.user) do %>
+
+      <%= attachment_image_tag item_post.user, :user_image, fallback: "no_image.jpg", size: "50x50" %>
+
+      <%= item_post.user.name %>
+
+    <% end %>
+
+
+  <% else %> <!-- 管理者ログアウト時 -->
 
 
     <%= link_to user_path(item_post.user) do %>
@@ -41,6 +64,32 @@
       <%= item_post.user.name %>
 
     <% end %>
+
+
+  <% end %>
+
+
+  <!-- クリックで投稿者の詳細ページに遷移　ここまで -->
+
+
+
+  <!-- クリックで投稿詳細ページに遷移　ここから -->
+
+
+  <% if admin_signed_in? %> <!-- 管理者ログイン時 -->
+
+    <%= link_to admins_post_path(item_post) do %>
+
+      <%= attachment_image_tag item_post, :post1_image, fallback:"no_image.jpg", size: "165x165" %>
+
+      <%= attachment_image_tag item_post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
+
+      <%= item_post.post_body %>
+
+    <% end %>
+
+
+  <% else %> <!-- 管理者ログアウト時 -->
 
 
     <%= link_to post_path(item_post) do %>
@@ -53,10 +102,13 @@
 
     <% end %>
 
-    <%= time_ago_in_words(item_post.created_at) %>前
-      <!-- ViewHelper の time_ago_in_words 使用 -->
-
   <% end %>
 
+  <!-- クリックで投稿詳細ページに遷移　ここまで -->
+
+
+  <%= time_ago_in_words(item_post.created_at) %>前
+    <!-- ViewHelper の time_ago_in_words 使用 -->
 
 <% end %>
+
