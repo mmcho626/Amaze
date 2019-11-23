@@ -23,17 +23,6 @@ class Admins::PostsController < ApplicationController
     render 'posts/edit'
   end
 
-  def update
-    @post = Post.find(params[:id])
-    if @post.update(post_params)
-      flash[:notice] = "投稿内容を更新しました"
-      redirect_to admins_post_path(@post)
-    else
-      flash[:notice] = "投稿内容を更新できませんでした"
-      redirect_to admins_edit_post_path(@post)
-    end
-  end
-
 
   def destroy
     post = Post.find(params[:id])
