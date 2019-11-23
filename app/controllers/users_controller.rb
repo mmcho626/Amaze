@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user.id)
     else
       flash[:notice] = "保存できませんでした"
-      render :edit
+     redirect_to edit_user_path(@user.id)
     end
   end
 
