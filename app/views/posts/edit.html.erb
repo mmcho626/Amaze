@@ -11,17 +11,9 @@
 	<div>変更前の画像</div>
     <div>
     <%= attachment_image_tag @post, :post1_image, fallback:"no_image.jpg", size: "165x165" %>
+
     <%= attachment_image_tag @post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
 	</div>
-
-	<%= f.label :post_person_id %>
-    <%= f.collection_select :post_person_id, PostPerson.all, :id, :post_person, :prompt => '選んでください' %>
-
-	<%= f.label :post_time_id %>
-    <%= f.collection_select :post_time_id, PostTime.all, :id, :post_time, :prompt => '選んでください' %>
-
-	<%= f.label :post_category_id %>
-    <%= f.collection_select :post_category_id, PostCategory.all, :id, :post_category_name, :prompt => '選んでください' %>
 
     <%= f.label :post_body %>
     <%= f.text_area :post_body %>
@@ -31,6 +23,12 @@
 <% end %>
 
 
+<% if admin_signed_in? %> <!--管理者ログイン時 -->
 
+	<%= link_to 'Back', admins_post_path(@post) %>
 
-<%= link_to 'Back', post_path(@post) %>
+<% else %> <!--管理者ログアウト時 -->
+
+	<%= link_to 'Back', post_path(@post) %>
+
+<% end %>
