@@ -5,9 +5,9 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :item_image_id
       t.text :item_body
       t.integer :price
-      t.integer :item_category
-      t.integer :item_person
-      t.integer :item_time
+      t.integer :category
+      t.integer :person
+      t.integer :time
 
       t.timestamps
     end

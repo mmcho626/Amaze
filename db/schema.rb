@@ -62,9 +62,9 @@ ActiveRecord::Schema.define(version: 2019_11_09_171840) do
     t.string "item_image_id"
     t.text "item_body"
     t.integer "price"
-    t.integer "item_category"
-    t.integer "item_person"
-    t.integer "item_time"
+    t.integer "category"
+    t.integer "person"
+    t.integer "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
