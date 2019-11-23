@@ -1,8 +1,5 @@
 class ItemsController < ApplicationController
 
-  def new
-    @item = Item.new
-  end
 
   #他の機能実装のため、一旦こちらで仮実装。
   def create
@@ -48,33 +45,23 @@ class ItemsController < ApplicationController
     @posts = @item.posts
   end
 
-  def edit
-    @item = Item.find(params[:id])
-  end
 
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
       flash[:notice] = "更新しました."
-      redirect_to admins_items_path
+      redirect_to admins_item_path(@item)
     else
       flash[:notice] = "更新できませんでした."
-      redirect_to edit_admins_item_path(item)
+      redirect_to edit_admins_item_path(@item)
     end
   end
-
-  def destroy
-    item = Item.find(params[:id])
-    item.destroy
-    redirect_to items_path
-  end
-
 
 
   private
 
   def item_params
-    params.require(:item).permit(:item_name, :item_image_id, :item_body, :price, :item_category_id, :item_person_id, :item_time_id)
+    params.require(:item).permit(:item_name, :item_image_id, :item_body, :price, :category, :person, :time)
   end
 
 end
