@@ -12,23 +12,12 @@
 	<%= text_field_tag :post_search_item, '', :placeholder =>  "ボードゲーム名を入力" %>
 
 
-	<%= f.label :post_person_id %>
-    <%= f.collection_select :post_person_id, PostPerson.all, :id, :post_person, :prompt => '選んでください' %>
-
-	<%= f.label :post_time_id %>
-    <%= f.collection_select :post_time_id, PostTime.all, :id, :post_time, :prompt => '選んでください' %>
-
-	<%= f.label :post_category_id %>
-    <%= f.collection_select :post_category_id, PostCategory.all, :id, :post_category_name, :prompt => '選んでください' %>
-
     <%= f.label :post_body %>
     <%= f.text_area :post_body %>
 
     <%= f.submit '保存' %>
 
 <% end %>
-
-
 
 
 <%= link_to 'Back', posts_path %>
