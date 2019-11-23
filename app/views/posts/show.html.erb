@@ -1,11 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 
-<% if @post.user == current_user %>
+<% if @post.user == current_user %><!-- 投稿者がcurrent_userの時 -->
 
   <%= link_to '編集する', edit_post_path(@post) %>
 
   <%= link_to '削除する', post_path(@post), method: :delete, data: { confirm: '本当に消しますか'} %>
+
+<% elsif admin_signed_in? %><!-- 管理者ログイン時 -->
+
+  <%= link_to '編集する', edit_admins_post_path(@post) %>
+
+  <%= link_to '削除する', admins_post_path(@post), method: :delete, data: { confirm: '本当に消しますか'} %>
 
 <% end %>
 
