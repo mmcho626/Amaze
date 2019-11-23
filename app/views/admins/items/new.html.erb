@@ -39,4 +39,12 @@
 <% end %>
 
 
-<%= link_to 'Back', items_path %>
+<% if admin_signed_in? %> <!-- 管理者ログイン時 -->
+
+	<%= link_to 'Back', admins_items_path %>
+
+<% else %> <!-- 管理者ログアウト時 -->
+
+	<%= link_to 'Back', items_path %>
+
+<% end %>
