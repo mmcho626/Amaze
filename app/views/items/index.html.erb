@@ -2,31 +2,70 @@
 
 <h1>Items</h1>
 
+
 <% @items.each do |item| %>
 
-  <%= link_to item_path(item) do %>
 
-    <!-- 商品画像 -->
-    <%= attachment_image_tag item, :item_image, fallback:"no_image.jpg", size: "165x165" %>
+    <% if admin_signed_in? %> <!-- 管理者ログイン時 -->
 
-    <!-- 商品名 -->
-    <%= item.item_name %>
 
-    <!-- 商品のカテゴリ -->
-    <!-- <= item.item_category.item_category_name > -->
+        <%= link_to admins_item_path(item) do %>
 
-    <!-- 商品のプレイ時間 -->
-    <!-- <= item.item_time.item_time > -->
+            <!-- 商品画像 -->
+            <%= attachment_image_tag item, :item_image, fallback:"no_image.jpg", size: "165x165" %>
 
-    <!-- 商品のプレイ人数 -->
-    <!-- <= item.item_person.item_person > -->
+            <!-- 商品名 -->
+            <%= item.item_name %>
 
-    <!-- 商品価格 -->
-     <%= item.price %>
+            <!-- カテゴリ -->
+            <%= item.category %>
 
-  <% end %>
+            <!-- プレイ時間 -->
+            <%= item.time %>
+
+            <!-- プレイ人数 -->
+            <%= item.person %>
+
+            <!-- 商品価格 -->
+            <%= item.price %>
+
+        <% end %>
+
+
+    <% else %> <!-- 管理者ログアウト時 -->
+
+
+        <%= link_to item_path(item) do %>
+
+            <!-- 商品画像 -->
+            <%= attachment_image_tag item, :item_image, fallback:"no_image.jpg", size: "165x165" %>
+
+            <!-- 商品名 -->
+            <%= item.item_name %>
+
+            <!-- カテゴリ -->
+            <%= item.category %>
+
+            <!-- プレイ時間 -->
+            <%= item.time %>
+
+            <!-- プレイ人数 -->
+            <%= item.person %>
+
+            <!-- 商品価格 -->
+            <%= item.price %>
+
+        <% end %>
+
+
+    <% end %>
+
 
 <% end %>
 
 
-<%= link_to 'New Item', new_admins_item_path %>
+<% if admin_signed_in? %> <!-- 管理者ログイン時 -->
+
+    <%= link_to 'New Item', new_admins_item_path %>
+
+<% end %>
