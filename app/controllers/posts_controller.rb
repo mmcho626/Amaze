@@ -10,6 +10,7 @@ class PostsController < ApplicationController
     @comment = Comment.new
     @favorite = Favorite.new
     @user = @post.user
+    @item = @post.item
   end
 
 

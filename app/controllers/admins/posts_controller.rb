@@ -14,6 +14,7 @@ class Admins::PostsController < ApplicationController
     @comment = Comment.new
     @favorite = Favorite.new
     @user = @post.user
+    @item = @post.item
     render 'posts/show'
   end
 
