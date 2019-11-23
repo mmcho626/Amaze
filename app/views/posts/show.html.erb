@@ -7,20 +7,32 @@
 
   <%= link_to '削除する', post_path(@post), method: :delete, data: { confirm: '本当に消しますか'} %>
 
+
+  <%= link_to user_path(@user) do %>
+
+    <%= attachment_image_tag @user, :user_image, fallback:"no_image.jpg", size: "30x30" %>
+
+    <%= @user.name %>/<%= @user.age %>/<%= @user.sex %>
+
+  <% end %>
+
+
+
 <% elsif admin_signed_in? %><!-- 管理者ログイン時 -->
+
 
   <%= link_to '編集する', edit_admins_post_path(@post) %>
 
   <%= link_to '削除する', admins_post_path(@post), method: :delete, data: { confirm: '本当に消しますか'} %>
 
-<% end %>
+  <%= link_to admins_user_path(@user) do %>
 
+    <%= attachment_image_tag @user, :user_image, fallback:"no_image.jpg", size: "30x30" %>
 
-<%= link_to user_path(@user) do %>
+    <%= @user.name %>/<%= @user.age %>/<%= @user.sex %>
 
-  <%= attachment_image_tag @user, :user_image, fallback:"no_image.jpg", size: "30x30" %>
+  <% end %>
 
-  <%= @user.name %>/<%= @user.age %>/<%= @user.sex %>
 
 <% end %>
 
