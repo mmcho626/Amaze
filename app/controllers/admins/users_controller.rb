@@ -1,5 +1,7 @@
 class Admins::UsersController < ApplicationController
 
+  before_action :authenticate_admin!
+
   def index
     @users = User.all
     render 'users/index'
@@ -16,47 +18,9 @@ class Admins::UsersController < ApplicationController
     render 'users/edit'
   end
 
-  def update
-    @user = User.find(params[:id])
-    if  @user.update(user_params)
-      flash[:notice] = "保存しました"
-      redirect_to admins_user_path(@user.id)
-    else
-      flash[:notice] = "保存できませんでした"
-      redirect_to edit_admins_user_path(@user.id)
-    end
-  end
-
   def destroy
   end
 
-
-  def favorites
-    @user = User.find(params[:id])
-  end
-
-  def follower
-    @user = User.find(params[:id])
-    render 'show_follow'
-  end
-
-  def followed
-    @user = User.find(params[:id])
-    render 'show_follower'
-  end
-
-
-  #検索機能
-  def search
-    @user_or_post = params[:option]
-    if @user_or_post == "1"
-      @users = User.search(params[:search], @user_or_post)
-      # Userモデルのsearchメソッドはuser.rbに記載。
-    else
-      @posts = Post.search(params[:search], @user_or_post)
-      # Postモデルのsearchメソッドはpost.rbに記載。
-    end
-  end
 
   private
 

@@ -14,13 +14,29 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
-    if  @user.update(user_params)
-      flash[:notice] = "保存しました"
-      redirect_to user_path(@user.id)
-    else
-      flash[:notice] = "保存できませんでした"
-     redirect_to edit_user_path(@user.id)
+
+    if admin_signed_in? #管理者ログイン時
+
+      @user = User.find(params[:id])
+      if  @user.update(user_params)
+        flash[:notice] = "保存しました"
+        redirect_to admins_user_path(@user.id)
+      else
+        flash[:notice] = "保存できませんでした"
+        redirect_to edit_admins_user_path(@user.id)
+      end
+
+    else #管理者ログアウト時
+
+      @user = User.find(params[:id])
+      if  @user.update(user_params)
+        flash[:notice] = "保存しました"
+        redirect_to user_path(@user.id)
+      else
+        flash[:notice] = "保存できませんでした"
+        redirect_to edit__user_path(@user.id)
+      end
+
     end
   end
 
