@@ -28,6 +28,11 @@
 
     <% end %>
 
+
+  <% elsif %>
+
+    <%= link_to 'フォローする', new_user_session_path %>
+
   <% end %>
 
   <%= user.followed.count %>
