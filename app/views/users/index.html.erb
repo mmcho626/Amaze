@@ -2,15 +2,36 @@
 
 <% @users.each do |user| %>
 
-  <%= link_to user_path(user.id) do %>
 
-    <%= attachment_image_tag user, :user_image, fallback:"no_image.jpg", size: "60x60" %>
+  <% if admin_signed_in? %><!-- 管理者ログイン時 -->
 
-    <%= user.name %>
 
-    <%= user.user_introduction %>
+    <%= link_to admins_user_path(user.id) do %>
+
+      <%= attachment_image_tag user, :user_image, fallback:"no_image.jpg", size: "60x60" %>
+
+      <%= user.name %>
+
+      <%= user.user_introduction %>
+
+    <% end %>
+
+
+  <% else %><!-- 管理者ログアウト時 -->
+
+
+    <%= link_to user_path(user.id) do %>
+
+      <%= attachment_image_tag user, :user_image, fallback:"no_image.jpg", size: "60x60" %>
+
+      <%= user.name %>
+
+      <%= user.user_introduction %>
+
+    <% end %>
 
   <% end %>
+
 
   <% if user_signed_in? %>
 
