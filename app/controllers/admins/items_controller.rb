@@ -1,5 +1,7 @@
 class Admins::ItemsController < ApplicationController
 
+  before_action :authenticate_admin! #管理者権限付与
+
   def new
     @item = Item.new
   end

@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
 
 
+  before_action :authenticate_admin!, only: [ :create, :update ] #管理者権限付与
+
+
   #他の機能実装のため、一旦こちらで仮実装。
   def create
     @item = Item.new(item_params)
