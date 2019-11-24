@@ -11,5 +11,186 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
- *= require_self
- */
+ *= require_self*/
+
+
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+/*子要素をfloat状態にした時、親要素に.clearfixをつけて親要素の高さが0になるのを防ぐ*/
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+
+
+/* -------------------------- */
+/*      ▼ ヘッダー部分         */
+/* -------------------------- */
+
+
+.header{
+	width:100%;
+	margin:50px 0px;
+	height:70px;
+/*
+    position: fixed;
+    top: 0;
+    bottom:0;
+    left:0;
+    right:0;*/
+}
+
+
+.header-contents{
+	width:1400px;
+	height:70px;
+	margin: 0 auto;
+	display: flex;
+	align-items:center;
+}
+
+.header-left{
+	width:700px;
+	height:50px;
+	display: flex;
+	align-items:center;
+}
+
+/* ロゴ */
+.logo{
+	line-height: 50px;
+	width:30%;
+}
+
+/* 検索機能全体 */
+
+.search-bar{
+	width:700px;
+	margin:0 auto;
+
+}
+
+/* 検索　ユーザor口コミの選択部分 */
+.search-select{
+	width: 20%;
+	height: 32px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 30px;
+    color: #2D2926;
+    border: 1px solid #e7e7e7;
+    background-color: #FFF;
+    padding:0px 10px;
+}
+
+
+/* 検索フォーム入力部分 */
+.search-form{
+	width: 50%;
+    border-radius: 4px;
+    height: 10px;
+    font-size: 14px;
+    line-height: 30px;
+    color: #2D2926;
+    border: 1px solid #e7e7e7;
+    padding: 10px 16px;
+}
+
+/* 新規登録、ログイン、ログアウトの部分 */
+.header-right{
+	width:600px;
+	height:50px;
+	display: flex;
+	align-items:center;
+}
+
+/* 新規登録、ログイン、ログアウトの各ボタン */
+.header-right a{
+	color: #666;
+	padding: 0px 20px;
+	font-size: 14px;
+	align-items: center;
+	text-decoration: none;
+}
+
+
+/* ログイン後のユーザ名部分 */
+a.header-user-name {
+    font-size: 20px;
+}
+
+
+
+
+
+/* -------------------------- */
+/* ▼新規登録、ユーザログイン画面 */
+/* -------------------------- */
+
+
+
+/* 新規登録、ログインページ全体 */
+.sign{
+	padding-left:30px;
+}
+
+
+/* 新規登録、ログイン　の文字 */
+.signup,
+.signin{
+	padding:30px 0px;
+	border-bottom:0.5px solid #DCD4D4;
+	margin-bottom: 50px;
+}
+
+/* 入力フォーム */
+.sign-form{
+    width: 364px;
+    height: 18px;
+    padding: 8px 16px;
+    font-size: 14px;
+	border: 1px solid #e7e7e7;
+}
+
+/* 新規登録、ログイン　ボタン */
+
+.sign-btn{
+	width: 400px;
+	margin: 30px 0px;
+	padding: 20px;
+}
+
+
+/*「パスワードをお忘れの場合」、「新規登録」ボタン */
+
+.signin-description{
+    margin-top: 20px;
+}
+
+/* 上記ボタンのリンク部分 */
+.signin-description a{
+	color:#ff4500;
+}
+
+/* 上記ボタンのリンク部分 訪問後 */
+.signin-description a :visited{
+	color:#ff4500;
+}
+
+
+/* ログアウトボタン */
+.signout{
+	text-align:center;
+	text-decoration: none;
+}
+
+
+
