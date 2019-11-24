@@ -1,6 +1,6 @@
 class Admins::PostsController < ApplicationController
 
-  before_action :authenticate_admin!
+  before_action :authenticate_admin! #管理者権限付与
 
 
   def index
