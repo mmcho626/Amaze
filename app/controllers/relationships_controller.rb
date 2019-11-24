@@ -1,5 +1,7 @@
 class RelationshipsController < ApplicationController
 
+  before_action :authenticate_user!, only: [ :follows, :follow ] #ユーザ権限付与
+  before_action :correct_user, only: [ :unfollows, :unfollow  ] #正しいユーザーでない時、トップページにリダイレクト
 
     #ユーザ一覧用
 	def follows

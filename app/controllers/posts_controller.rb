@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
 
+  before_action :authenticate_user!, only: [ :create ] #ユーザ権限付与
+  before_action :correct_user, only: [ :edit, :update ] #正しいユーザーでない時、トップページにリダイレクト
+
   def index
     @posts = Post.all
   end

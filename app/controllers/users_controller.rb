@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :correct_user, only: [ :edit, :update ] #ユーザ権限付与
+
   def index
     @users = User.all
   end
