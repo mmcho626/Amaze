@@ -224,6 +224,10 @@
     border-radius: 7px;
 }
 
+.sign-btn:hover {
+    opacity: 0.8;
+}
+
 
 /*「パスワードをお忘れの場合」、「新規登録」ボタン */
 
