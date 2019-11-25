@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   before_action :authenticate_user!, only: [ :new, :create ] #ユーザ権限付与
-  before_action :correct_user, only: [ :edit, :update ] #正しいユーザーでない時、トップページにリダイレクト
+  before_action :correct_user, only: [ :edit ] #正しいユーザーでない時、トップページにリダイレクト
 
   def index
     # kaminari。２０件ずつ表示。
@@ -54,8 +54,10 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
 
     if @post.save
+      flash[:notice] = "投稿しました"
       redirect_to posts_path
     else
+      flash[:notice] = "投稿できませんでした"
       redirect_to new_post_path
     end
   end
@@ -66,7 +68,17 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
 
-    if admin_signed_in? #管理者ログイン時
+    if user_signed_in? # ユーザログイン時
+
+      if @post.update(post_params)
+        flash[:notice] = "投稿内容を更新しました"
+        redirect_to post_path(@post)
+      else
+        flash[:notice] = "投稿内容を更新できませんでした"
+        redirect_to edit_post_path(@post)
+      end
+
+    elsif admin_signed_in? #管理者ログイン時
 
       if @post.update(post_params)
         flash[:notice] = "投稿内容を更新しました"
@@ -76,15 +88,6 @@ class PostsController < ApplicationController
         redirect_to admins_edit_post_path(@post)
       end
 
-    else #管理者ログアウト時
-
-      if @post.update(post_params)
-        flash[:notice] = "投稿内容を更新しました"
-        redirect_to admins_post_path(@post)
-      else
-        flash[:notice] = "投稿内容を更新できませんでした"
-        redirect_to admins_edit_post_path(@post)
-      end
 
     end
 
@@ -114,6 +117,13 @@ class PostsController < ApplicationController
       @user = @post.user
       if @user != current_user
         redirect_to user_path(@user.id)
+      end
+    end
+
+    def correct_admin
+      @admin = Admin.find(params[:id])
+      if @admin != current_admin
+        redirect_to new_admin_session_path
       end
     end
 
