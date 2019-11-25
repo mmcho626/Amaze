@@ -110,6 +110,7 @@
 	height:50px;
 	display: flex;
 	align-items:center;
+    margin: 0 0 0 auto
 }
 
 /* 新規登録、ログイン、ログアウトの各ボタン */
@@ -194,3 +195,44 @@ a.header-user-name {
 
 
 
+.my-link {
+    color: #000;
+    display: inline-block;
+}
+
+
+
+
+.menu{
+	display:inline-block;
+}
+
+
+.user-item {
+	background: #FFF;
+	color: #000;
+	cursor: pointer;
+	display: block;
+	margin-bottom: 1px;
+	position: relative;
+}
+.user-link {
+	color: #fff;
+	display: inline-block;
+	margin: 10px 0px;
+}
+
+.user-sub-list {
+    background: #fff;
+    display: none;
+    margin: 0 auto;
+    padding: 0px 20px;
+}
+
+.sub-user-item {
+    border-bottom: 1px solid #222;
+    color: #000;
+    padding: 15px 0px;
+    list-style: none;
+    text-align: center;
+}

@@ -2,6 +2,9 @@
 <html>
   <head>
 
+    <!-- jQuery 追加 URL ひとまずここに配置 -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 
     <title>Amaze</title>
     <%= csrf_meta_tags %>
@@ -9,6 +12,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
@@ -47,15 +51,40 @@
 
         <div class= "header-right">
 
-          <% if user_signed_in? %>
-            こんにちは <%= "#{current_user.name}" %> さん
-            <%= link_to 'マイページ', user_path(current_user), class: "my-link" %>
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "my-link" %>
+          <% if user_signed_in? %><!-- ユーザログイン時 -->
 
-          <%= link_to 'New Post', new_post_path %>
+            <span class="menu">
+
+                <li class="user-item">
+
+                    <!-- ユーザ名表示 クリックするとプルダウン-->
+                    <a class="user-link js-user-link" href=""><p>こんにちは <%= "#{current_user.name}" %> さん</p></a>
+
+                    <ul class="user-sub-list"> <!-- プルダウンの内容 -->
+
+                        <!-- マイページへのリンクボタン -->
+                        <li class="sub-user-item">
+                            <%= link_to 'マイページ', user_path(current_user), class: "my-link" %>
+                        </li>
+
+                        <!-- ログアウトボタン -->
+                        <li class="sub-user-item">
+                            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "my-link" %>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+            </span>
 
 
-          <% else %>
+            <!--  -->
+            <%= link_to '新規投稿', new_post_path, class: "sign" %>
+
+
+
+          <% else %><!-- ユーザログアウト時 -->
 
 
               <!-- 新規登録ボタン -->
@@ -84,7 +113,6 @@
 
 
 <!-- ヘッダー部分　ここまで -->
-
     <%= yield %>
   </body>
 </html>

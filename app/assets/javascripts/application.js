@@ -14,3 +14,14 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+
+$(function(){
+    $('.js-user-link').each(function(){
+        $(this).on('click',function(){
+            $("+.user-sub-list",this).slideToggle();
+            return false;
+        });
+    });
+});
