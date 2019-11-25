@@ -30,6 +30,11 @@
 }
 
 
+/* 全てのリンクのリンク下線をなくす(新規登録、ログイン画面以外) */
+a {
+	text-decoration: none;
+}
+
 
 /* -------------------------- */
 /*      ▼ ヘッダー部分         */
@@ -119,7 +124,6 @@
 	padding: 0px 20px;
 	font-size: 14px;
 	align-items: center;
-	text-decoration: none;
 }
 
 
@@ -238,6 +242,7 @@
 /* 上記ボタンのリンク部分 */
 .signin-description a{
 	color:#ff4500;
+	text-decoration: underline;
 }
 
 /* 上記ボタンのリンク部分 訪問後 */
