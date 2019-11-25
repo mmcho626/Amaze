@@ -212,9 +212,16 @@
 /* 新規登録、ログイン　ボタン */
 
 .sign-btn{
-	width: 400px;
-	margin: 30px 0px;
-	padding: 20px;
+    width: 400px;
+    margin: 30px 0px;
+    border: solid 1px;
+    height: 40px;
+    font-size: 15px;
+    letter-spacing: 3.5px;
+    color: #fff;
+    background: #ffa500;
+    font-weight: 300;
+    border-radius: 7px;
 }
 
 
