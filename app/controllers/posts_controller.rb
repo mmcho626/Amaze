@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
-  before_action :authenticate_user!, only: [ :create ] #ユーザ権限付与
-  before_action :correct_user, only: [ :new, :edit, :update ] #正しいユーザーでない時、トップページにリダイレクト
+  before_action :authenticate_user!, only: [ :new, :create ] #ユーザ権限付与
+  before_action :correct_user, only: [ :edit, :update ] #正しいユーザーでない時、トップページにリダイレクト
 
   def index
     # kaminari。２０件ずつ表示。
@@ -107,4 +107,15 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:post1_image, :post2_image, :post_body, :star, :post_category_id, :post_person_id, :post_time_id)
     end
+
+
+    def correct_user
+      @post = Post.find(params[:id])
+      @user = @post.user
+      if @user != current_user
+        redirect_to user_path(@user.id)
+      end
+    end
+
+
 end

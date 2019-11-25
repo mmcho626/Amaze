@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
 
-
   before_action :authenticate_admin!, only: [ :create, :update ] #管理者権限付与
 
 
