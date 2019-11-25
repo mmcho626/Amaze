@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   before_action :authenticate_user!, only: [ :create ] #ユーザ権限付与
-  before_action :correct_user, only: [ :edit, :update ] #正しいユーザーでない時、トップページにリダイレクト
+  before_action :correct_user, only: [ :new, :edit, :update ] #正しいユーザーでない時、トップページにリダイレクト
 
   def index
     # kaminari。２０件ずつ表示。
