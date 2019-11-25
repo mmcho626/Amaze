@@ -180,3 +180,412 @@
 	}
 }
 
+
+
+/* -------------------------- */
+/*         ▼投稿詳細           */
+/* -------------------------- */
+
+
+/* クチコミページ全体 */
+
+.post-show {
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+
+
+/* 編集するボタン全体 */
+
+.post-ed-button {
+    text-align: center;
+    font-size: 16px;
+    padding-top: 40px;
+}
+
+
+/* 編集・削除　各ボタン */
+
+.post-ed-button-item {
+    display: inline-block;
+}
+
+
+/* 編集・削除　各ボタン 文字部分 */
+
+a.ed-button {
+    padding: 10px 200px;
+    border-radius: 10px;
+    font-size: 17px;
+    background-color: #fff;
+}
+
+
+a.ed-button:hover {
+    padding: 10px 200px;
+}
+
+
+
+/* 編集ボタン 文字部分 */
+
+
+a.edit-button {
+    color: #ffa500;
+    border: 1px solid #ffa500;
+    margin-right: 50px;
+}
+
+a.edit-button:visited {
+    color: #ffa500;
+}
+
+
+
+/* 削除ボタン 文字部分 */
+
+a.destroy-button {
+    color: #ff6347;
+    border: 1px solid #ff6347;
+}
+
+a.destroy-button:visited {
+    color: #ff6347;
+}
+
+
+/* ユーザ画像 */
+
+.user_image{
+    border-radius: 50%;
+}
+
+
+/* ユーザ情報 */
+
+.post-user {
+    padding-left: 30px;
+    margin: 35px 0px;
+}
+
+
+/* 投稿〜時間前 */
+
+.post-time-ago {
+    text-align: right;
+    font-size: 16px;
+    margin: 40px 0px;
+}
+
+
+
+.post-show-image-item {
+    border-radius: 20px;
+}
+
+
+
+
+
+/* クチコミ本文 */
+
+.post-show-body{
+    margin: 80px 0px 130px 0px;
+    white-space: pre-line;
+    letter-spacing: 1.5px;
+    line-height: 50px;
+    font-weight: 300;
+}
+
+/* クチコミ本文　文字 */
+
+.post-show-body p {
+    font-size: 15px;
+}
+
+/* クチコミのタイトル部分 */
+
+.post-title {
+    border-bottom: 0.5px solid #C7BCBC;
+    margin-bottom: 13px;
+}
+
+/* クチコミのタイトル部分 文字 */
+
+.post-title h2 {
+    margin: 30px 0px 30px 30px;
+    font-weight: 500;
+}
+
+
+
+/* コメント〜件、ボードゲーム詳細　タイトル部分 */
+
+.post-show-title {
+    margin-bottom: 13px;
+}
+
+
+/* コメント〜件、ボードゲーム詳細　タイトル部分 文字 */
+
+.post-show-title h2{
+    margin: 30px 0px 30px 30px;
+    font-weight: 500;
+}
+
+
+
+/* -------------------------- */
+/*    ▼投稿詳細 いいね部分      */
+/* -------------------------- */
+
+
+
+/* いいね、いいねしたユーザを見る　ボタン全体 */
+
+.favorites {
+    text-align: center;
+}
+
+/* いいね、いいねしたユーザを見る　各ボタン */
+
+.favorites-button {
+    margin: 30px 42px;
+}
+
+
+/* いいねする前のボタン */
+
+.post-show-favorites {
+    width: 400px;
+    border-radius: 8px;
+    border: 1px solid #ffa500;
+    text-align: center;
+    font-size: 17px;
+    line-height: 20px;
+    font-weight: 400;
+    padding: 12px 0;
+    display: inline-block;
+    background-color: #fff;
+    letter-spacing: 24.5px;
+    color: #ffa500;
+}
+
+.post-show-favorites:hover{
+    opacity:0.8;
+}
+
+
+/* いいねした後ののボタン */
+
+.post-show-favorites-pushed {
+    width: 400px;
+    border-radius: 8px;
+    border: 1px solid #ffa500;
+    text-align: center;
+    font-size: 17px;
+    line-height: 20px;
+    font-weight: 400;
+    padding: 12px 0;
+    display: inline-block;
+    background-color: #ffa500;
+    letter-spacing: 24.5px;
+    color: #fff;
+}
+
+
+.post-show-favorites-pushed:hover{
+    opacity:0.8;
+}
+
+
+/* この投稿にいいねしたユーザを見る　ボタン */
+
+.post-favorited-user {
+    width: 400px;
+    padding: 12px 0px;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 400;
+    border-radius: 8px;
+    border: 1px solid #ffa500;
+    text-align: center;
+    display: inline-block;
+    background-color: #fff;
+    letter-spacing: 3.5px;
+    color: #ffa500;
+}
+
+
+
+/* -------------------------- */
+/*   ▼投稿詳細 コメント部分     */
+/* -------------------------- */
+
+
+/* コメント詳細表示部分 */
+
+.comment-item {
+    display: flex;
+    justify-content: space-between;
+    width: 975px;
+    margin: 0 auto;
+}
+
+
+/* ユーザ画像 */
+
+.post-show-user-image {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+/* コメント　文章 */
+
+.comment-content {
+    font-size: 15px;
+    width: 850px;
+    padding: 19px 30px;
+    background-color: #FFF8DC;
+    border-radius: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.4px;
+    white-space: pre-line;
+    border: 1px solid #FFF8DC;
+    display: inline-block;
+}
+
+/* コメント詳細、ユーザ情報 */
+
+.comment-detail {
+    text-align: right;
+    margin: 30px 0px 10px 0px;
+    padding-right: 32px;
+}
+
+
+.comment-destroy-button{
+    color:#ff6347;
+}
+
+.comment-destroy-button:visited{
+    color:#ff6347;
+}
+
+
+/* コメント入力フォーム */
+
+.comment-form-box {
+    text-align: center;
+}
+
+
+.comment-form {
+    width: 900px;
+    height: 160px;
+    padding-top: 12px;
+    padding-left: 12px;
+    font-size: 12px;
+    margin-top: 60px;
+}
+
+
+/* コメント送信ボタン */
+
+.comment-button {
+    width: 500px;
+    height: 40px;
+    border: solid 1px;
+    font-size: 17px;
+    letter-spacing: 3.5px;
+    color: #fff;
+    background: #ffa500;
+    font-weight: 500;
+    border-radius: 7px;
+    margin: 50px 0px;
+}
+
+
+.comment-submit {
+    text-align: center;
+    width: 800px;
+    margin: 0 auto;
+}
+
+
+.comment-submit:hover{
+    opacity:0.8;
+}
+
+
+
+/* -------------------------- */
+/*     ▼投稿詳細  商品部分      */
+/* -------------------------- */
+
+
+/* 商品部分　全体 */
+
+.post-show-items-index {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* 商品部分　項目横並び */
+
+.post-show-items {
+    display: inline-block;
+}
+
+
+/* 商品画像 */
+
+.post-item-image {
+    padding-top: 85px;
+}
+
+
+/* テーブル枠 横並び */
+
+dl.post-show-item {
+    border-bottom: 1px solid #D3D3D3;
+    width: 600px;
+}
+
+/* 商品情報の項目 */
+
+dt.post-item-title {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    width: 100px;
+    margin: 31px 0 31px;
+}
+
+/* 商品情報の説明 */
+
+dd.post-item-content {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 15px;
+    line-height: 38px;
+    letter-spacing: 0.4px;
+    font-weight: 300;
+    margin: 21px 0 9px 60px;
+    white-space: pre-wrap;
+}
+
+
+
+/* 一覧へ戻るボタン */
+
+.back-button {
+    margin-top: 40px;
+}
+

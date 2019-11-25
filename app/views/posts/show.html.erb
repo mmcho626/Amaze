@@ -1,226 +1,381 @@
 <p id="notice"><%= notice %></p>
 
 
-<% if @post.user == current_user %><!-- 投稿者がcurrent_userの時 -->
-
-  <%= link_to '編集する', edit_post_path(@post) %>
-
-  <%= link_to '削除する', post_path(@post), method: :delete, data: { confirm: '本当に消しますか'} %>
 
 
-  <%= link_to user_path(@user) do %> <!-- ユーザ詳細に遷移 -->
-
-    <!-- ユーザ画像 -->
-    <%= attachment_image_tag @user, :user_image, fallback:"no_image.jpg", size: "30x30" %>
-
-    <!-- ユーザ名/ユーザの年代/ユーザの性別 -->
-    <%= @user.name %>/<%= @user.age %>/<%= @user.sex %>
-
-  <% end %>
+<div class="post-show">
 
 
+  <div class="post-title">
 
-<% elsif admin_signed_in? %><!-- 管理者ログイン時 -->
+    <h2><%= @item.item_name %>で遊んだクチコミ</h2>
 
-
-  <%= link_to '編集する', edit_admins_post_path(@post) %>
-
-  <%= link_to '削除する', admins_post_path(@post), method: :delete, data: { confirm: '本当に消しますか'} %>
+  </div>
 
 
-  <%= link_to admins_user_path(@user) do %> <!-- ユーザ詳細(管理者用)に遷移 -->
-
-  <!-- ユーザ画像 -->
-    <%= attachment_image_tag @user, :user_image, fallback:"no_image.jpg", size: "30x30" %>
-
-  <!-- ユーザ名/ユーザの年代/ユーザの性別 -->
-    <%= @user.name %>/<%= @user.age %>/<%= @user.sex %>
-
-  <% end %>
+  <div class="post-show-detail">
 
 
-<% end %>
+    <% if @post.user == current_user %><!-- 投稿者がcurrent_userの時 -->
+
+      <div class="post-ed-button">
+
+        <div class="post-ed-button-item">
+
+            <%= link_to '編集する', edit_post_path(@post) , :class=>"ed-button edit-button" %>
+
+        </div>
+
+        <div class="post-ed-button-item">
+
+            <%= link_to '削除する', post_path(@post), method: :delete, data: { confirm: '本当に消しますか'}, :class=>"ed-button destroy-button" %>
+
+        </div>
+
+      </div>
 
 
-  <!-- 投稿画像１ -->
-  <%= attachment_image_tag @post, :post1_image, fallback:"no_image.jpg", size: "165x165" %>
-
-  <!-- 投稿画像２ -->
-  <%= attachment_image_tag @post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
-
-  <!-- 投稿文 -->
-  <%= simple_format(@post.post_body) %>
+    <% elsif admin_signed_in? %><!-- 管理者ログイン時 -->
 
 
+      <div class="post-ed-button">
 
-<!-- いいね機能　ここから -->
+        <%= link_to '編集する', edit_admins_post_path(@post) %>
 
+        <%= link_to '削除する', admins_post_path(@post), method: :delete, data: { confirm: '本当に消しますか'} %>
 
-<% if user_signed_in? %><!-- ユーザログイン時 -->
+      </div>
 
-
-  <% if @post.favorited_by?(current_user) %><!--いいね済のとき-->
-
-  	<%= link_to post_favorite_path(@post),method: :delete do %>
-
-  		<i class="fa fa-heart" class="fa-heart"></i>
 
     <% end %>
 
 
-  <% else %><!-- いいねしていないとき -->
 
-    <%= link_to post_favorites_path(@post),method: :post do %>
 
-    	<i class="fa fa-heart-o" aria-hidden="true"></i>
+
+
+
+
+    <!-- 投稿時間の表示 -->
+
+    <div class="post-time-ago">
+      投稿日時：<%= time_ago_in_words(@post.created_at) %>前
+      <!-- ViewHelper の time_ago_in_words 使用 -->
+    </div>
+
+
+
+
+
+    <% if @post.user == current_user %><!-- 投稿者がcurrent_userの時 -->
+
+
+      <div class="post-user">
+
+        <%= link_to user_path(@user) do %> <!-- ユーザ詳細に遷移 -->
+
+          <!-- ユーザ画像 -->
+          <%= attachment_image_tag @user, :user_image, fallback:"no_image.jpg", size: "30x30" %>
+
+          <!-- ユーザ名/ユーザの年代/ユーザの性別 -->
+          <%= @user.name %>/<%= @user.age %>/<%= @user.sex %>
+
+        <% end %>
+
+      </div>
+
+
+    <% elsif admin_signed_in? %><!-- 管理者ログイン時 -->
+
+
+      <div class="post-user">
+
+        <%= link_to admins_user_path(@user) do %> <!-- ユーザ詳細(管理者用)に遷移 -->
+
+        <!-- ユーザ画像 -->
+          <%= attachment_image_tag @user, :user_image, fallback:"no_image.jpg", size: "30x30" %>
+
+        <!-- ユーザ名/ユーザの年代/ユーザの性別 -->
+          <%= @user.name %>/<%= @user.age %>/<%= @user.sex %>
+
+        <% end %>
+
+      </div>
+
 
     <% end %>
 
 
-  <% end %>
 
 
+    <div class="post-show-image">
 
-<% else %><!-- ログアウト時 -->
+      <!-- 投稿画像１ -->
+      <%= attachment_image_tag @post, :post1_image, fallback:"no_image.jpg", size: "250x250", :class=>"post-show-image-item" %>
 
+      <!-- 投稿画像２ -->
+      <%= attachment_image_tag @post, :post2_image, fallback:"no_image.jpg", size: "250x250", :class=>"post-show-image-item" %>
 
-  <!-- 空のハートを押すとログイン画面に遷移する -->
-  <%= link_to new_user_session_path do %>
+    </div>
 
-    <i class="fa fa-heart-o" aria-hidden="true"></i>
 
-  <% end %>
+    <!-- 投稿文  simple_formatでtext_areaの改行を反映 -->
+    <div class="post-show-body"><%= simple_format(@post.post_body) %></div>
 
 
-<% end %>
 
+    <!-- いいね機能　ここから -->
 
-<%= link_to favorites_post_path do %><!-- いいねしたユーザの一覧ページに遷移 -->
 
-  <%= @post.favorites.count %>いいね <!-- いいねされた数 -->
+    <div class="favorites">
 
-<% end %>
+      <% if user_signed_in? %><!-- ユーザログイン時 -->
 
 
-<!-- いいね機能　ここまで -->
+        <% if @post.favorited_by?(current_user) %><!--いいね済のとき-->
 
+        	<%= link_to post_favorite_path(@post),method: :delete, :class=>"favorite-a" do %>
 
-<!-- 投稿時間の表示 -->
-投稿日時：<%= time_ago_in_words(@post.created_at) %>前
-<!-- ViewHelper の time_ago_in_words 使用 -->
+              <div class="post-show-favorites-pushed favorites-button">
 
+                <i class="fa fa-heart-o" aria-hidden="true"></i><%= @post.favorites.count %>
 
-<!-- コメントのカウント件数 -->
-<%= @post.comments.count %>件
+              </div>
 
+          <% end %>
 
 
+        <% else %><!-- いいねしていないとき -->
 
+          <%= link_to post_favorites_path(@post),method: :post, :class=>"favorite-a" do %>
 
-<!-- コメント投稿、表示機能　ここから -->
+              <div class="post-show-favorites favorites-button">
 
+                <i class="fa fa-heart-o" aria-hidden="true"></i><%= @post.favorites.count %>
 
-  <h2>コメント</h2>
+              </div>
 
+          <% end %>
 
-<% @post.comments.each do |comment| %>
 
-  <%= link_to user_path(comment.user) do %>
+        <% end %>
 
-  <!-- コメントしたユーザの画像 -->
-    <%= attachment_image_tag comment.user, :user_image, fallback: "no_image.jpg", size: "50x50" %>
 
-  <!-- コメントしたユーザの名前 -->
-    <%= comment.user.name %>
 
-<% end %>
+      <% else %><!-- ログアウト時 -->
 
-  <!-- コメントの投稿時間 -->
-  <%= time_ago_in_words(comment.created_at) %>前
-  <!-- ViewHelper の time_ago_in_words 使用 -->
 
+        <!-- 空のハートを押すとログイン画面に遷移する -->
+        <%= link_to new_user_session_path, :class=>"favorite-a" do %>
 
-  <% if comment.user == current_user %>
+              <div class="post-show-favorites favorites-button">
 
-    <%= link_to '削除する', post_comment_path(@post), method: :delete, data: { confirm: '本当に消しますか'} %>
+                <i class="fa fa-heart-o" aria-hidden="true"></i><%= @post.favorites.count %>
 
-  <% end %>
+              </div>
 
+        <% end %>
 
-  <!-- コメントの内容 -->
-  <%= comment.comment %>
 
+      <% end %>
 
-<% end %>
 
+      <%= link_to favorites_post_path do %><!-- いいねしたユーザの一覧ページに遷移 -->
 
-<%= form_for [@post, @comment] do |f| %>
+        <div class="post-favorited-user favorites-button">
 
-  <%= f.text_field :comment ,placeholder:"コメントを追加" %>
+          この投稿にいいねしたユーザを見る
 
-  <%= f.submit "送信" %>
+        </div>
 
-<% end %>
+      <% end %>
 
+    </div>
 
 
-<!-- コメント投稿、表示機能　ここまで -->
+    <!-- いいね機能　ここまで -->
 
 
 
+    <!-- コメント投稿、表示機能　ここから -->
 
-<!-- 商品情報　ここから -->
+    <div class="post-show-title">
 
+      <h2>コメント　　<%= @post.comments.count %>件</h2>
 
+    </div>
 
-<% if admin_signed_in? %><!-- 管理者ログイン時 -->
 
+    <% @post.comments.each do |comment| %>
 
-  <%= link_to admins_item_path(@item) do %>
 
-    <%= attachment_image_tag @item, :item_image, fallback: "no_image.jpg", size: "200x200" %>
 
-  <% end %>
+        <div class="comment-detail">
+          <!-- コメントの投稿時間 -->
+          <%= time_ago_in_words(comment.created_at) %>前
+          <!-- ViewHelper の time_ago_in_words 使用 -->
 
 
-<% else %> <!-- 管理者ログアウト時 -->
+          <% if comment.user == current_user %>
 
+            <%= link_to '削除する', post_comment_path(@post), method: :delete, data: { confirm: '本当に消しますか'}, :class=>"comment-destroy-button" %>
 
-  <%= link_to item_path(@item) do %>
+          <% end %>
 
-    <%= attachment_image_tag @item, :item_image, fallback: "no_image.jpg", size: "200x200" %>
+        </div>
 
-  <% end %>
+        <div class="comment-item">
 
+          <div class="comment-user">
 
-<% end %>
+            <%= link_to user_path(comment.user) do %>
 
+            <!-- コメントしたユーザの画像 -->
+              <div><%= attachment_image_tag comment.user, :user_image, fallback: "no_image.jpg", size: "50x50", :class=>"post-show-user-image" %></div>
 
+            <!-- コメントしたユーザの名前 -->
+              <%= comment.user.name %>
 
-<!-- 商品名 -->
-<%= @item.item_name %>
+            <% end %>
 
-<!-- カテゴリ -->
-<%= @item.category %>
+          </div>
 
-<!-- プレイ人数 -->
-<%= @item.person %>
 
-<!-- プレイ時間 -->
-<%= @item.time %>
+          <!-- コメントの内容 -->
+          <div class="comment-content"><%= comment.comment %></div>
 
+        </div>
 
+    <% end %>
 
-<!-- 商品情報　ここまで -->
 
 
+    <%= form_for [@post, @comment] do |f| %>
 
-<% if admin_signed_in? %><!-- 管理者ログイン時 -->
+      <div class="comment-form-box">
 
-  <%= link_to '一覧に戻る', admins_posts_path %>
+        <%= f.text_area :comment ,placeholder:"コメントを追加", :class=>"comment-form" %>
 
-<% else %> <!-- 管理者ログアウト時 -->
+      </div>
 
-  <%= link_to '一覧に戻る', posts_path %>
 
-<% end %>
+      <div class="comment-submit">
+
+        <%= f.submit "送信", :class=> "comment-button" %>
+
+      </div>
+
+    <% end %>
+
+
+
+
+
+    <!-- コメント投稿、表示機能　ここまで -->
+
+
+
+
+    <!-- 商品情報　ここから -->
+
+    <div class="post-show-title">
+
+      <h2>ボードゲーム詳細</h2>
+
+    </div>
+
+
+  <div class="post-show-items-index">
+
+    <div class="post-show-items">
+
+      <% if admin_signed_in? %><!-- 管理者ログイン時 -->
+
+
+        <%= link_to admins_item_path(@item) do %>
+
+          <%= attachment_image_tag @item, :item_image, fallback: "no_image.jpg", size: "200x200", :class=>"post-item-image"  %>
+
+        <% end %>
+
+
+      <% else %> <!-- 管理者ログアウト時 -->
+
+
+        <%= link_to item_path(@item) do %>
+
+          <%= attachment_image_tag @item, :item_image, fallback: "no_image.jpg", size: "200x200", :class=>"post-item-image" %>
+
+        <% end %>
+
+
+      <% end %>
+
+    </div>
+
+
+    <div class="post-show-items">
+
+      <!-- 商品名 -->
+      <dl class="post-show-item">
+
+        <dt class="post-item-title">ゲーム名</dt>
+
+        <dd class="post-item-content"><%= @item.item_name %></dd>
+
+      </dl>
+
+
+      <!-- カテゴリ -->
+      <dl class="post-show-item">
+
+        <dt class="post-item-title">カテゴリ</dt>
+
+        <dd class="post-item-content"><%= @item.category %></dd>
+
+      </dl>
+
+
+      <!-- プレイ人数 -->
+      <dl class="post-show-item">
+
+        <dt class="post-item-title">プレイ人数</dt>
+
+        <dd class="post-item-content"><%= @item.person %></dd>
+
+      </dl>
+
+      <!-- プレイ時間 -->
+      <dl class="post-show-item">
+
+        <dt class="post-item-title">プレイ時間</dt>
+
+        <dd class="post-item-content"><%= @item.time %></dd>
+
+      </dl>
+
+    </div>
+
+  </div>
+
+
+    <!-- 商品情報　ここまで -->
+
+
+    <div class="back-button">
+
+      <% if admin_signed_in? %><!-- 管理者ログイン時 -->
+
+        <%= link_to '← 一覧に戻る', admins_posts_path, :class=>"post-back back-button" %>
+
+      <% else %> <!-- 管理者ログアウト時 -->
+
+        <%= link_to '← 一覧に戻る', posts_path, :class=>"post-back back-button" %>
+
+      <% end %>
+
+    </div>
+
+  </div>
+
+</div>
