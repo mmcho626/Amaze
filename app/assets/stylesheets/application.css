@@ -106,11 +106,11 @@
 
 /* 新規登録、ログイン、ログアウトの部分 */
 .header-right{
-	width:600px;
-	height:50px;
+	width: 295px;
+	height: 50px;
 	display: flex;
-	align-items:center;
-    margin: 0 0 0 auto
+	align-items: center;
+    margin: 0 0 0 auto;
 }
 
 /* 新規登録、ログイン、ログアウトの各ボタン */
