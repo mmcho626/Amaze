@@ -123,9 +123,57 @@
 }
 
 
-/* ログイン後のユーザ名部分 */
-a.header-user-name {
-    font-size: 20px;
+/* -------------------------- */
+/*  ▼ ヘッダー プルダウン部分    */
+/* -------------------------- */
+
+
+/* プルダウン表示部分 */
+.menu{
+	display:inline-block;
+}
+
+
+/* マイページ、ログアウトボタン */
+.my-link {
+    color: #000;
+    display: inline-block;
+}
+
+
+/* プルダウンリストの装飾 */
+.user-item {
+	background: #FFF;
+	color: #000;
+	cursor: pointer;
+	display: block;
+	margin-bottom: 1px;
+	position: relative;
+}
+
+
+/* こんにちは　"ユーザ名"さん　の部分 */
+.user-link {
+	color: #fff;
+	display: inline-block;
+	margin: 10px 0px;
+}
+
+/* プルダウンリスト　全体 */
+.user-sub-list {
+    background: #fff;
+    display: none;
+    margin: 0 auto;
+    padding: 0px 20px;
+}
+
+/* プルダウンリスト　個別 */
+.sub-user-item {
+    border-bottom: 1px solid #222;
+    color: #000;
+    padding: 15px 0px;
+    list-style: none;
+    text-align: center;
 }
 
 
@@ -184,55 +232,4 @@ a.header-user-name {
 /* 上記ボタンのリンク部分 訪問後 */
 .signin-description a :visited{
 	color:#ff4500;
-}
-
-
-/* ログアウトボタン */
-.signout{
-	text-align:center;
-	text-decoration: none;
-}
-
-
-
-.my-link {
-    color: #000;
-    display: inline-block;
-}
-
-
-
-
-.menu{
-	display:inline-block;
-}
-
-
-.user-item {
-	background: #FFF;
-	color: #000;
-	cursor: pointer;
-	display: block;
-	margin-bottom: 1px;
-	position: relative;
-}
-.user-link {
-	color: #fff;
-	display: inline-block;
-	margin: 10px 0px;
-}
-
-.user-sub-list {
-    background: #fff;
-    display: none;
-    margin: 0 auto;
-    padding: 0px 20px;
-}
-
-.sub-user-item {
-    border-bottom: 1px solid #222;
-    color: #000;
-    padding: 15px 0px;
-    list-style: none;
-    text-align: center;
 }
