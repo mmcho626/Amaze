@@ -69,21 +69,23 @@
 
                       </a>
 
+
+
+                      <ul class="user-sub-list"> <!-- プルダウンの内容 -->
+
+                          <!-- マイページへのリンクボタン -->
+                          <li class="sub-user-item">
+                              <%= link_to 'マイページ', user_path(current_user), class: "my-link" %>
+                          </li>
+
+                          <!-- ログアウトボタン -->
+                          <li class="sub-user-item">
+                              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "my-link" %>
+                          </li>
+
+                      </ul>
+
                     </div>
-
-                    <ul class="user-sub-list"> <!-- プルダウンの内容 -->
-
-                        <!-- マイページへのリンクボタン -->
-                        <li class="sub-user-item">
-                            <%= link_to 'マイページ', user_path(current_user), class: "my-link" %>
-                        </li>
-
-                        <!-- ログアウトボタン -->
-                        <li class="sub-user-item">
-                            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "my-link" %>
-                        </li>
-
-                    </ul>
 
                 </li>
 
@@ -98,7 +100,14 @@
             </div>
 
 
-          <% else %><!-- ユーザログアウト時 -->
+
+
+          <% elsif admin_signed_in? %> <!-- 管理者ログイン時 -->
+              管理者としてログイン中     |    
+              <%= link_to  destroy_admin_session_path, method: :delete do %>ログアウト<% end %>
+
+
+          <% else %><!-- 管理者、ユーザログアウト時 -->
 
 
               <!-- 新規登録ボタン -->
@@ -113,13 +122,6 @@
           <% end %>
 
         </div>
-
-
-        <% if admin_signed_in? %>
-            管理者としてログイン中
-               |    
-            <li><%= link_to  destroy_admin_session_path, method: :delete do %>ログアウト<% end %></li>
-        <% end %>
 
       </div>
 
