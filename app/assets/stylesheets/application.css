@@ -114,9 +114,9 @@ a:hover {
     padding: 10px 16px;
 }
 
-/* 新規登録、ログイン、ログアウトの部分 */
+/* 新規登録、ログイン、ログアウト、新規投稿の部分 */
 .header-right{
-	width: 295px;
+	width: 400px;
 	height: 50px;
 	display: flex;
 	align-items: center;
@@ -129,6 +129,13 @@ a:hover {
 	padding: 0px 20px;
 	font-size: 14px;
 	align-items: center;
+}
+
+
+/* 新規登録、ログイン、ログアウト、新規投稿　各要素 */
+
+.header-right-item {
+    margin: 0 0 0 auto;
 }
 
 
@@ -186,6 +193,21 @@ a:hover {
 }
 
 
+
+.user_image {
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+
+a.new-post {
+    background-color: #FFA500;
+    padding: 15px 20px;
+    color: #fff;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 15px;
+}
 
 
 

@@ -58,7 +58,18 @@
                 <li class="user-item">
 
                     <!-- ユーザ名表示 クリックするとプルダウン-->
-                    <a class="user-link js-user-link" href=""><p>こんにちは <%= "#{current_user.name}" %> さん</p></a>
+                    <div class="header-right-item">
+
+
+                      <a class="user-link js-user-link" href="">
+
+                        <%= attachment_image_tag current_user, :user_image, fallback:"no_image.jpg", size: "40x40" %>
+
+                        こんにちは <%= "#{current_user.name}" %> さん
+
+                      </a>
+
+                    </div>
 
                     <ul class="user-sub-list"> <!-- プルダウンの内容 -->
 
@@ -79,9 +90,12 @@
             </span>
 
 
-            <!--  -->
-            <%= link_to '新規投稿', new_post_path, class: "sign" %>
+            <!-- 新規投稿ボタン -->
+            <div class="header-right-item">
 
+              <%= link_to '新規投稿', new_post_path, class: "sign new-post " %>
+
+            </div>
 
 
           <% else %><!-- ユーザログアウト時 -->
