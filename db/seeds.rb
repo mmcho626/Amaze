@@ -7,11 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-ItemCategory.create!(:item_category_name=>"アイテムカテゴリー")
-ItemTime.create!(:item_time=>20)
-ItemPerson.create!(:item_person=>2)
-
-
+# ユーザ情報　5人分
 5.times do |i|
 	User.create!(:email=>"user#{i + 1}@com", :password=>"000000", :user_introduction=>"ユーザ紹介文#{i + 1}",:sex=>0, :name =>"ユーザ名", :age=>0)
 end

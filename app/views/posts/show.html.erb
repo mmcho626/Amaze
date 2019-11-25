@@ -49,7 +49,7 @@
   <%= attachment_image_tag @post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
 
   <!-- 投稿文 -->
-  <%= @post.post_body %>
+  <%= simple_format(@post.post_body) %>
 
 
 
@@ -194,6 +194,7 @@
 
 
 <% end %>
+
 
 
 <!-- 商品名 -->
