@@ -1,23 +1,54 @@
-<h1>口コミの投稿</h1>
 
-<%= form_for(@post) do |f| %>
+<div class="post-new">
 
-	<%= f.label :post1_image %>
-	<%= f.attachment_field :post1_image %>
+	<div class="post-title">
 
-	<%= f.label :post2_image %>
-	<%= f.attachment_field :post2_image %>
+		<h2>クチコミの投稿</h2>
 
-	<%= f.label :search_item %>
-	<%= text_field_tag :post_search_item, '', :placeholder =>  "ボードゲーム名を入力" %>
+	</div>
 
 
-    <%= f.label :post_body %>
-    <%= f.text_area :post_body %>
 
-    <%= f.submit '保存' %>
-
-<% end %>
+	<!-- 画像を追加 -->
+	<p class="sub-title sub-p">画像を追加</p>
 
 
-<%= link_to 'Back', posts_path %>
+
+	<%= form_for(@post) do |f| %>
+
+		<!-- 画像１ -->
+		<div class="post-item">
+			<%= f.label :post1_image, :class=>'post-label post-image' %>
+			<%= f.attachment_field :post1_image %>
+		</div>
+
+		<!-- 画像２ -->
+		<div class="post-item">
+			<%= f.label :post2_image, :class=>'post-label post-image' %>
+			<%= f.attachment_field :post2_image %>
+		</div>
+
+		<!-- ボードゲームの名前 -->
+		<div class="post-item post-board">
+			<%= f.label :search_item, :class=>'post-label  sub-title' %>
+			<%= text_field_tag :post_search_item, '', :placeholder =>  "ボードゲーム名を入力" , :class=>"board-name" %>
+		</div>
+
+		<!-- レビューを追加 -->
+		<div class="post-item post-review">
+		    <%= f.label :post_body, :class=>'post-label sub-title' %>
+		    <%= f.text_area :post_body, :placeholder =>  "遊んだボードゲームをレビューしてみましょう", :class=>"post-form" %>
+		</div>
+
+		<!-- 保存ボタン -->
+		<div class="post-item post-submit">
+		    <%= f.submit '保存', :class=> "post-button" %>
+		</div>
+
+
+	<% end %>
+
+
+	<%= link_to '← 保存せずにトップに戻る', posts_path,:class=> "post-back" %>
+
+</div>

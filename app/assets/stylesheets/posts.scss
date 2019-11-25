@@ -1,3 +1,135 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* -------------------------- */
+/*         ▼新規投稿           */
+/* -------------------------- */
+
+
+
+/* 口コミ投稿ページ全体 */
+
+.post-new {
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+
+.post-new a {
+   	text-decoration: none;
+}
+
+
+/* クチコミを投稿 */
+
+.post-title {
+    border-bottom: 0.5px solid #C7BCBC;
+    margin-bottom: 13px;
+}
+
+
+/* クチコミを投稿 文字 */
+
+.post-title h2 {
+    margin: 0px 0px 30px 30px;
+    font-weight: 400;
+}
+
+
+/* 各項目 */
+
+.post-item {
+    padding: 30px 50px;
+    text-align: left;
+}
+
+
+/* サブ部分( 画像を追加、ボードゲームの名前、レビューを追加 ) の文字 */
+
+.sub-title {
+    font-size: 17px;
+}
+
+
+/* サブ部分( 画像を追加 ) の文字 */
+
+.sub-p {
+    padding-left: 47px;
+    padding-top: 42px;
+}
+
+
+/* label部分 */
+
+.post-label {
+	padding:15px 0px;
+	font-size:15px;
+    margin-bottom: 18px;
+}
+
+
+/* 画像１、画像２ の文字 */
+
+.post-image {
+    display: inline-block;
+    padding-right: 20px;
+}
+
+
+/* ボードゲームの名前　入力フォーム */
+
+.board-name {
+    width: 800px;
+    height: 35px;
+    font-size: 12px;
+    padding-left: 12px;
+}
+
+
+/* レビュー　入力フォーム */
+
+.post-form {
+    width: 800px;
+    height: 160px;
+    padding-top: 12px;
+    padding-left: 12px;
+    font-size: 12px;
+}
+
+
+/* 保存ボタン */
+
+.post-submit {
+    text-align: center;
+    width: 800px;
+    margin-bottom: 45px;
+}
+
+
+/* 保存ボタンの装飾 */
+
+.post-button {
+    width: 500px;
+    height: 40px;
+    border: solid 1px;
+    font-size: 17px;
+    letter-spacing: 3.5px;
+    color: #fff;
+    background: #ffa500;
+    font-weight: 500;
+    border-radius: 7px;
+}
+
+
+/* 保存せずにトップに戻るボタン */
+
+.post-back {
+    text-align: center;
+    margin: 0px 42px;
+    font-size: 17px;
+}
+
+
+
+
+
+
+
