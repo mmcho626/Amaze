@@ -1,3 +1,6 @@
+
+# 口コミ
+
 ja:
   datetime:
     distance_in_words:
@@ -35,3 +38,13 @@ ja:
       over_x_years:
         one:   "1年以上"
         other: "%{count}年以上"
+
+
+# 口コミ
+
+  activerecord:
+  attributes:
+      post1_image: 画像 １
+      post2_image: 画像 ２
+      search_item: ボードゲームの名前
+      post_body: レビューを追加
