@@ -29,13 +29,13 @@
 		</div>
 
 		<!-- ボードゲームの名前 -->
-		<div class="post-item post-board">
+		<div class="post-item">
 			<%= f.label :search_item, :class=>'post-label  sub-title' %>
 			<%= text_field_tag :post_search_item, '', :placeholder =>  "ボードゲーム名を入力" , :class=>"board-name" %>
 		</div>
 
 		<!-- レビューを追加 -->
-		<div class="post-item post-review">
+		<div class="post-item">
 		    <%= f.label :post_body, :class=>'post-label sub-title' %>
 		    <%= f.text_area :post_body, :placeholder =>  "遊んだボードゲームをレビューしてみましょう", :class=>"post-form" %>
 		</div>
