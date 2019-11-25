@@ -4,7 +4,8 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [ :edit, :update ] #正しいユーザーでない時、トップページにリダイレクト
 
   def index
-    @posts = Post.all
+    # kaminari。２０件ずつ表示。
+    @posts = Post.all.page(params[:page]).per(20)
   end
 
 
