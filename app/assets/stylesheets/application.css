@@ -195,7 +195,7 @@ a:hover {
 
 
 
-.user_image {
+.user-image-circle {
     border-radius: 50%;
     vertical-align: middle;
 }
@@ -247,7 +247,6 @@ a.new-post {
     margin: 0px 0px 30px 30px;
     font-weight: 400;
 }
-
 
 
 /* -------------------------- */

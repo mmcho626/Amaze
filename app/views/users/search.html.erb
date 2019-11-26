@@ -26,7 +26,7 @@
                   <%= link_to admins_user_path(user.id) do %>
 
                     <!-- ユーザ画像 -->
-                    <%= attachment_image_tag user, :user_image, fallback:"no_image.jpg", size: "60x60" %>
+                    <%= attachment_image_tag user, :user_image, fallback:"no_image.jpg", size: "60x60", :class=>"user-image-circle" %>
 
                     <!-- ユーザ名 -->
                     <%= user.name %>
@@ -52,7 +52,7 @@
                         <dt class="user-detail-item">
 
                           <!-- ユーザ画像 -->
-                          <%= attachment_image_tag user, :user_image, fallback:"no_image.jpg", size: "60x60" %>
+                          <%= attachment_image_tag user, :user_image, fallback:"no_image.jpg", size: "60x60", :class=>"user-image-circle" %>
 
 
                           <div class="user-spec">

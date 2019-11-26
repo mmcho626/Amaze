@@ -47,7 +47,7 @@
 
     <%= link_to admins_user_path(item_post.user) do %>
 
-      <%= attachment_image_tag item_post.user, :user_image, fallback: "no_image.jpg", size: "50x50" %>
+      <%= attachment_image_tag item_post.user, :user_image, fallback: "no_image.jpg", size: "50x50", :class=>"user-image-circle" %>
 
       <%= item_post.user.name %>
 
@@ -59,7 +59,7 @@
 
     <%= link_to user_path(item_post.user) do %>
 
-      <%= attachment_image_tag item_post.user, :user_image, fallback: "no_image.jpg", size: "50x50" %>
+      <%= attachment_image_tag item_post.user, :user_image, fallback: "no_image.jpg", size: "50x50", :class=>"user-image-circle" %>
 
       <%= item_post.user.name %>
 

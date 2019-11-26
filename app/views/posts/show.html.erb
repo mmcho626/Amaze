@@ -93,7 +93,7 @@
         <%= link_to admins_user_path(@user) do %> <!-- ユーザ詳細(管理者用)に遷移 -->
 
         <!-- ユーザ画像 -->
-          <%= attachment_image_tag @user, :user_image, fallback:"no_image.jpg", size: "30x30" %>
+          <%= attachment_image_tag @user, :user_image, fallback:"no_image.jpg", size: "30x30", :class=>"user-image-circle" %>
 
         <!-- ユーザ名/ユーザの年代/ユーザの性別 -->
           <%= @user.name %>/<%= @user.age %>/<%= @user.sex %>
