@@ -233,7 +233,7 @@ a.new-post {
 }
 
 
-/* クチコミを投稿 */
+/* タイトル */
 
 .title {
     border-bottom: 0.5px solid #C7BCBC;
@@ -241,12 +241,118 @@ a.new-post {
 }
 
 
-/* クチコミを投稿 文字 */
+/* タイトルの文字 */
 
 .title h2 {
     margin: 0px 0px 30px 30px;
     font-weight: 400;
 }
+
+
+
+
+/* -------------------------- */
+/*        ▼モーダル部分        */
+/* -------------------------- */
+
+
+
+#overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 1;
+    overflow-y:scroll;
+}
+
+#modalWindow {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -1%);
+    background-color: white;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 70px;
+}
+
+
+#modal-close-btn {
+    width: 31%;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: 110px;
+    margin-bottom: 60px;
+    background-color: #ffa500;
+    color: white;
+    font-size: 20px;
+    letter-spacing: 13px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #ffa500;
+}
+
+#modal-close-btn:hover {
+    opacity:0.8;
+    background-color: #ffa500;
+}
+
+
+/* モーダルウインドウの配置 */
+
+.modal-message-box {
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* タイトル部分 */
+
+.modal-title {
+    border-bottom: 0.5px solid #C7BCBC;
+    margin-bottom: 13px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+/* タイトルの文字 */
+
+.modal-title h2 {
+    margin: 50px 0px 30px 30px;
+    font-weight: 400;
+}
+
+
+
+.modal-user-list {
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+
+/* ユーザ情報の項目 */
+
+.modal-user-list-item {
+    width: 100%;
+    padding: 15px 0px 20px 0px;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+
+/* 各要素の幅 */
+
+dl.modal-user-detail {
+    margin: 0 auto;
+    margin-top: 60px;
+}
+
 
 
 /* -------------------------- */
