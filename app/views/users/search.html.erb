@@ -1,37 +1,180 @@
-<% if @user_or_post == "1"%>
 
 
-    <h2>ユーザの検索結果</h2>
+<div class="contents">
 
-        <% @users.each do |user| %>
 
-            <%= link_to user_path(user) do %>
+    <% if @user_or_post == "1"%>
 
-                <%= user.name %>
+        <div class="title">
+
+            <h2>ユーザの検索結果   　<%= @users.count %>件</h2>
+
+        </div>
+
+
+        <div class="user-list">
+
+          <% @users.each do |user| %>
+
+
+            <div class="user-list-item">
+
+
+              <% if admin_signed_in? %><!-- 管理者ログイン時 -->
+
+
+                <%= link_to admins_user_path(user.id) do %>
+
+                  <!-- ユーザ画像 -->
+                  <%= attachment_image_tag user, :user_image, fallback:"no_image.jpg", size: "60x60" %>
+
+                  <!-- ユーザ名 -->
+                  <%= user.name %>
+
+                  <!--   性別     /      年齢    -->
+                  <%= user.sex %> / <%= user.age %>
+
+                  <!-- 紹介文 -->
+                  <%= user.user_introduction %>
+
+                <% end %>
+
+
+              <% else %><!-- 管理者ログアウト時 -->
+
+
+
+
+                <dl class="user-detail">
+
+                  <%= link_to user_path(user.id) do %>
+
+                      <dt class="user-detail-item">
+
+                        <!-- ユーザ画像 -->
+                        <%= attachment_image_tag user, :user_image, fallback:"no_image.jpg", size: "60x60" %>
+
+
+                        <div class="user-spec">
+
+                          <!-- ユーザ名 -->
+                          <%= user.name %>
+
+                          <!--   性別      /     年齢    -->
+                          <%= user.sex %> / <%= user.age %>
+
+                          <!-- フォロワー数 -->
+                          <%= user.followed.count %>
+
+                        </div>
+
+
+                        <div class="user-follow">
+
+                          <% if user_signed_in? %>
+
+                            <% if user != current_user %>
+
+                                <% if current_user.following?(user) %>
+
+                                    <%= link_to 'フォロー解除', unfollows_path(user.id), method: :POST, :class=>"user-unfollow-button" %>
+
+                                <% else %>
+
+                                    <%= link_to 'フォローする', follows_path(user.id), method: :POST, :class=>"user-follow-button" %>
+
+                                <% end %>
+
+                            <% else %>
+
+                              <%= link_to 'マイページ', user_path(current_user), method: :POST, :class=>"user-my-button" %>
+
+                            <% end %>
+
+
+                          <% elsif %>
+
+                            <%= link_to 'フォローする', new_user_session_path, :class=>"user-follow-button" %>
+
+                          <% end %>
+
+                        </div>
+
+                      </dt>
+
+                      <!-- 紹介文 -->
+                      <dd class="user-introduction">
+                        <%= user.user_introduction %>
+                      </dd>
+
+                  <% end %>
+
+                </dl>
+
+              <% end %>
+
+              </div>
+
+
+
+          <% end %>
+
+        </div>
+
+
+    <% else %> <!-- @user_or_post == "2"のとき -->
+
+
+            <div class="title">
+
+                <h2>クチコミの検索結果   　<%= @posts.count %>件</h2>
+
+            </div>
+
+            <% @posts.each do |post| %>
+
+
+                <div class="post-index">
+
+                    <div class="post-index-item">
+
+                        <%= attachment_image_tag post, :post1_image, fallback:"no_image.jpg", size: "165x165", :class=>"" %>
+
+                        <%= attachment_image_tag post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
+
+                    </div>
+
+                    <div class="post-index-item">
+
+                        <!-- クチコミ内容 -->
+                        <div class="post-body">
+
+                            <%= post.post_body %>
+
+                        </div>
+
+                    </div>
+
+                    <div class="post-show-button">
+
+                            <% if admin_signed_in? %> <!-- 管理者ログイン時 -->
+
+                                <%= link_to 'もっと見る', admins_post_path(post.id) %>
+
+                            <% else %> <!-- 管理者ログアウト時 -->
+
+                                <%= link_to 'もっと見る', post_path(post.id)  %>
+
+                            <% end %>
+
+                    </div>
+
+                </div>
 
             <% end %>
 
-        <% end %>
-
-
-<% else %> <!-- @user_or_post == "2"のとき -->
-
-
-    <h2>口コミの検索結果</h2>
-
-    <% @posts.each do |post| %>
-
-        <%= link_to post_path(post) do %>
-
-            <%= attachment_image_tag post, :post1_image, fallback:"no_image.jpg", size: "165x165" %>
-
-            <%= attachment_image_tag post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
-
-            <%= post.post_body %>
-
-        <% end %>
+        </div>
 
     <% end %>
 
-
-<% end %>
+</div>
