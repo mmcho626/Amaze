@@ -33,7 +33,7 @@ $(function(){
 
 
 
-// モーダルウインドウ部分 //
+// モーダルウインドウ部分  投稿詳細ページ 「いいねしたユーザ一覧を見る」用 //
 
 //modal-open-btn   モーダルを開くボタン。イベント発火。
 //overlay          モーダルの背景
@@ -41,7 +41,7 @@ $(function(){
 
 document.addEventListener(
   "DOMContentLoaded", e => {
-    let modal_open = document.getElementById("modal-open-btn");
+    let modal_open = document.getElementById("modal-openfavorite-btn");
     modal_open.onclick = function () {
       $('#overlay').fadeIn();
       document.getElementById('modal-close-btn').onclick = function () {
