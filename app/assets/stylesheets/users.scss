@@ -36,15 +36,23 @@ a.user-edit-button {
     display: inline-block;
 }
 
-/* ユーザ情報の幅、配置 */
+/* 画像含むユーザ情報の幅、配置 */
 
 .user-show-detail {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 500px;
     margin-left: 30px;
 }
+
+/* ユーザ情報の幅、配置 */
+
+.user-detail-right {
+    padding-right: 90px;
+    width: 80%;
+    padding-left: 35px;
+}
+
 
 
 /* ユーザ名 */
@@ -52,6 +60,7 @@ a.user-edit-button {
 .user-name {
     font-size: 33px;
     font-weight: 200;
+    line-height: normal;
 }
 
 /* 性別、年齢 */
