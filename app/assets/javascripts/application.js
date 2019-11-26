@@ -41,7 +41,7 @@ $(function(){
 
 document.addEventListener(
   "DOMContentLoaded", e => {
-    let modal_open = document.getElementById("modal-openfavorite-btn");
+    let modal_open = document.getElementById("modal-open-favorite-btn");
     modal_open.onclick = function () {
       $('#overlay').fadeIn();
       document.getElementById('modal-close-btn').onclick = function () {
