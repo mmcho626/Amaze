@@ -212,6 +212,44 @@ a.new-post {
 
 
 
+
+
+/* -------------------------- */
+/*       ▼内容の共通部分        */
+/* -------------------------- */
+
+
+
+/* 内容全体 */
+
+.contents {
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+
+.contents a {
+    text-decoration: none;
+}
+
+
+/* クチコミを投稿 */
+
+.title {
+    border-bottom: 0.5px solid #C7BCBC;
+    margin-bottom: 13px;
+}
+
+
+/* クチコミを投稿 文字 */
+
+.title h2 {
+    margin: 0px 0px 30px 30px;
+    font-weight: 400;
+}
+
+
+
 /* -------------------------- */
 /* ▼新規登録、ユーザログイン画面 */
 /* -------------------------- */
