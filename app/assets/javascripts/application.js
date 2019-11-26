@@ -17,6 +17,11 @@
 
 
 
+// プルダウン部分 //
+
+// js-user-link   プルダウンを開くボタン。イベント発火。
+// user-sub-list  プルダウンのリスト（マイページ、ログアウトボタン）。複数あるので、thisでまとめ。
+
 $(function(){
     $('.js-user-link').each(function(){
         $(this).on('click',function(){
@@ -25,3 +30,24 @@ $(function(){
         });
     });
 });
+
+
+
+// モーダルウインドウ部分 //
+
+//modal-open-btn   モーダルを開くボタン。イベント発火。
+//overlay          モーダルの背景
+//modal-close-btn  モーダルウインドウを閉じるボタン
+
+document.addEventListener(
+  "DOMContentLoaded", e => {
+    let modal_open = document.getElementById("modal-open-btn");
+    modal_open.onclick = function () {
+      $('#overlay').fadeIn();
+      document.getElementById('modal-close-btn').onclick = function () {
+        $('#overlay').fadeOut();
+      };
+    };
+  },
+  false
+);
