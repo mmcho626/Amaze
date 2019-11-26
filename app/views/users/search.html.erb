@@ -3,136 +3,134 @@
 <div class="contents">
 
 
-    <% if @user_or_post == "1"%>
+  <% if @user_or_post == "1"%>
 
-        <div class="title">
+    <div class="title">
 
-            <h2>ユーザの検索結果   　<%= @users.count %>件</h2>
+        <h2>ユーザの検索結果   　<%= @users.count %>件</h2>
 
-        </div>
-
-
-        <div class="user-list">
-
-            <% @users.each do |user| %>
+    </div>
 
 
-              <div class="user-list-item">
+    <div class="user-list">
+
+      <% @users.each do |user| %>
 
 
-                <% if admin_signed_in? %><!-- 管理者ログイン時 -->
+        <div class="user-list-item">
 
 
-                  <%= link_to admins_user_path(user.id) do %>
+          <% if admin_signed_in? %><!-- 管理者ログイン時 -->
 
-                    <!-- ユーザ画像 -->
-                    <%= attachment_image_tag user, :user_image, fallback:"no_image.jpg", size: "60x60", :class=>"user-image-circle" %>
+
+            <%= link_to admins_user_path(user.id) do %>
+
+              <!-- ユーザ画像 -->
+              <%= attachment_image_tag user, :user_image, fallback:"no_image.jpg", size: "60x60", :class=>"user-image-circle" %>
+
+              <!-- ユーザ名 -->
+              <%= user.name %>
+
+              <!--   性別     /      年齢    -->
+              <%= user.sex %> / <%= user.age %>
+
+              <!-- 紹介文 -->
+              <%= user.user_introduction %>
+
+            <% end %>
+
+
+          <% else %><!-- 管理者ログアウト時 -->
+
+
+            <dl class="user-detail">
+
+              <%= link_to user_path(user.id), :class=>"user-detail-items" do %>
+
+                <dt class="user-detail-item">
+
+                  <!-- ユーザ画像 -->
+                  <%= attachment_image_tag user, :user_image, fallback:"no_image.jpg", size: "60x60", :class=>"user-image-circle" %>
+
+
+                  <div class="user-spec">
 
                     <!-- ユーザ名 -->
                     <%= user.name %>
 
-                    <!--   性別     /      年齢    -->
+                    <!--   性別      /     年齢    -->
                     <%= user.sex %> / <%= user.age %>
 
-                    <!-- 紹介文 -->
-                    <%= user.user_introduction %>
+                    <!-- フォロワー数 -->
+                    / <p><%= user.followed.count %>フォロワー</p>
 
-                  <% end %>
-
-
-                <% else %><!-- 管理者ログアウト時 -->
+                    </div>
 
 
+                    <div class="user-follow">
 
+                    <% if user_signed_in? %>
 
-                  <dl class="user-detail">
+                      <% if user != current_user %>
 
-                    <%= link_to user_path(user.id), :class=>"user-detail-items" do %>
+                        <% if current_user.following?(user) %>
 
-                        <dt class="user-detail-item">
+                          <%= link_to 'フォロー解除', unfollows_path(user.id), method: :POST, :class=>"user-unfollow-button" %>
 
-                          <!-- ユーザ画像 -->
-                          <%= attachment_image_tag user, :user_image, fallback:"no_image.jpg", size: "60x60", :class=>"user-image-circle" %>
+                        <% else %>
 
+                          <%= link_to 'フォローする', follows_path(user.id), method: :POST, :class=>"user-follow-button" %>
 
-                          <div class="user-spec">
+                        <% end %>
 
-                            <!-- ユーザ名 -->
-                            <%= user.name %>
+                      <% else %>
 
-                            <!--   性別      /     年齢    -->
-                            <%= user.sex %> / <%= user.age %>
+                        <%= link_to 'マイページ', user_path(current_user), :class=>"user-my-button" %>
 
-                              <!-- フォロワー数 -->
-                            / <p><%= user.followed.count %>フォロワー</p>
+                      <% end %>
 
-                          </div>
+                    <% else %>
 
-
-                          <div class="user-follow">
-
-                            <% if user_signed_in? %>
-
-                              <% if user != current_user %>
-
-                                  <% if current_user.following?(user) %>
-
-                                      <%= link_to 'フォロー解除', unfollows_path(user.id), method: :POST, :class=>"user-unfollow-button" %>
-
-                                  <% else %>
-
-                                      <%= link_to 'フォローする', follows_path(user.id), method: :POST, :class=>"user-follow-button" %>
-
-                                  <% end %>
-
-                              <% else %>
-
-                                <%= link_to 'マイページ', user_path(current_user), :class=>"user-my-button" %>
-
-                              <% end %>
-
-
-                            <% elsif %>
-
-                              <%= link_to 'フォローする', new_user_session_path, :class=>"user-follow-button" %>
-
-                            <% end %>
-
-                          </div>
-
-                        </dt>
-
-                        <!-- 紹介文 -->
-                        <dd class="user-introduction">
-                          <%= user.user_introduction %>
-                        </dd>
+                      <%= link_to 'フォローする', new_user_session_path, :class=>"user-follow-button" %>
 
                     <% end %>
 
-                  </dl>
+                  </div>
 
-                <% end %>
+                </dt>
 
-                </div>
+                <!-- 紹介文 -->
+                <dd class="user-introduction">
+                <%= user.user_introduction %>
+                </dd>
+
+              <% end %>
+
+            </dl>
+
+          <% end %>
+
+        </div>
+
+      <% end %>
+
+    </div>
 
 
-
-            <% end %>
-
-          </div>
+  <% else %> <!-- @user_or_post == "2"のとき -->
 
 
-    <% else %> <!-- @user_or_post == "2"のとき -->
+    <div class="title">
 
+        <h2>クチコミの検索結果   　<%= @posts.count %>件</h2>
 
-            <div class="title">
+    </div>
 
-                <h2>クチコミの検索結果   　<%= @posts.count %>件</h2>
+    <% @posts.each do |post| %>
 
-            </div>
+      <% if admin_signed_in? %> <!-- 管理者ログイン時 -->
 
-            <% @posts.each do |post| %>
-
+        <%= link_to admins_post_path(post) do %>
 
                 <div class="post-index">
 
@@ -155,26 +153,77 @@
 
                     </div>
 
-                    <div class="post-show-button">
+                    <div class="user-show-post-detail">
 
-                            <% if admin_signed_in? %> <!-- 管理者ログイン時 -->
+              <div class="user-show-post-more">
 
-                                <%= link_to 'もっと見る', admins_post_path(post.id) %>
+                          <%= link_to 'もっと見る', post_path(post), :class=>"post-show-button" %>
 
-                            <% else %> <!-- 管理者ログアウト時 -->
+              </div>
 
-                                <%= link_to 'もっと見る', post_path(post.id)  %>
+              <div class="user-show-post-ago">
 
-                            <% end %>
+                    <%= time_ago_in_words(post.created_at) %>前
+                <!-- ViewHelper の time_ago_in_words 使用 -->
 
-                    </div>
+              </div>
+
+            </div>
 
                 </div>
 
-            <% end %>
+        <% end %>
 
-        </div>
+      <% else %><!-- 管理者ログアウト時 -->
+
+        <%= link_to post_path(post) do %>
+
+                <div class="post-index">
+
+                    <div class="post-index-item">
+
+                        <%= attachment_image_tag post, :post1_image, fallback:"no_image.jpg", size: "165x165", :class=>"" %>
+
+                        <%= attachment_image_tag post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
+
+                    </div>
+
+                    <div class="post-index-item">
+
+                        <!-- クチコミ内容 -->
+                        <div class="post-body">
+
+                            <%= post.post_body %>
+
+                        </div>
+
+                    </div>
+
+                    <div class="user-show-post-detail">
+
+              <div class="user-show-post-more">
+
+                          <%= link_to 'もっと見る', post_path(post), :class=>"post-show-button" %>
+
+              </div>
+
+              <div class="user-show-post-ago">
+
+                    <%= time_ago_in_words(post.created_at) %>前
+                <!-- ViewHelper の time_ago_in_words 使用 -->
+
+              </div>
+
+            </div>
+
+          </div>
+
+        <% end %>
+
+      <% end %>
 
     <% end %>
+
+  <% end %>
 
 </div>
