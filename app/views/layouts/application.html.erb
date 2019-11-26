@@ -65,7 +65,7 @@
 
                       <a class="user-link js-user-link" href="">
 
-                        <%= attachment_image_tag current_user, :user_image, fallback:"no_image.jpg", size: "40x40" %>
+                        <%= attachment_image_tag current_user, :user_image, fallback:"no_image.jpg", class: "user-image-circle", size: "40x40" %>
 
                         こんにちは <%= "#{current_user.name}" %> さん
 
