@@ -7,6 +7,14 @@
 
 
 
+.user-detail-items{
+    display: flex;
+    align-items: center;
+    margin: 0 0 auto;
+}
+
+
+
 .contents-width {
     width: 1000px;
     margin: 0 auto;
@@ -27,8 +35,10 @@
 }
 
 
-.user-spec{
-	display:inline-block;
+.user-spec {
+    display: inline-block;
+    margin-left: 35px;
+    margin-top: 10px;
 }
 
 
@@ -104,6 +114,11 @@ a.user-my-button:hover{
     color: #fff;
     border-radius: 10px;
     background-color: #da6272;
+}
+
+
+.fa-user-alt{
+	color:black;
 }
 
 
