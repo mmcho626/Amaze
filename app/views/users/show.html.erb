@@ -1,118 +1,229 @@
 <p id="notice"><%= notice %></p>
 
 
-<div>
-
-	<%= link_to follower_user_path do %>
-
-		<%= @user.follower.count %>フォロー
-
-	<% end %>
+<div class="contents">
 
 
-	<%= link_to followed_user_path do %>
-
-		<%= @user.followed.count %>フォロワー
-
-	<% end %>
+	<!-- フォロー機能　ここから -->
 
 
-	<%= link_to favorites_user_path do %>
+	<div class="user-show-follow-button">
 
-		<%= @user.favorites.count %>いいね
+		<% if user_signed_in? %> <!-- ユーザログイン時 -->
 
-	<% end %>
+			<% if @user != current_user %> <!-- current_user でない時 -->
 
-</div>
+				<% if current_user.following?(@user) %>  <!-- フォロー済のとき -->
+
+					<%= link_to 'フォロー解除', unfollow_path(@user.id), method: :POST, :class=>"user-unfollow-button" %>
+
+				<% else %>  <!-- フォローしていないとき -->
+
+					<%= link_to 'フォローする', follow_path(@user.id), method: :POST, :class=>"user-follow-button" %>
+
+				<% end %>
+
+			<% elsif @user == current_user %> <!-- current_user の時 -->
+
+				<%= link_to '設定', edit_user_path(@user.id), :class=>"user-edit-button" %>
+
+			<% elsif admin_signed_in? %> <!-- 管理者ログイン時 -->
+
+				<%= link_to '設定', edit_admins_user_path(@user.id), :class=>"user-edit-button" %>
+
+			<% end %>
 
 
-<!-- フォロー機能　ここから -->
+
+		<% else %>  <!-- ログアウト時 -->
+
+			<!-- "フォローする"を押すとログイン画面に遷移する -->
+			<%= link_to 'フォローする', new_user_session_path, :class=>"user-follow-button" %>
+
+		<% end %>
+
+	</div>
 
 
-<div>
+	<!-- フォロー機能　ここまで -->
 
 
-	<% if user_signed_in? %> <!-- ユーザログイン時 -->
+	<div class="user-show-detail">
 
-		<% if @user != current_user %>
 
-			<% if current_user.following?(@user) %>  <!-- フォロー済のとき -->
+		<!-- ユーザ情報左側（ユーザ画像） -->
+		<div class="user-detail-item user-detail-left">
 
-				<%= link_to 'フォロー解除', unfollow_path(@user.id), method: :POST %>
+			<%= attachment_image_tag @user, :user_image, fallback:"no_image.jpg", size: "150x150", :class=>"user-show-image" %>
 
-			<% else %>  <!-- フォローしていないとき -->
+		</div>
 
-				<%= link_to 'フォローする', follow_path(@user.id), method: :POST %>
+
+
+		<!-- ユーザ情報右側 -->
+		<div class="user-detail-item user-detail-right">
+
+			<!-- ユーザ名 -->
+			<div class="user-name">
+
+				<%= @user.name %>
+
+			</div>
+
+
+			<div class="user-show-spec">
+
+				<!-- 性別 -->
+				<%= @user.sex %>/
+
+				<!-- 性別 -->
+				<%= @user.age %>
+
+			</div>
+
+
+			<div class="user-action">
+
+				<%= link_to follower_user_path do %>
+
+					<%= @user.follower.count %>フォロー
+
+				<% end %>
+
+
+				<%= link_to followed_user_path do %>
+
+					<%= @user.followed.count %>フォロワー
+
+				<% end %>
+
+
+				<%= link_to favorites_user_path do %>
+
+					<%= @user.favorites.count %>いいね
+
+				<% end %>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+
+
+
+
+	<div class="show-post-index">
+
+		<div class="title">
+
+		  <h2>このユーザの投稿一覧</h2>
+
+		</div>
+
+
+		<% @posts.each do |user_post| %>
+
+			<% if admin_signed_in? %> <!-- 管理者ログイン時 -->
+
+				<%= link_to admins_post_path(user_post) do %>
+
+		            <div class="post-index">
+
+		                <div class="post-index-item">
+
+		                    <%= attachment_image_tag user_post, :post1_image, fallback:"no_image.jpg", size: "165x165", :class=>"" %>
+
+		                    <%= attachment_image_tag user_post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
+
+		                </div>
+
+		                <div class="post-index-item">
+
+		                    <!-- クチコミ内容 -->
+		                    <div class="post-body">
+
+		                        <%= user_post.post_body %>
+
+		                    </div>
+
+		                </div>
+
+		                <div class="user-show-post-detail">
+
+							<div class="user-show-post-more">
+
+			                    <%= link_to 'もっと見る', post_path(user_post), :class=>"post-show-button" %>
+
+							</div>
+
+							<div class="user-show-post-ago">
+
+				        		<%= time_ago_in_words(user_post.created_at) %>前
+								<!-- ViewHelper の time_ago_in_words 使用 -->
+
+							</div>
+
+						</div>
+
+		            </div>
+
+				<% end %>
+
+			<% else %><!-- 管理者ログアウト時 -->
+
+				<%= link_to post_path(user_post) do %>
+
+		            <div class="post-index">
+
+		                <div class="post-index-item">
+
+		                    <%= attachment_image_tag user_post, :post1_image, fallback:"no_image.jpg", size: "165x165", :class=>"" %>
+
+		                    <%= attachment_image_tag user_post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
+
+		                </div>
+
+		                <div class="post-index-item">
+
+		                    <!-- クチコミ内容 -->
+		                    <div class="post-body">
+
+		                        <%= user_post.post_body %>
+
+		                    </div>
+
+		                </div>
+
+		                <div class="user-show-post-detail">
+
+							<div class="user-show-post-more">
+
+			                    <%= link_to 'もっと見る', post_path(user_post), :class=>"post-show-button" %>
+
+							</div>
+
+							<div class="user-show-post-ago">
+
+				        		<%= time_ago_in_words(user_post.created_at) %>前
+								<!-- ViewHelper の time_ago_in_words 使用 -->
+
+							</div>
+
+						</div>
+
+		            </div>
+
+				<% end %>
 
 			<% end %>
 
 		<% end %>
 
-	<% else %>  <!-- ログアウト時 -->
-
-		<!-- "フォローする"を押すとログイン画面に遷移する -->
-		<%= link_to 'フォローする', new_user_session_path %>
-
-	<% end %>
+	</div>
 
 </div>
 
-
-<!-- フォロー機能　ここまで -->
-
-
-
-<%= attachment_image_tag @user, :user_image, fallback:"no_image.jpg", size: "150x150" %>
-
-<%= @user.name %>
-
-<%= @user.sex %>
-
-<%= @user.age %>
-
-<%= @user.user_introduction %>
-
-
-<% @posts.each do |user_post| %>
-
-	<% if admin_signed_in? %> <!-- 管理者ログイン時 -->
-
-		<%= link_to admins_post_path(user_post) do %>
-
-			<%= attachment_image_tag user_post, :post1_image, fallback:"no_image.jpg", size: "165x165" %>
-
-			<%= attachment_image_tag user_post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
-
-			<%= user_post.post_body %>
-
-		<% end %>
-
-	<% else %><!-- 管理者ログアウト時 -->
-
-		<%= link_to post_path(user_post) do %>
-
-			<%= attachment_image_tag user_post, :post1_image, fallback:"no_image.jpg", size: "165x165" %>
-
-			<%= attachment_image_tag user_post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
-
-			<%= user_post.post_body %>
-
-		<% end %>
-
-	<% end %>
-
-		<%= time_ago_in_words(user_post.created_at) %>前
-			<!-- ViewHelper の time_ago_in_words 使用 -->
-
-<% end %>
-
-
-<% if @user == current_user %>
-
-	<%= link_to '設定', edit_user_path(@user.id) %>
-
-<% elsif admin_signed_in? %>
-
-	<%= link_to '設定', edit_admins_user_path(@user.id) %>
-
-<% end %>

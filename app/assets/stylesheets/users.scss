@@ -1,23 +1,116 @@
 
 
+/* ----------------- */
+/*    ▼ユーザ詳細     */
+/* ----------------- */
+
+
+/* 設定ボタン　装飾 */
+
+a.user-edit-button {
+    border: 1px solid #808080;
+    padding: 12px 22px;
+    font-size: 18px;
+    border-radius: 10px;
+    color: #808080;
+}
+
+
+/* フォロー、設定ボタンの配置 */
+
+.user-show-follow-button {
+    text-align: right;
+}
+
+
+/* フォローするボタン */
+
+.user-show-image {
+	border-radius: 10px;
+}
+
+
+/* ユーザ画像とそのほかの情報を横並び */
+
+.user-detail-item {
+    display: inline-block;
+}
+
+/* ユーザ情報の幅、配置 */
+
+.user-show-detail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 500px;
+    margin-left: 30px;
+}
+
+
+/* ユーザ名 */
+
+.user-name {
+    font-size: 33px;
+    font-weight: 200;
+}
+
+/* 性別、年齢 */
+
+.user-show-spec {
+    padding-top: 42px;
+    font-size: 15px;
+}
+
+
+/* いいね、フォロー、フォロワー */
+
+.user-action {
+    font-size: 17px;
+    margin-top: 40px;
+}
+
+
+/* 口コミ一覧　配置 */
+
+.show-post-index {
+    margin-top: 120px;
+}
+
+
+/* 口コミ一覧　もっと見るボタン */
+
+.user-show-post-more {
+    float: left;
+}
+
+/* 口コミ一覧　もっと見るボタンの色 */
+
+a.post-show-button {
+    color: #ff4500;
+}
+
+
+a.post-show-button:hover {
+    color: #ff4500;
+}
+
+
+/* 口コミ一覧　投稿日時 */
+
+.user-show-post-ago {
+    float: right;
+}
+
 
 /* ------------------------------------------- */
 /*    ▼ユーザ一覧　　・　検索結果一覧 (ユーザ)     */
 /* ------------------------------------------- */
 
 
-
 .user-detail-items{
     display: flex;
     align-items: center;
     margin: 0 0 auto;
-}
-
-
-
-.contents-width {
-    width: 1000px;
-    margin: 0 auto;
 }
 
 
