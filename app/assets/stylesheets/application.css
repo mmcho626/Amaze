@@ -469,8 +469,10 @@ a.modal-user-my-button:hover {
 
 
 /* 新規登録、ログインページ全体 */
-.sign{
-	padding-left:30px;
+.sign {
+    padding-left: 125px;
+    max-width: 600px;
+    width: 80%;
 }
 
 
@@ -482,19 +484,27 @@ a.modal-user-my-button:hover {
 	margin-bottom: 50px;
 }
 
+/* フォーム全体 */
+
+.sign-contents {
+    width: 95%;
+    margin: 0 0 0 auto;
+}
+
 /* 入力フォーム */
 .sign-form{
-    width: 364px;
+    width: 90%;
     height: 18px;
     padding: 8px 16px;
     font-size: 14px;
 	border: 1px solid #e7e7e7;
+    margin: 0 auto;
 }
 
 /* 新規登録、ログイン　ボタン */
 
 .sign-btn{
-    width: 400px;
+    width: 96%;
     margin: 30px 0px;
     border: solid 1px;
     height: 40px;
