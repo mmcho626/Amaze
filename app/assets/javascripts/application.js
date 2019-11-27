@@ -23,31 +23,54 @@
 // user-sub-list  プルダウンのリスト（マイページ、ログアウトボタン）。複数あるので、thisでまとめ。
 
 $(function(){
+
     $('.js-user-link').each(function(){
+
         $(this).on('click',function(){
+
             $("+.user-sub-list",this).slideToggle();
+
             return false;
+
         });
+
     });
+
 });
 
 
-
-// モーダルウインドウ部分  投稿詳細ページ 「いいねしたユーザ一覧を見る」用 //
 
 //modal-open-btn   モーダルを開くボタン。イベント発火。
 //overlay          モーダルの背景
 //modal-close-btn  モーダルウインドウを閉じるボタン
 
+
+
+
+// 投稿詳細ページ 「いいねしたユーザ一覧を見る」用 //
+
 document.addEventListener(
+
   "DOMContentLoaded", e => {
+
     let modal_open = document.getElementById("modal-open-favorite-btn");
+
     modal_open.onclick = function () {
+
       $('#overlay').fadeIn();
+
       document.getElementById('modal-close-btn').onclick = function () {
+
         $('#overlay').fadeOut();
+
       };
+
     };
+
   },
+
   false
+
 );
+
+
