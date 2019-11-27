@@ -1,34 +1,21 @@
-<h1>Editing Post</h1>
 
-<%= form_for(@post) do |f| %>
+<div class="contents">
 
-	<%= f.label :post1_image %>
-	<%= f.attachment_field :post1_image %>
+<div class="title">
 
-	<%= f.label :post2_image %>
-	<%= f.attachment_field :post2_image %>
+	<h2>クチコミの編集</h2>
 
-	<div>変更前の画像</div>
-    <div>
-    <%= attachment_image_tag @post, :post1_image, fallback:"no_image.jpg", size: "165x165" %>
-
-    <%= attachment_image_tag @post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
-	</div>
-
-    <%= f.label :post_body %>
-    <%= f.text_area :post_body %>
-
-    <%= f.submit '更新' %>
-
-<% end %>
+</div>
 
 
-<% if admin_signed_in? %> <!--管理者ログイン時 -->
 
-	<%= link_to 'Back', admins_post_path(@post) %>
+<!-- 画像を追加 -->
+<p class="sub-title sub-p">画像を追加</p>
 
-<% else %> <!--管理者ログアウト時 -->
 
-	<%= link_to 'Back', post_path(@post) %>
+<%= render partial: 'form' %>
 
-<% end %>
+
+<%= link_to '← 保存せずにトップに戻る', posts_path,:class=> "post-back" %>
+
+</div>
