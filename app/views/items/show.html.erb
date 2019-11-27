@@ -50,7 +50,7 @@
   <% @posts.each do |item_post| %>
 
     <!----------------------- 口コミ一覧 ---------------------->
-    <%= render partial: 'share/post', locals: { post: post } %>
+    <%= render partial: 'share/post', locals: { post: item_post } %>
 
   <% end %>
 
