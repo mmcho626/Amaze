@@ -545,8 +545,8 @@
 /* 商品部分　全体 */
 
 .post-show-items-index {
-    display: flex;
     justify-content: space-between;
+    text-align: center;
 }
 
 
@@ -561,9 +561,9 @@
 /* 商品画像 配置 */
 
 .post-show-items.post-show-item-detail-image {
-    width: 100%;
-    display: flex;
+    width: 30%;
     align-items: center;
+    max-width: 200px;
 }
 
 
@@ -576,14 +576,15 @@
 }
 
 
-/* テーブル枠 横並び */
+/* テーブル枠 */
 
 dl.post-show-item {
     border-bottom: 1px solid #D3D3D3;
-    width: 600px;
+    width: 100%;
     display: flex;
     align-items: center;
 }
+
 
 /* 商品情報の項目 */
 
