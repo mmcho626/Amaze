@@ -116,7 +116,7 @@
     min-width: 750px;
 }
 
-/* */
+/* 投稿画像 */
 
 .post-index-image-size{
     width: 40%;
@@ -174,71 +174,78 @@
 /* クチコミページ全体 */
 
 .post-show {
-    width: 1000px;
+    width: 100%;
     margin: 0 auto;
     margin-top: 150px;
 }
 
 
-/* 編集するボタン全体 */
+/* 編集・削除ボタン　全体の配置 */
 
 .post-ed-button {
+    margin: 0 auto;
     text-align: center;
-    font-size: 16px;
-    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
 }
-
-
-/* 編集・削除　各ボタン */
-
-.post-ed-button-item {
-    display: inline-block;
-}
-
-
-/* 編集・削除　各ボタン 文字部分 */
-
-a.ed-button {
-    padding: 10px 200px;
-    border-radius: 10px;
-    font-size: 17px;
-    background-color: #fff;
-}
-
-
-a.ed-button:hover {
-    padding: 10px 200px;
-}
-
 
 
 /* 編集ボタン 文字部分 */
 
-
-a.edit-button {
-    color: #ffa500;
-    border: 1px solid #ffa500;
-    margin-right: 50px;
+.edit-button {
+    border: solid 1px #ffa500;
+    width: 40%;
+    height: 36px;
+    border-radius: 10px;
+    display: inline-block;
+    align-items: center;
+    line-height: 36px;
 }
 
-a.edit-button:hover {
+.edit-button a {
     color: #ffa500;
+    display:block;
 }
 
-a.edit-button:visited {
-    color: #ffa500;
+.edit-button a:hover {
+    color: #fff;
+    background-color: #ffa500;
+    border-radius: 10px;
+    opacity:1.0;
 }
 
+.edit-button a:visited {
+    color: #ffa500;
+}
 
 
 /* 削除ボタン 文字部分 */
 
-a.destroy-button {
-    color: #ff6347;
-    border: 1px solid #ff6347;
+.destroy-button {
+    border: solid 1px #ff6347;
+    width: 40%;
+    height: 36px;
+    border-radius: 10px;
+    display: inline-block;
+    align-items: center;
+    line-height: 36px;
 }
 
-a.destroy-button:visited {
+.destroy-button a {
+    color: #ff6347;
+    display:block;
+}
+
+.destroy-button a:hover {
+    color: #fff;
+    background-color: #ff6347;
+    border-radius: 10px;
+    opacity:1.0;
+}
+
+
+.destroy-button a:visited {
     color: #ff6347;
 }
 
@@ -267,13 +274,21 @@ a.destroy-button:visited {
 }
 
 
+/* ユーザ画像全体 */
 
-.post-show-image-item {
-    border-radius: 20px;
+.post-show-image {
+    width: 90%;
+    margin: 0 auto;
 }
 
 
+/* 各ユーザ画像 */
 
+.post-show-image-item {
+    border-radius: 20px;
+    width: 30%;
+    height: 30%;
+}
 
 
 /* クチコミ本文 */
@@ -347,7 +362,7 @@ a.destroy-button:visited {
 /* いいねする前のボタン */
 
 .post-show-favorites {
-    width: 400px;
+    width: 35%;
     border-radius: 8px;
     border: 1px solid #ffa500;
     text-align: center;
@@ -369,7 +384,7 @@ a.destroy-button:visited {
 /* いいねした後ののボタン */
 
 .post-show-favorites-pushed {
-    width: 400px;
+    width: 35%;
     border-radius: 8px;
     border: 1px solid #ffa500;
     text-align: center;
@@ -392,7 +407,7 @@ a.destroy-button:visited {
 /* この投稿にいいねしたユーザを見る　ボタン */
 
 .post-favorited-user {
-    width: 400px;
+    width: 36%;
     padding: 12px 0px;
     font-size: 15px;
     line-height: 20px;
@@ -402,7 +417,7 @@ a.destroy-button:visited {
     text-align: center;
     display: inline-block;
     background-color: #fff;
-    letter-spacing: 3.5px;
+    letter-spacing: 1.0px;
     color: #ffa500;
 }
 
@@ -418,7 +433,7 @@ a.destroy-button:visited {
 .comment-item {
     display: flex;
     justify-content: space-between;
-    width: 975px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -463,7 +478,6 @@ a.destroy-button:visited {
 .comment-detail {
     text-align: right;
     margin: 30px 0px 10px 0px;
-    padding-right: 32px;
 }
 
 
@@ -484,7 +498,7 @@ a.destroy-button:visited {
 
 
 .comment-form {
-    width: 900px;
+    width: 100%;
     height: 160px;
     padding-top: 12px;
     padding-left: 12px;
@@ -511,7 +525,6 @@ a.destroy-button:visited {
 
 .comment-submit {
     text-align: center;
-    width: 800px;
     margin: 0 auto;
 }
 
@@ -539,6 +552,16 @@ a.destroy-button:visited {
 
 .post-show-items {
     display: inline-block;
+    width: 80%;
+}
+
+
+/* 商品画像 配置 */
+
+.post-show-items.post-show-item-detail-image {
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
 
 
@@ -546,6 +569,8 @@ a.destroy-button:visited {
 
 .post-item-image {
     padding-top: 85px;
+    width: 100%;
+    height: 100%;
 }
 
 
