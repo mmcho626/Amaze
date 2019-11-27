@@ -539,6 +539,8 @@ a.destroy-button:visited {
 dl.post-show-item {
     border-bottom: 1px solid #D3D3D3;
     width: 600px;
+    display: flex;
+    align-items: center;
 }
 
 /* 商品情報の項目 */
@@ -562,6 +564,7 @@ dd.post-item-content {
     font-weight: 300;
     margin: 21px 0 9px 60px;
     white-space: pre-wrap;
+    width: 65%;
 }
 
 
