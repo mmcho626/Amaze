@@ -397,6 +397,16 @@ dl.modal-user-detail {
     min-width: 101px;
 }
 
+/* フォローボタン　上下センタリング */
+
+dt.modal-user-detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
 /* フォローするボタン　装飾 */
 
 a.modal-user-follow-button {
