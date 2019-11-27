@@ -1,10 +1,19 @@
-<% @user.follower_user.each do |user| %>
-<!-- follower_user は user.rbで命名したテーブル -->
 
-	<%= link_to user_path(user) do %>
+<div class="contents">
 
-		 <%= user.email %>
+	<div class="title">
+
+	    <h2>フォロー一覧   　<%= @user.followed.count %>件</h2>
+
+	</div>
+
+
+	<!-- follower_user は user.rbで命名したテーブル -->
+	<% @user.follower_user.each do |user| %>
+
+		<!----------------------- ユーザ一覧 ---------------------->
+		<%= render partial: 'share/user', locals: { user: user } %>
 
 	 <% end %>
 
- <% end %>
+</div>
