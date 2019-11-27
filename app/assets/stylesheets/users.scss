@@ -42,7 +42,7 @@ a.user-edit-button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-left: 30px;
+    margin: 45px 0px 0px 30px;
 }
 
 /* ユーザ情報の幅、配置 */
@@ -111,6 +111,45 @@ a.post-show-button:hover {
 }
 
 
+/* フォローするボタン */
+
+a.user-show-follow-button {
+    padding: 10px;
+    border: solid 1px #ffa500;
+    color: #ffa500;
+    border-radius: 10px;
+}
+
+a.user-show-follow-button:hover{
+    opacity:0.8;
+    color: #fff;
+    background-color: #ffcc99;
+    border: solid 1px #ffcc99;
+}
+
+
+
+/* フォロー解除ボタン */
+
+a.user-show-unfollow-button {
+    padding: 10px;
+    border: solid 1px #ffcc99;
+    color: #fff;
+    border-radius: 10px;
+    background-color: #ffcc99;
+
+}
+
+
+a.user-show-unfollow-button:hover{
+    color: #fff;
+    background-color: #ffcc99;
+}
+
+
+
+
+
 /* ------------------------------------------- */
 /*    ▼ユーザ一覧　　・　検索結果一覧 (ユーザ)     */
 /* ------------------------------------------- */
@@ -158,10 +197,17 @@ dt.user-detail-item {
 dd.user-introduction {
     background: #fff8dc;
     border-radius: 8px;
-    /* border: 1px solid #fff8dc; */
-    margin: 26px 0 0;
+    margin: 10px 0 0;
     padding: 14px;
-    /* position: relative; */
+}
+
+
+
+/* フォローボタン 配置 */
+
+.user-follow {
+    margin: 26px 0px;
+    text-align: center;
 }
 
 
@@ -170,7 +216,7 @@ dd.user-introduction {
 /* フォローするボタン */
 
 a.user-follow-button {
-    padding: 10px 20px;
+    padding: 10px 170px;
     border: solid 1px #ffa500;
     color: #ffa500;
     border-radius: 10px;
@@ -188,7 +234,7 @@ a.user-follow-button:hover{
 /* フォロー解除ボタン */
 
 a.user-unfollow-button {
-    padding: 10px 20px;
+    padding: 10px 170px;
     border: solid 1px #ffcc99;
     color: #fff;
     border-radius: 10px;
@@ -204,7 +250,7 @@ a.user-unfollow-button:hover{
 
 
 a.user-my-button {
-    padding: 10px 27.5px;
+    padding: 10px 170px;
     border: solid 1px #da6272;
     color: #fff;
     border-radius: 10px;

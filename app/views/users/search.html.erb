@@ -66,49 +66,52 @@
 
                     </div>
 
-
-                    <div class="user-follow">
-
-                    <% if user_signed_in? %>
-
-                      <% if user != current_user %>
-
-                        <% if current_user.following?(user) %>
-
-                          <%= link_to 'フォロー解除', unfollows_path(user.id), method: :POST, :class=>"user-unfollow-button" %>
-
-                        <% else %>
-
-                          <%= link_to 'フォローする', follows_path(user.id), method: :POST, :class=>"user-follow-button" %>
-
-                        <% end %>
-
-                      <% else %>
-
-                        <%= link_to 'マイページ', user_path(current_user), :class=>"user-my-button" %>
-
-                      <% end %>
-
-                    <% else %>
-
-                      <%= link_to 'フォローする', new_user_session_path, :class=>"user-follow-button" %>
-
-                    <% end %>
-
-                  </div>
-
                 </dt>
+
+              <% end %>
+
 
                 <!-- 紹介文 -->
                 <dd class="user-introduction">
                 <%= user.user_introduction %>
                 </dd>
 
-              <% end %>
 
             </dl>
 
           <% end %>
+
+
+
+          <div class="user-follow">
+
+            <% if user_signed_in? %>
+
+              <% if user != current_user %>
+
+                <% if current_user.following?(user) %>
+
+                  <%= link_to 'フォロー解除', unfollows_path(user.id), method: :POST, :class=>"user-unfollow-button" %>
+
+                <% else %>
+
+                  <%= link_to 'フォローする', follows_path(user.id), method: :POST, :class=>"user-follow-button" %>
+
+                <% end %>
+
+              <% else %>
+
+                <%= link_to 'マイページ', user_path(current_user), :class=>"user-my-button" %>
+
+              <% end %>
+
+            <% else %>
+
+              <%= link_to 'フォローする', new_user_session_path, :class=>"user-follow-button" %>
+
+            <% end %>
+
+          </div>
 
         </div>
 

@@ -15,11 +15,11 @@
 
 				<% if current_user.following?(@user) %>  <!-- フォロー済のとき -->
 
-					<%= link_to 'フォロー解除', unfollow_path(@user.id), method: :POST, :class=>"user-unfollow-button" %>
+					<%= link_to 'フォロー解除', unfollow_path(@user.id), method: :POST, :class=>"user-show-unfollow-button" %>
 
 				<% else %>  <!-- フォローしていないとき -->
 
-					<%= link_to 'フォローする', follow_path(@user.id), method: :POST, :class=>"user-follow-button" %>
+					<%= link_to 'フォローする', follow_path(@user.id), method: :POST, :class=>"user-show-follow-button" %>
 
 				<% end %>
 
@@ -38,7 +38,7 @@
 		<% else %>  <!-- ログアウト時 -->
 
 			<!-- "フォローする"を押すとログイン画面に遷移する -->
-			<%= link_to 'フォローする', new_user_session_path, :class=>"user-follow-button" %>
+			<%= link_to 'フォローする', new_user_session_path, :class=>"user-show-follow-button" %>
 
 		<% end %>
 
