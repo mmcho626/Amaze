@@ -213,7 +213,7 @@ dd.user-introduction {
 
 
 
-/* フォローするボタン */
+/* フォローするボタン　装飾 */
 
 a.user-follow-button {
     padding: 10px 170px;
@@ -231,7 +231,7 @@ a.user-follow-button:hover{
 
 
 
-/* フォロー解除ボタン */
+/* フォロー解除ボタン　装飾 */
 
 a.user-unfollow-button {
     padding: 10px 170px;
@@ -247,7 +247,7 @@ a.user-unfollow-button:hover{
     background-color: #ffcc99;
 }
 
-
+/* マイページボタン　装飾 */
 
 a.user-my-button {
     padding: 10px 170px;
@@ -263,12 +263,6 @@ a.user-my-button:hover{
     border-radius: 10px;
     background-color: #da6272;
 }
-
-
-.fa-user-alt{
-	color:black;
-}
-
 
 
 /* -------------------------- */
