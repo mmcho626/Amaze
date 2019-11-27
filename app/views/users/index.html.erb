@@ -1,6 +1,4 @@
 
-
-
 <div class="contents">
 
   <div class="title">
@@ -16,120 +14,8 @@
 
       <% @users.each do |user| %>
 
-
-        <div class="user-list-item">
-
-
-          <% if admin_signed_in? %><!-- 管理者ログイン時 -->
-
-
-            <%= link_to admins_user_path(user.id) do %>
-
-              <!-- ユーザ画像 -->
-              <%= attachment_image_tag user, :user_image, fallback:"no_image.jpg", size: "60x60", :class=>"user-image-circle" %>
-
-              <!-- ユーザ名 -->
-              <div class="index-user-name" %><%= user.name %></div>
-
-              <!--   性別     /      年齢    -->
-              <%= user.sex %> / <%= user.age %>
-
-              <!-- 紹介文 -->
-              <%= user.user_introduction %>
-
-            <% end %>
-
-
-          <% else %><!-- 管理者ログアウト時 -->
-
-
-            <dl class="user-detail">
-
-              <%= link_to user_path(user.id), :class=>"user-detail-items" do %>
-
-                <dt class="user-detail-item">
-
-                  <!-- ユーザ画像 -->
-                  <%= attachment_image_tag user, :user_image, fallback:"no_image.jpg", size: "60x60", :class=>"user-image-circle" %>
-
-
-                  <div class="user-spec">
-
-                    <!-- ユーザ名 -->
-                    <div class="index-user-name" %><%= user.name %></div>
-
-                    <!--   性別      /     年齢    -->
-                    <%= user.sex %> / <%= user.age %>
-
-                    <!-- フォロワー数 -->
-                    / <p><%= user.followed.count %>フォロワー</p>
-
-                    </div>
-
-                </dt>
-
-              <% end %>
-
-
-                <!-- 紹介文 -->
-                <dd class="user-introduction">
-                <%= user.user_introduction %>
-                </dd>
-
-
-            </dl>
-
-          <% end %>
-
-
-
-          <div class="user-follow">
-
-            <% if user_signed_in? %>
-
-              <% if user != current_user %>
-
-                <% if current_user.following?(user) %>
-
-                  <div class="user-unfollow-button">
-
-                    <%= link_to 'フォロー解除', unfollows_path(user.id), method: :POST %>
-
-                  </div>
-
-                <% else %>
-
-                  <div class="user-follow-button">
-
-                    <%= link_to 'フォローする', follows_path(user.id), method: :POST %>
-
-                  </div>
-
-                <% end %>
-
-              <% else %>
-
-                <div class="user-my-button">
-
-                  <%= link_to 'マイページ', user_path(current_user) %>
-
-                </div>
-
-              <% end %>
-
-            <% else %>
-
-              <div class="user-follow-button">
-
-                <%= link_to 'フォローする', new_user_session_path, :class=>"user-follow-button" %>
-
-              </div>
-
-            <% end %>
-
-          </div>
-
-        </div>
+        <!----------------------- ユーザ一覧 ---------------------->
+        <%= render partial: 'share/user', locals: { user: user } %>
 
       <% end %>
 
