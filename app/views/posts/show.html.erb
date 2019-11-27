@@ -395,6 +395,8 @@
 
     user-list →  modal-user-list
 
+    user-detail-item → modal-user-detail-item
+
     に変更。
 
  -->
@@ -463,7 +465,7 @@
 
                 <%= link_to user_path(user.id), :class=>"user-detail-items" do %>
 
-                    <dt class="user-detail-item">
+                    <dt class="modal-user-detail-item">
 
                       <!-- ユーザ画像 -->
                       <%= attachment_image_tag user, :user_image, fallback:"no_image.jpg", size: "60x60", :class=>"user-image-circle" %>

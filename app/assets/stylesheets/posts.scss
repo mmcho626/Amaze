@@ -138,7 +138,7 @@
 
 .post-body {
     text-align: left;
-    width: 340px;
+    width: 100%;
     height: 70px;
     line-height: 22px;
     font-weight: 300;
@@ -293,14 +293,16 @@
 
 /* クチコミ本文 */
 
-.post-body {
-    text-align: left;
-    width: 100%;
-    height: 70px;
-    line-height: 22px;
+.post-show-body {
+    vertical-align: top;
+    font-size: 15px;
+    line-height: 38px;
+    letter-spacing: 0.4px;
     font-weight: 300;
-    overflow: hidden;
+    margin: 21px 0 9px 60px;
+    white-space: pre-wrap;
 }
+
 
 /* クチコミ本文　文字 */
 
