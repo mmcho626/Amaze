@@ -33,6 +33,7 @@
   <% end %>
 
 
+
   <div class="borad-conetnts">
 
     <!-------------------- ボードゲーム詳細 -------------------->
@@ -41,83 +42,15 @@
   </div>
 
 
-  <!-- 商品の口コミ一覧 -->
+
 
   <h2>この商品の口コミ一覧</h2>
 
+
   <% @posts.each do |item_post| %>
 
-
-    <!-- クリックで投稿者の詳細ページに遷移　ここから -->
-
-
-    <% if admin_signed_in? %> <!-- 管理者ログイン時 -->
-
-
-      <%= link_to admins_user_path(item_post.user) do %>
-
-        <%= attachment_image_tag item_post.user, :user_image, fallback: "no_image.jpg", size: "50x50", :class=>"user-image-circle" %>
-
-        <%= item_post.user.name %>
-
-      <% end %>
-
-
-    <% else %> <!-- 管理者ログアウト時 -->
-
-
-      <%= link_to user_path(item_post.user) do %>
-
-        <%= attachment_image_tag item_post.user, :user_image, fallback: "no_image.jpg", size: "50x50", :class=>"user-image-circle" %>
-
-        <%= item_post.user.name %>
-
-      <% end %>
-
-
-    <% end %>
-
-
-    <!-- クリックで投稿者の詳細ページに遷移　ここまで -->
-
-
-
-    <!-- クリックで投稿詳細ページに遷移　ここから -->
-
-
-    <% if admin_signed_in? %> 管理者ログイン時
-
-      <%= link_to admins_post_path(item_post) do %>
-
-        <%= attachment_image_tag item_post, :post1_image, fallback:"no_image.jpg", size: "165x165" %>
-
-        <%= attachment_image_tag item_post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
-
-        <%= item_post.post_body %>
-
-      <% end %>
-
-
-    <% else %> <!-- 管理者ログアウト時 -->
-
-
-      <%= link_to post_path(item_post) do %>
-
-        <%= attachment_image_tag item_post, :post1_image, fallback:"no_image.jpg", size: "165x165" %>
-
-        <%= attachment_image_tag item_post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
-
-        <%= item_post.post_body %>
-
-      <% end %>
-
-    <% end %>
-
-    <!-- クリックで投稿詳細ページに遷移　ここまで -->
-
-
-    <%= time_ago_in_words(item_post.created_at) %>前
-      <!-- ViewHelper の time_ago_in_words 使用 -->
+    <!----------------------- 口コミ一覧 ---------------------->
+    <%= render partial: 'share/post', locals: { post: post } %>
 
   <% end %>
 
