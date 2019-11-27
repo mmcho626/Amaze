@@ -365,8 +365,8 @@ dl.modal-user-detail {
     width: 155px;
     text-align: right;
     margin-left: 28px;
+    min-width: 101px;
 }
-
 
 /* フォローするボタン　装飾 */
 
