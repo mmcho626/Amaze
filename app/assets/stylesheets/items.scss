@@ -1,3 +1,66 @@
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* 商品部分　全体 */
+
+.post-show-items-index {
+    justify-content: space-between;
+    text-align: center;
+}
+
+
+/* 商品部分　項目横並び */
+
+.post-show-items {
+    display: inline-block;
+    width: 80%;
+}
+
+
+/* 商品画像 配置 */
+
+.post-show-items.post-show-item-detail-image {
+    width: 30%;
+    align-items: center;
+    max-width: 200px;
+}
+
+
+/* 商品画像 */
+
+.post-item-image {
+    padding-top: 85px;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* テーブル枠 */
+
+dl.post-show-item {
+    border-bottom: 1px solid #D3D3D3;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+/* 商品情報の項目 */
+
+dt.post-item-title {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    width: 100px;
+    margin: 31px 0 31px;
+}
+
+/* 商品情報の説明 */
+
+dd.post-item-content {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 15px;
+    line-height: 38px;
+    letter-spacing: 0.4px;
+    font-weight: 300;
+    white-space: pre-wrap;
+    width: 65%;
+}
