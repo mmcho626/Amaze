@@ -242,8 +242,8 @@ a.new-post {
 /* 内容　メイン部分(サイドバー以外) */
 
 .main {
-    width: 60%;
-    margin: 0 auto;
+    width: 80%;
+    margin: 0 0 0 auto;
 }
 
 

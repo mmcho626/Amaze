@@ -1,54 +1,52 @@
 
-<div class="contents">
 
-	<div class="title">
+<div class="title">
 
-		<h2>クチコミの投稿</h2>
+	<h2>クチコミの投稿</h2>
 
+</div>
+
+
+
+<!-- 画像を追加 -->
+<p class="sub-title sub-p">画像を追加</p>
+
+
+
+<%= form_for(@post) do |f| %>
+
+	<!-- 画像１ -->
+	<div class="post-item">
+		<%= f.label :post1_image, :class=>'post-label post-image' %>
+		<%= f.attachment_field :post1_image %>
+	</div>
+
+	<!-- 画像２ -->
+	<div class="post-item">
+		<%= f.label :post2_image, :class=>'post-label post-image' %>
+		<%= f.attachment_field :post2_image %>
+	</div>
+
+	<!-- ボードゲームの名前 -->
+	<div class="post-item">
+		<%= f.label :search_item, :class=>'post-label  sub-title' %>
+		<%= text_field_tag :post_search_item, '', :placeholder =>  "ボードゲーム名を入力" , :class=>"board-name" %>
+	</div>
+
+	<!-- レビューを追加 -->
+	<div class="post-item">
+	    <%= f.label :post_body, :class=>'post-label sub-title' %>
+	    <%= f.text_area :post_body, :placeholder =>  "遊んだボードゲームをレビューしてみましょう", :class=>"post-form" %>
+	</div>
+
+	<!-- 保存ボタン -->
+	<div class="post-item post-submit">
+	    <%= f.submit '保存', :class=> "post-button" %>
 	</div>
 
 
-
-	<!-- 画像を追加 -->
-	<p class="sub-title sub-p">画像を追加</p>
+<% end %>
 
 
+<%= link_to '← 保存せずにトップに戻る', posts_path,:class=> "post-back" %>
 
-	<%= form_for(@post) do |f| %>
-
-		<!-- 画像１ -->
-		<div class="post-item">
-			<%= f.label :post1_image, :class=>'post-label post-image' %>
-			<%= f.attachment_field :post1_image %>
-		</div>
-
-		<!-- 画像２ -->
-		<div class="post-item">
-			<%= f.label :post2_image, :class=>'post-label post-image' %>
-			<%= f.attachment_field :post2_image %>
-		</div>
-
-		<!-- ボードゲームの名前 -->
-		<div class="post-item">
-			<%= f.label :search_item, :class=>'post-label  sub-title' %>
-			<%= text_field_tag :post_search_item, '', :placeholder =>  "ボードゲーム名を入力" , :class=>"board-name" %>
-		</div>
-
-		<!-- レビューを追加 -->
-		<div class="post-item">
-		    <%= f.label :post_body, :class=>'post-label sub-title' %>
-		    <%= f.text_area :post_body, :placeholder =>  "遊んだボードゲームをレビューしてみましょう", :class=>"post-form" %>
-		</div>
-
-		<!-- 保存ボタン -->
-		<div class="post-item post-submit">
-		    <%= f.submit '保存', :class=> "post-button" %>
-		</div>
-
-
-	<% end %>
-
-
-	<%= link_to '← 保存せずにトップに戻る', posts_path,:class=> "post-back" %>
-
-</div>
