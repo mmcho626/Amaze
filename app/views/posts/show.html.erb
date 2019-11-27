@@ -58,19 +58,12 @@
 
 
 
-
-
-
-
-
     <!-- 投稿時間の表示 -->
 
     <div class="post-time-ago">
       投稿日時：<%= time_ago_in_words(@post.created_at) %>前
       <!-- ViewHelper の time_ago_in_words 使用 -->
     </div>
-
-
 
 
 
@@ -273,17 +266,38 @@
     <% end %>
 
 
-
-
-
     <!-- コメント投稿、表示機能　ここまで -->
 
 
 
+    <div class="post-show-title">
 
-<%= render partial: 'share/item', locals: { item: @item } %>
+      <h2>ボードゲーム詳細</h2>
+
+    </div>
+
+    <!-------------------- ボードゲーム詳細 -------------------->
+    <%= render partial: 'share/item', locals: { item: @item } %>
 
 
+
+    <div class="back-button">
+
+      <% if admin_signed_in? %><!-- 管理者ログイン時 -->
+
+        <%= link_to '← 一覧に戻る', admins_posts_path, :class=>"post-back back-button" %>
+
+      <% else %> <!-- 管理者ログアウト時 -->
+
+        <%= link_to '← 一覧に戻る', posts_path, :class=>"post-back back-button" %>
+
+      <% end %>
+
+    </div>
+
+  </div>
+
+</div>
 
 
 
