@@ -125,107 +125,108 @@
 		</div>
 
 
-<div class="post-index-list">
+		<div class="post-index-list">
 
-	<% @posts.each do |post| %>
+			<% @posts.each do |post| %>
 
-		<% if admin_signed_in? %> <!-- 管理者ログイン時 -->
+				<% if admin_signed_in? %> <!-- 管理者ログイン時 -->
 
-			<%= link_to admins_post_path(post) do %>
+					<%= link_to admins_post_path(post) do %>
 
-	            <div class="post-index">
+			            <div class="post-index">
 
-	                <div class="post-index-item">
+			                <div class="post-index-item">
 
-	                    <%= attachment_image_tag post, :post1_image, fallback:"no_image.jpg", size: "165x165", :class=>"" %>
+			                    <%= attachment_image_tag post, :post1_image, fallback:"no_image.jpg", :class=>"post-index-image-size" %>
 
-	                    <%= attachment_image_tag post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
+			                    <%= attachment_image_tag post, :post2_image, fallback:"no_image.jpg", :class=>"post-index-image-size" %>
 
-	                </div>
+			                </div>
 
-	                <div class="post-index-item">
+			                <div class="post-index-item">
 
-	                    <!-- クチコミ内容 -->
-	                    <div class="post-body">
+			                    <!-- クチコミ内容 -->
+			                    <div class="post-body">
 
-	                        <%= post.post_body %>
+			                        <%= post.post_body %>
 
-	                    </div>
+			                    </div>
 
-	                </div>
+			                </div>
 
-	                <div class="user-show-post-detail">
+			                <div class="user-show-post-detail">
 
-						<div class="user-show-post-more">
+								<div class="user-show-post-more">
 
-		                    <%= link_to 'もっと見る', post_path(post), :class=>"post-show-button" %>
+				                    <%= link_to 'もっと見る', post_path(post), :class=>"post-show-button" %>
 
-						</div>
+								</div>
 
-						<div class="user-show-post-ago">
+								<div class="user-show-post-ago">
 
-			        		<%= time_ago_in_words(post.created_at) %>前
-							<!-- ViewHelper の time_ago_in_words 使用 -->
+					        		<%= time_ago_in_words(post.created_at) %>前
+									<!-- ViewHelper の time_ago_in_words 使用 -->
 
-						</div>
+								</div>
 
-					</div>
+							</div>
 
-	            </div>
+			            </div>
+
+					<% end %>
+
+				<% else %><!-- 管理者ログアウト時 -->
+
+					<%= link_to post_path(post) do %>
+
+			            <div class="post-index">
+
+			                <div class="post-index-item">
+
+			                    <%= attachment_image_tag post, :post1_image, fallback:"no_image.jpg", :class=>"post-index-image-size" %>
+
+			                    <%= attachment_image_tag post, :post2_image, fallback:"no_image.jpg", :class=>"post-index-image-size" %>
+
+			                </div>
+
+			                <div class="post-index-item">
+
+			                    <!-- クチコミ内容 -->
+			                    <div class="post-body">
+
+			                        <%= post.post_body %>
+
+			                    </div>
+
+			                </div>
+
+			                <div class="user-show-post-detail">
+
+								<div class="user-show-post-more">
+
+				                    <%= link_to 'もっと見る', post_path(post), :class=>"post-show-button" %>
+
+								</div>
+
+								<div class="user-show-post-ago">
+
+					        		<%= time_ago_in_words(post.created_at) %>前
+									<!-- ViewHelper の time_ago_in_words 使用 -->
+
+								</div>
+
+							</div>
+
+			            </div>
+
+					<% end %>
+
+				<% end %>
 
 			<% end %>
 
-		<% else %><!-- 管理者ログアウト時 -->
+		</div>
 
-			<%= link_to post_path(post) do %>
-
-	            <div class="post-index">
-
-	                <div class="post-index-item">
-
-	                    <%= attachment_image_tag post, :post1_image, fallback:"no_image.jpg", size: "165x165", :class=>"" %>
-
-	                    <%= attachment_image_tag post, :post2_image, fallback:"no_image.jpg", size: "165x165" %>
-
-	                </div>
-
-	                <div class="post-index-item">
-
-	                    <!-- クチコミ内容 -->
-	                    <div class="post-body">
-
-	                        <%= post.post_body %>
-
-	                    </div>
-
-	                </div>
-
-	                <div class="user-show-post-detail">
-
-						<div class="user-show-post-more">
-
-		                    <%= link_to 'もっと見る', post_path(post), :class=>"post-show-button" %>
-
-						</div>
-
-						<div class="user-show-post-ago">
-
-			        		<%= time_ago_in_words(post.created_at) %>前
-							<!-- ViewHelper の time_ago_in_words 使用 -->
-
-						</div>
-
-					</div>
-
-	            </div>
-
-			<% end %>
-
-		<% end %>
-
-	<% end %>
-
-</div>
 	</div>
 
 </div>

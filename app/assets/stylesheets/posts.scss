@@ -106,13 +106,31 @@
 /* -------------------------- */
 
 
+/* 全体 */
+
+.user-list-inner {
+    margin: 0 0 0 auto;
+    text-align: left;
+    width: 90%;
+    max-width: 1000px;
+    min-width: 750px;
+}
+
+/* */
+
+.post-index-image-size{
+    width: 40%;
+    height: 40%;
+}
+
+
 /* 各クチコミ */
 
 .post-index {
-    width: 340px;
+    width: 40%;
     text-align: center;
     float: left;
-    padding: 30px 80px;
+    padding: 30px 20px;
 }
 
 
