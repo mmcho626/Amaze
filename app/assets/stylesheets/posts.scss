@@ -46,7 +46,7 @@
 /* ボードゲームの名前　入力フォーム */
 
 .board-name {
-    width: 800px;
+    width: 100%;
     height: 35px;
     font-size: 12px;
     padding-left: 12px;
@@ -56,7 +56,7 @@
 /* レビュー　入力フォーム */
 
 .post-form {
-    width: 800px;
+    width: 100%;
     height: 160px;
     padding-top: 12px;
     padding-left: 12px;
@@ -68,7 +68,6 @@
 
 .post-submit {
     text-align: center;
-    width: 800px;
     margin-bottom: 45px;
 }
 
@@ -80,7 +79,7 @@
 /* 保存ボタンの装飾 */
 
 .post-button {
-    width: 500px;
+    width: 100%;
     height: 40px;
     border: solid 1px;
     font-size: 17px;
