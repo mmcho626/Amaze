@@ -63,7 +63,7 @@ a:hover {
 
 
 .header-contents{
-    width: 70%;
+    width: 100%;
 	height:70px;
 	margin: 0 auto;
 	display: flex;
@@ -71,7 +71,7 @@ a:hover {
 }
 
 .header-left{
-	width:700px;
+	width: 70%;
 	height:50px;
 	display: flex;
 	align-items:center;
@@ -122,7 +122,8 @@ a:hover {
 	height: 50px;
 	display: flex;
 	align-items: center;
-    margin: 0 0 0 auto;
+    width: 34%;
+    text-align: right;
 }
 
 /* 新規登録、ログイン、ログアウトの各ボタン */
@@ -131,6 +132,7 @@ a:hover {
 	padding: 0px 20px;
 	font-size: 14px;
 	align-items: center;
+    text-align: center;
 }
 
 
@@ -138,7 +140,6 @@ a:hover {
 
 .header-right-item {
     margin: 0 0 0 auto;
-    width: 100%;
 }
 
 
@@ -271,15 +272,46 @@ a.new-post {
     min-height: 300px;
     height: auto;
     background-color: #fff;
-    border: 1px solid #ffa500;
     border-radius: 5px;
     float: left;
     margin-top: 10px;
     position: fixed;
     left: 62px;
-    /* margin-left: 62px; */
-    top: 229px;
+    top: 242px;
 }
+
+
+/* サイドバー中身　幅、配置 */
+
+
+.sidebar-contents {
+    width: 90%;
+    margin: 0 auto;
+    padding-left:50px;
+}
+
+
+/* サイドバー　文字 */
+
+.sidebar-contents a {
+    color: #666
+    font-size: 17px;
+    line-height: 26px;
+    letter-spacing: 0;
+    color: #666
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    font-size: 16px;
+}
+
+
+
+.sidebar-contents a:visited {
+    color: #666;
+}
+
 
 
 /* -------------------------- */

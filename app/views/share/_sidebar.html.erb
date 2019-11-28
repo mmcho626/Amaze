@@ -1,2 +1,69 @@
 
-<div id ="B">あかhふいhふぇpふぇ</div>
+<% if admin_signed_in? %> <!-- 管理者ログイン時 -->
+
+
+	<!-- ボードゲーム 新規投稿 -->
+
+	<div class="sidebar-contents">
+
+		<%= link_to '> ボードゲームを追加する', new_admins_item_path, :class=>"sidebar-link" %>
+
+	</div>
+
+
+	<!-- ボードゲーム一覧　管理者用 -->
+
+	<div class="sidebar-contents">
+
+		<%= link_to '> ボードゲーム一覧を見る', admins_items_path, :class=>"sidebar-link" %>
+
+	</div>
+
+
+	<!-- 口コミ一覧　管理者用 -->
+
+	<div class="sidebar-contents">
+
+		<%= link_to '> 口コミ一覧を見る', admins_posts_path, :class=>"sidebar-link" %>
+
+	</div>
+
+	<!-- ユーザ一覧　管理者用 -->
+
+	<div class="sidebar-contents">
+
+		<%= link_to '> ユーザ一覧を見る', admins_users_path, :class=>"sidebar-link" %>
+
+	</div>
+
+
+<% else %> <!-- 管理者ログアウト時 -->
+
+
+	<!-- ボードゲーム一覧 -->
+
+	<div class="sidebar-contents">
+
+		<%= link_to '> ボードゲーム一覧を見る', items_path, :class=>"sidebar-link" %>
+
+	</div>
+
+
+	<!-- 口コミ一覧 -->
+
+	<div class="sidebar-contents">
+
+		<%= link_to '> 口コミ一覧を見る', posts_path, :class=>"sidebar-link" %>
+
+	</div>
+
+	<!-- ユーザ一覧 -->
+
+	<div class="sidebar-contents">
+
+		<%= link_to '> ユーザ一覧を見る', users_path, :class=>"sidebar-link" %>
+
+	</div>
+
+
+<% end %>
