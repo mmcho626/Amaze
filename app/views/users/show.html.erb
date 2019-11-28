@@ -6,38 +6,36 @@
 
 <div class="user-show-follow-button">
 
-	<% if user_signed_in? %> <!-- ユーザログイン時 -->
+  <% if user_signed_in? %> <!-- ユーザログイン時 -->
 
-		<% if @user != current_user %> <!-- current_user でない時 -->
+    <% if @user != current_user %> <!-- current_user でない時 -->
 
-			<% if current_user.following?(@user) %>  <!-- フォロー済のとき -->
+      <% if current_user.following?(@user) %>  <!-- フォロー済のとき -->
 
-				<%= link_to 'フォロー解除', unfollow_path(@user.id), method: :POST, :class=>"user-show-unfollow-button" %>
+        <%= link_to 'フォロー解除', unfollow_path(@user.id), method: :POST, :class=>"user-show-unfollow-button" %>
 
-			<% else %>  <!-- フォローしていないとき -->
+      <% else %>  <!-- フォローしていないとき -->
 
-				<%= link_to 'フォローする', follow_path(@user.id), method: :POST, :class=>"user-show-follow-button" %>
+        <%= link_to 'フォローする', follow_path(@user.id), method: :POST, :class=>"user-show-follow-button" %>
 
-			<% end %>
+      <% end %>
 
-		<% elsif @user == current_user %> <!-- current_user の時 -->
+    <% elsif @user == current_user %> <!-- current_user の時 -->
 
-			<%= link_to '設定', edit_user_path(@user.id), :class=>"user-edit-button" %>
+      <%= link_to '設定', edit_user_path(@user.id), :class=>"user-edit-button" %>
 
-		<% elsif admin_signed_in? %> <!-- 管理者ログイン時 -->
+    <% end %>
 
-			<%= link_to '設定', edit_admins_user_path(@user.id), :class=>"user-edit-button" %>
+  <% elsif admin_signed_in? %> <!-- 管理者ログイン時 -->
 
-		<% end %>
+    <%= link_to '設定', edit_admins_user_path(@user.id), :class=>"user-edit-button" %>
 
+  <% else %>  <!-- ログアウト時 -->
 
+    <!-- "フォローする"を押すとログイン画面に遷移する -->
+    <%= link_to 'フォローする', new_user_session_path, :class=>"user-show-follow-button" %>
 
-	<% else %>  <!-- ログアウト時 -->
-
-		<!-- "フォローする"を押すとログイン画面に遷移する -->
-		<%= link_to 'フォローする', new_user_session_path, :class=>"user-show-follow-button" %>
-
-	<% end %>
+  <% end %>
 
 </div>
 
@@ -48,398 +46,105 @@
 <div class="user-show-detail">
 
 
-	<!-- ユーザ情報左側（ユーザ画像） -->
-	<div class="user-detail-item user-detail-left">
+  <!-- ユーザ情報左側（ユーザ画像） -->
+  <div class="user-detail-item user-detail-left">
 
-		<%= attachment_image_tag @user, :user_image, fallback:"no_image.jpg", size: "150x150", :class=>"user-show-image" %>
+    <%= attachment_image_tag @user, :user_image, fallback:"no_image.jpg", size: "150x150", :class=>"user-show-image" %>
 
-	</div>
-
-
-
-	<!-- ユーザ情報右側 -->
-	<div class="user-detail-item user-detail-right">
-
-		<!-- ユーザ名 -->
-		<div class="user-name">
-
-			<%= @user.name %>
-
-		</div>
+  </div>
 
 
-		<div class="user-show-spec">
 
-			<!-- 性別 -->
-			<%= @user.sex %>/
+  <!-- ユーザ情報右側 -->
+  <div class="user-detail-item user-detail-right">
 
-			<!-- 性別 -->
-			<%= @user.age %>
+    <!-- ユーザ名 -->
+    <div class="user-name">
 
-		</div>
+      <%= @user.name %>
 
-
-		<div class="user-action">
-
-			<%= link_to follower_user_path do %>
-
-				<%= @user.follower.count %>フォロー
-
-			<% end %>
-
-			<a id='modal-open-followlist-btn'><%= @user.follower.count %>フォロー</a>
+    </div>
 
 
-			<%= link_to followed_user_path do %>
+    <div class="user-show-spec">
 
-				<%= @user.followed.count %>フォロワー
+      <!-- 性別 -->
+      <%= @user.sex %>/
 
-			<% end %>
+      <!-- 性別 -->
+      <%= @user.age %>
 
-			<a id='modal-open-followerlist-btn'><%= @user.followed.count %>フォロワー</a>
+    </div>
 
-			<%= link_to favorites_user_path do %>
 
-				<%= @user.favorites.count %>いいね
+    <div class="user-action">
 
-			<% end %>
 
-		</div>
+      <!-- フォロー一覧 -->
 
-	</div>
+      <%= link_to follower_user_path do %>
+
+        <%= @user.follower.count %>フォロー
+
+      <% end %>
+
+
+      <!-- フォロワー一覧 -->
+
+
+      <%= link_to followed_user_path do %>
+
+        <%= @user.followed.count %>フォロワー
+
+      <% end %>
+
+
+      <!-- いいねした投稿一覧 -->
+
+      <%= link_to favorites_user_path do %>
+
+        <%= @user.favorites.count %>いいね
+
+      <% end %>
+
+
+    </div>
+
+  </div>
 
 </div>
 
 
 
+<!-- ユーザ紹介文 -->
 
+<div class="user-show-introduction">
+
+    <%= @user.user_introduction %>
+
+</div>
 
 
 
 <div class="show-post-index">
 
-	<div class="title">
+  <div class="title">
 
-	  <h2>このユーザの投稿一覧</h2>
-
-	</div>
-
-
-	<div class="post-index-list">
-
-		<% @posts.each do |post| %>
-
-		    <!----------------------- 口コミ一覧 ---------------------->
-			<%= render partial: 'share/post', locals: { post: post } %>
-
-		<% end %>
-
-	</div>
-
-</div>
-
-</div>
-
-
-
-
-<!-- モーダル部分　フォロー一覧 -->
-
-
-<!-- モーダルウインドウ背景 -->
-<div id='overlay'>
-
-<!-- モーダルウインドウの幅、配置 -->
-<div id='modalWindow'>
-
-  <!-- モーダルウインドウ中身 -->
-  <div class='modal-message-box'>
-
-
-    <div class="modal-title">
-
-        <h2>フォローユーザ一覧　<%= @user.follower.count %> 人</h2>
-
-    </div>
-
-
-    <div class="modal-user-list">
-
-      <% @user.following_user.each do |user| %>
-
-
-        <div class="modal-user-list-item">
-
-
-          <% if admin_signed_in? %><!-- 管理者ログイン時 -->
-
-
-            <%= link_to admins_user_path(user.id) do %>
-
-              <!-- ユーザ画像 -->
-              <%= attachment_image_tag user, :user_image, fallback:"no_image.jpg", size: "60x60", :class=>"user-image-circle" %>
-
-              <div class="favorite-user-detail">
-
-                <!-- ユーザ名 -->
-                <%= user.name %>
-
-                <!--   性別     /      年齢    -->
-                <%= user.sex %> / <%= user.age %>
-
-                <!-- フォロワー数 -->
-                <p><%= user.followed.count %>フォロワー</p>
-
-              </div>
-
-                <!-- 紹介文 -->
-                <%= user.user_introduction %>
-
-
-
-            <% end %>
-
-
-          <% else %><!-- 管理者ログアウト時 -->
-
-
-
-
-            <dl class="modal-user-detail">
-
-              <%= link_to user_path(user.id), :class=>"user-detail-items" do %>
-
-                  <dt class="modal-user-detail-item">
-
-                    <!-- ユーザ画像 -->
-                    <%= attachment_image_tag user, :user_image, fallback:"no_image.jpg", size: "60x60", :class=>"user-image-circle" %>
-
-
-                    <div class="user-spec">
-
-                      ユーザ名
-                      <%= user.name %>
-
-                      <!--   性別     /      年齢    -->
-                      <%= user.sex %> / <%= user.age %>
-
-                      <!-- フォロワー数 -->
-                      <p><%= user.followed.count %>フォロワー</p>
-
-                    </div>
-
-
-                    <!-- フォローボタン -->
-                    <div class="modal-user-follow">
-
-                      <% if user_signed_in? %>
-
-                        <% if user != current_user %>
-
-                            <% if current_user.following?(user) %>
-
-                                <%= link_to 'フォロー解除', unfollows_path(user.id), method: :POST, :class=>"modal-user-unfollow-button" %>
-
-                            <% else %>
-
-                                <%= link_to 'フォローする', follows_path(user.id), method: :POST, :class=>"modal-user-follow-button" %>
-
-                            <% end %>
-
-                        <% else %>
-
-                          <%= link_to 'マイページ', user_path(current_user), :class=>"modal-user-my-button" %>
-
-                        <% end %>
-
-
-                      <% elsif %>
-
-                        <%= link_to 'フォローする', new_user_session_path, :class=>"modal-user-follow-button" %>
-
-                      <% end %>
-
-                    </div>
-
-                  </dt>
-
-                  <!-- 紹介文 -->
-                  <dd class="user-introduction">
-
-                    <%= user.user_introduction %>
-
-                  </dd>
-
-              <% end %>
-
-            </dl>
-
-          <% end %>
-
-        </div>
-
-      <% end %>
-
-    </div>
+    <h2>このユーザの投稿一覧</h2>
 
   </div>
 
-  <!-- モーダルウインドウを閉じるボタン -->
-  <button id='modal-close-btn'>閉じる</button>
 
-</div>
+  <div class="post-index-list">
 
-</div>
+    <% @posts.each do |post| %>
 
+        <!----------------------- 口コミ一覧 ---------------------->
+      <%= render partial: 'share/post', locals: { post: post } %>
 
-
-
-<!-- モーダル部分　フォロワー一覧 -->
-
-
-
-<!-- モーダルウインドウ背景 -->
-<div id='overlay'>
-
-<!-- モーダルウインドウの幅、配置 -->
-<div id='modalWindow'>
-
-  <!-- モーダルウインドウ中身 -->
-  <div class='modal-message-box'>
-
-
-    <div class="modal-title">
-
-        <h2>フォロワーユーザ一覧　<%= @user.follower_user.count %> 人</h2>
-
-    </div>
-
-
-    <div class="modal-user-list">
-
-      <% @user.follower_user.each do |user| %>
-
-
-        <div class="modal-user-list-item">
-
-
-          <% if admin_signed_in? %><!-- 管理者ログイン時 -->
-
-
-            <%= link_to admins_user_path(user.id) do %>
-
-              <!-- ユーザ画像 -->
-              <%= attachment_image_tag user, :user_image, fallback:"no_image.jpg", size: "60x60", :class=>"user-image-circle" %>
-
-              <div class="favorite-user-detail">
-
-                <!-- ユーザ名 -->
-                <%= user.name %>
-
-                <!--   性別     /      年齢    -->
-                <%= user.sex %> / <%= user.age %>
-
-                <!-- フォロワー数 -->
-                <p><%= user.followed.count %>フォロワー</p>
-
-              </div>
-
-                <!-- 紹介文 -->
-                <%= user.user_introduction %>
-
-
-
-            <% end %>
-
-
-          <% else %><!-- 管理者ログアウト時 -->
-
-
-
-
-            <dl class="modal-user-detail">
-
-              <%= link_to user_path(user.id), :class=>"user-detail-items" do %>
-
-                  <dt class="modal-user-detail-item">
-
-                    <!-- ユーザ画像 -->
-                    <%= attachment_image_tag user, :user_image, fallback:"no_image.jpg", size: "60x60", :class=>"user-image-circle" %>
-
-
-                    <div class="user-spec">
-
-                      <!-- ユーザ名 -->
-                      <%= user.name %>
-
-                      <!--   性別     /      年齢    -->
-                      <%= user.sex %> / <%= user.age %>
-
-                      <!-- フォロワー数 -->
-                      <p><%= user.followed.count %>フォロワー</p>
-
-                    </div>
-
-
-                    <!-- フォローボタン -->
-                    <div class="modal-user-follow">
-
-                      <% if user_signed_in? %>
-
-                        <% if user != current_user %>
-
-                            <% if current_user.following?(user) %>
-
-                                <%= link_to 'フォロー解除', unfollows_path(user.id), method: :POST, :class=>"modal-user-unfollow-button" %>
-
-                            <% else %>
-
-                                <%= link_to 'フォローする', follows_path(user.id), method: :POST, :class=>"modal-user-follow-button" %>
-
-                            <% end %>
-
-                        <% else %>
-
-                          <%= link_to 'マイページ', user_path(current_user), :class=>"modal-user-my-button" %>
-
-                        <% end %>
-
-
-                      <% elsif %>
-
-                        <%= link_to 'フォローする', new_user_session_path, :class=>"modal-user-follow-button" %>
-
-                      <% end %>
-
-                    </div>
-
-                  </dt>
-
-                  <!-- 紹介文 -->
-                  <dd class="user-introduction">
-
-                    <%= user.user_introduction %>
-
-                  </dd>
-
-              <% end %>
-
-            </dl>
-
-          <% end %>
-
-        </div>
-
-      <% end %>
-
-    </div>
+    <% end %>
 
   </div>
 
-  <!-- モーダルウインドウを閉じるボタン -->
-  <button id='modal-close-btn'>閉じる</button>
-
 </div>
-
-
 
