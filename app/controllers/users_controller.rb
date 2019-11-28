@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [ :edit, :update ] #ユーザ権限付与
 
   def index
-    @users = User.all
+    # kaminari。１０件ずつ表示。
+    @users = User.all.page(params[:page]).per(10)
   end
 
   def show

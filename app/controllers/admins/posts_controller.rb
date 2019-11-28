@@ -4,7 +4,8 @@ class Admins::PostsController < ApplicationController
 
 
   def index
-    @posts = Post.all
+    # kaminari。１０件ずつ表示。
+    @posts = Post.all.page(params[:page]).per(10)
     render 'posts/index'
   end
 

@@ -3,7 +3,8 @@ class Admins::UsersController < ApplicationController
   before_action :authenticate_admin! #管理者権限付与
 
   def index
-    @users = User.all
+    # kaminari。１０件ずつ表示。
+    @users = User.all.page(params[:page]).per(10)
     render 'users/index'
   end
 

@@ -7,7 +7,8 @@ class Admins::ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all
+    # kaminari。１０件ずつ表示。
+    @items = Item.all.page(params[:page]).per(10)
     render 'items/index'
   end
 
