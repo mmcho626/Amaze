@@ -63,11 +63,34 @@ class User < ApplicationRecord
 
   #検索機能
   def User.search(search, user_or_post_or_item)
+
     if user_or_post_or_item == "1"
+
        User.where(['name LIKE ?', "%#{search}%"]) #前方一致検索
+
     else
+
        User.all
+
     end
+
   end
+
+
+
+  # バリデーション追加。
+
+
+  # 値が空の場合エラー
+  validates :email, :name, presence: true
+
+  # ユーザ名　2〜20文字
+  validates :name, length: { in:2..20 }
+
+  # 自己紹介文　100字以内
+  validates :user_introduction, length: { maximum: 100 }
+
+
+
 
 end
