@@ -14,11 +14,29 @@
     padding: 20px 0px;
 }
 
+
+/* ボードゲーム　各情報全体 */
+
+.items-lists {
+    display: flex;
+    margin: 29px 0px;
+    align-items: center;
+}
+
+
+/* ボードゲーム 画像 */
+
+.items-index-image {
+    width: 25%;
+}
+
+
 /* ボードゲーム 各項目名 */
 
 .item-spec-list {
     width: 70%;
     padding: 0px 15px;
+    margin: 0 0 0 auto;
 }
 
 /* ボードゲーム名 */
@@ -41,6 +59,7 @@
     height: 30px;
     width: 100%;
     word-wrap: break-word;
+    margin: 10px 0px;
 }
 
 

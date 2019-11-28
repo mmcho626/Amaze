@@ -67,7 +67,7 @@
 
                         <%= attachment_image_tag current_user, :user_image, fallback:"no_image.jpg", class: "user-image-circle", size: "40x40" %>
 
-                        こんにちは <%= "#{current_user.name}" %> さん
+                        <%= "#{current_user.name}" %>
 
                       </a>
 
@@ -93,14 +93,16 @@
 
             </span>
 
-
             <!-- 新規投稿ボタン -->
-            <div class="header-right-item">
+            <div class="header-right-item new-post">
 
-              <%= link_to '新規投稿', new_post_path, class: "sign new-post " %>
+              <%= link_to new_post_path, class: "sign new-post" do %>
+
+                <i class="fa fa-pencil"> 新規投稿</i>
+
+              <% end %>
 
             </div>
-
 
 
 
