@@ -1,0 +1,88 @@
+
+<%= form_for(@item) do |f| %>
+
+	<!-- 商品画像 -->
+    <div class="field user-edit-form">
+
+		<%= f.label :item_image %>
+
+		<%= f.attachment_field :item_image %>
+
+	</div>
+
+
+	<!-- 商品名 -->
+    <div class="field user-edit-form">
+
+		<%= f.label :item_name %>
+
+		<%= f.text_field :item_name, :class=>"sign-form" %>
+
+	</div>
+
+
+	<!-- カテゴリ -->
+    <div class="field user-edit-form">
+
+		<%= f.label :category, :class=>'label' %>
+
+		<%= f.select :category, Item.categories.keys.to_a, {}, :class=>"form-select" %>
+
+	</div>
+
+
+	<!-- プレイ時間 -->
+    <div class="field user-edit-form">
+
+		<%= f.label :time, :class=>'label' %>
+
+		<%= f.select :time, Item.times.keys.to_a, {}, :class=>"form-select" %>
+
+	</div>
+
+
+	<!-- プレイ人数 -->
+    <div class="field user-edit-form">
+
+		<%= f.label :person, :class=>'label' %>
+
+		<%= f.select :person, Item.people.keys.to_a, {}, :class=>"form-select" %>
+
+	</div>
+
+
+	<!-- 紹介文 -->
+	<%= f.label :item_body %>
+
+	<%= f.text_area :item_body, :class=>"introduction-form" %>
+
+
+	<!-- 価格 -->
+    <div class="field user-edit-form">
+
+		<%= f.label :price %>
+
+		<%= f.number_field :price, :class=>"sign-form" %>円
+
+	</div>
+
+
+    <div class="actions user-update">
+
+	    <%= f.submit '保存', :class=>"sign-btn" %>
+
+    </div>
+
+
+<% end %>
+
+
+<% if admin_signed_in? %> <!-- 管理者ログイン時 -->
+
+	<%= link_to '< ボードゲーム一覧に戻る', admins_items_path %>
+
+<% else %> <!-- 管理者ログアウト時 -->
+
+	<%= link_to '< ボードゲーム一覧に戻る', items_path %>
+
+<% end %>

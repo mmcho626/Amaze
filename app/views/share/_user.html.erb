@@ -15,8 +15,15 @@
       <!--   性別     /      年齢    -->
       <%= user.sex %> / <%= user.age %>
 
+
       <!-- 紹介文 -->
-      <%= user.user_introduction %>
+
+      <div class="post-body">
+
+          <%= user.user_introduction %>
+
+      </div>
+
 
     <% end %>
 
@@ -102,7 +109,7 @@
 
       <div class="user-follow-button">
 
-        <%= link_to 'フォローする', new_user_session_path, :class=>"user-follow-button" %>
+        <%= link_to 'フォローする', new_user_session_path %>
 
       </div>
 

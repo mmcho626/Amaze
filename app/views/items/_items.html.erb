@@ -1,0 +1,85 @@
+
+<dl class="item-list">
+
+    <dd class="items-index-image">
+
+        <!-- 商品画像 -->
+        <%= attachment_image_tag item, :item_image, fallback:"no_image.jpg", size: "165x165" %>
+
+    </dd>
+
+
+    <dd class="item-spec-list">
+
+
+        <!-- ボードゲーム名 -->
+        <div class="item-name">
+
+            <p class="item-index-name"><%= item.item_name %></p>
+
+        </div>
+
+
+        <!-- ボードゲームの情報 -->
+        <div class="item-spec-list-item">
+
+
+            <div class="item-list-item">
+
+                <div class="item-icon">
+
+                    <i class="fa fa-caret-right"></i>
+
+                </div>
+
+                <%= item.category %>
+
+            </div>
+
+
+            <!-- プレイ人数 -->
+            <div class="item-list-item">
+
+                <div class="item-icon">
+
+                    <i class="fa fa-users"></i>
+
+                </div>
+
+                <%= item.person %>
+
+            </div>
+
+
+            <!-- プレイ時間 -->
+            <div class="item-list-item">
+
+                <div class="item-icon">
+
+                    <i class="fa fa-clock-o"></i>
+
+                </div>
+
+                <%= item.time %>
+
+            </div>
+
+
+            <!-- 価格 -->
+            <div class="item-list-item">
+
+                <div class="item-icon">
+                    ¥
+                </div>
+
+                    <%= item.price %>
+
+
+            </div>
+
+
+        </div>
+
+    </dd>
+
+</dl>
