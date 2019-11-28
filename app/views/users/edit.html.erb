@@ -12,53 +12,90 @@
 
 		<%= form_for(@user) do |f| %>
 
+
+		    <!-- ユーザ画像 -->
 		    <div class="field user-edit-form">
+
 				<%= f.label :user_image %>
+
 				<%= f.attachment_field :user_image %>
+
 			</div>
 
+
+		    <!-- ユーザ名 -->
 		    <div class="field user-edit-form">
+
 				<%= f.label :name %>
+
 				<%= f.text_field :name, :class=>"sign-form" %>
+
 		    </div>
+
 
 		    <!-- email  -->
 		    <div class="field user-edit-form">
+
 				<%= f.label :email %>
+
 				<%= f.email_field :email, autofocus: true, autocomplete: "email", :class=>"sign-form" %>
+
 		    </div>
 
 
+		    <!-- 性別 -->
 		    <div class="field user-edit-form">
+
 				<%= f.label :sex %>
+
 				<%= f.select :sex, User.sexes.keys.to_a, {}, :class=>"form-select" %>
+
 			</div>
 
+
+		    <!-- 年代　-->
 		    <div class="field user-edit-form">
+
 				<%= f.label :age %>
+
 				<%= f.select :age, User.ages.keys.to_a, {}, :class=>"form-select" %>
+
 			</div>
 
 
 		    <!-- パスワード -->
 		    <div class="field user-edit-form">
+
 				<%= f.label :password %><br />
+
 				<%= f.password_field :password, autocomplete: "current-password", :class=>"sign-form" %>
+
 		    </div>
 
 
+		    <!-- パスワード確認 -->
 		    <div class="field user-edit-form">
+
 				<%= f.label :password_confirmation %><br />
+
 				<%= f.password_field :password_confirmation, autocomplete: "new-password", :class=>"sign-form" %>
+
 		    </div>
 
 
+		    <!-- ユーザ紹介 -->
 			<%= f.label :user_introduction %>
+
 			<%= f.text_area :user_introduction, :class=>"introduction-form" %>
 
+
+			<!-- 更新ボタン -->
 		    <div class="actions user-update">
+
 		      <%= f.submit "更新", :class=>"sign-btn" %>
+
 		    </div>
+
 
 		<% end %>
 
