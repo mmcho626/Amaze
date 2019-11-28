@@ -1,5 +1,7 @@
 
 
+<!-- ボードゲーム 詳細 -->
+
   <div class="post-show-items-index">
 
     <div class="post-show-items post-show-item-detail-image">
@@ -34,7 +36,7 @@
       <!-- 商品名 -->
       <dl class="post-show-item">
 
-        <dt class="post-item-title">ゲーム名</dt>
+        <dd class="post-item-title">ゲーム名</dt>
 
         <dd class="post-item-content"><%= @item.item_name %></dd>
 
@@ -44,7 +46,7 @@
       <!-- カテゴリ -->
       <dl class="post-show-item">
 
-        <dt class="post-item-title">カテゴリ</dt>
+        <dd class="post-item-title">カテゴリ</dt>
 
         <dd class="post-item-content"><%= @item.category %></dd>
 
@@ -54,7 +56,7 @@
       <!-- プレイ人数 -->
       <dl class="post-show-item">
 
-        <dt class="post-item-title">プレイ人数</dt>
+        <dd class="post-item-title">プレイ人数</dt>
 
         <dd class="post-item-content"><%= @item.person %></dd>
 
@@ -63,7 +65,7 @@
       <!-- プレイ時間 -->
       <dl class="post-show-item">
 
-        <dt class="post-item-title">プレイ時間</dt>
+        <dd class="post-item-title">プレイ時間</dt>
 
         <dd class="post-item-content"><%= @item.time %></dd>
 
@@ -73,9 +75,19 @@
       <!-- 価格 -->
       <dl class="post-show-item">
 
-        <dt class="post-item-title">税抜価格</dt>
+        <dd class="post-item-title">税抜価格</dt>
 
         <dd class="post-item-content"><%= @item.price %></dd>
+
+      </dl>
+
+
+      <!-- 価格 -->
+      <dl class="post-show-item">
+
+        <dd class="post-item-title">紹介文</dt>
+
+        <dd class="post-item-content"><%= @item.item_body %></dd>
 
       </dl>
 
