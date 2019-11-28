@@ -1,3 +1,59 @@
+
+
+/* --------------------------------- */
+/*          ▼ボードゲーム一覧          */
+/* --------------------------------- */
+
+
+/* ボードゲーム 一覧全体 */
+
+dl.item-list {
+    display: flex;
+}
+
+/*  */
+
+dd.item-spec-list {
+    width: 100%;
+}
+
+
+/* ボードゲーム名 */
+
+.item-index-name {
+    border-bottom: 0.5px solid #c7bcbc;
+    margin-bottom: 13px;
+    font-size: 17px;
+    padding-bottom: 10px;
+}
+
+
+/* ボードゲーム情報 */
+
+.item-list-item {
+    font-size: 15px;
+    line-height: 2.0;
+}
+
+
+/* ボードゲーム  アイコン */
+
+.item-icon {
+    display: inline-block;
+    width: 5%;
+    text-align: center;
+}
+
+
+
+
+
+/* -------------------------- */
+/*         ▼商品詳細           */
+/* -------------------------- */
+
+
+
 /* 商品部分　全体 */
 
 .post-show-items-index {
