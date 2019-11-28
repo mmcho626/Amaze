@@ -15,9 +15,9 @@ class Item < ApplicationRecord
 
     # posts#create にて使用するメソッドの定義
     # 口コミ(post)の新規投稿時、item_nameカラムの値を検索
-	def self.search(search)
-	    Item.find_by(['item_name LIKE ?', "#{search}"])
-  	end
+	# def self.search(search)
+	#     Item.find_by(['item_name LIKE ?', "#{search}"])
+ #  	end
 
 
   #-------------- create 開発途中の記述　エラー出るため一旦保留　ここから。--------------
@@ -33,6 +33,15 @@ class Item < ApplicationRecord
 
   #-------------- create 開発途中の記述　エラー出るため一旦保留　ここまで。--------------
 
+
+  #検索機能
+  def Item.search(search, user_or_post_or_item)
+    if user_or_post_or_item == "3"
+       Item.where(['name LIKE ?', "%#{search}%"]) #前方一致検索
+    else
+       Item.all
+    end
+  end
 
 
 end

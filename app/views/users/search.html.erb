@@ -3,7 +3,7 @@
 <div class="contents">
 
 
-  <% if @user_or_post == "1"%>
+  <% if @user_or_post_or_item == "1"%> <!-- @user_or_post_or_item == "1"のとき -->
 
     <div class="title">
 
@@ -26,7 +26,7 @@
 
     </div>
 
-  <% else %> <!-- @user_or_post == "2"のとき -->
+  <% elsif @user_or_post_or_item =="2" %> <!-- @user_or_post_or_item == "2"のとき -->
 
 
     <div class="title">
@@ -42,6 +42,19 @@
       <%= render partial: 'share/post', locals: { post: post } %>
 
     <% end %>
+
+  <% else %> <!-- @user_or_post_or_item == "3"のとき -->
+
+
+
+    <% @items.each do |item| %>
+
+      <!----------------------- 口コミ一覧 ---------------------->
+      <%= render partial: 'items/items', locals: { item: item } %>
+
+    <% end %>
+
+
 
   <% end %>
 

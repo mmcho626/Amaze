@@ -65,12 +65,15 @@ class UsersController < ApplicationController
   #検索機能
   def search
     @user_or_post = params[:option]
-    if @user_or_post == "1"
-      @users = User.search(params[:search], @user_or_post)
+    if @user_or_post_or_item == "1"
+      @users = User.search(params[:search], @user_or_post_or_item)
       # Userモデルのsearchメソッドはuser.rbに記載。
-    else
-      @posts = Post.search(params[:search], @user_or_post)
+    elsif @user_or_post_or_item == "2"
+      @posts = Post.search(params[:search], @user_or_post_or_item)
       # Postモデルのsearchメソッドはpost.rbに記載。
+    else
+      @items = Item.search(params[:search], @user_or_post_or_item)
+      # Itemモデルのsearchメソッドはitem.rbに記載。
     end
   end
 

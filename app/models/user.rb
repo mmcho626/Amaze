@@ -62,8 +62,8 @@ class User < ApplicationRecord
 
 
   #検索機能
-  def User.search(search, user_or_post)
-    if user_or_post == "1"
+  def User.search(search, user_or_post_or_item)
+    if user_or_post_or_item == "1"
        User.where(['name LIKE ?', "%#{search}%"]) #前方一致検索
     else
        User.all

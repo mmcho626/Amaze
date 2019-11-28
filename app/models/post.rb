@@ -21,8 +21,8 @@ class Post < ApplicationRecord
 
 
     #検索機能
-    def Post.search(search, user_or_post)
-	  if user_or_post == "2"
+    def Post.search(search, user_or_post_or_item)
+	  if user_or_post_or_item == "2"
 	     Post.where(['post_body LIKE ?', "%#{search}%"]) #前方一致検索
 	  else
 	     Post.all
