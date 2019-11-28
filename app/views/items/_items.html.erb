@@ -2,17 +2,15 @@
 <!-- ボードゲーム 一覧 -->
 
 
-<dl class="item-list">
-
-    <dd class="items-index-image">
+    <div class="items-index-image">
 
         <!-- 商品画像 -->
         <%= attachment_image_tag item, :item_image, fallback:"no_image.jpg", size: "165x165" %>
 
-    </dd>
+    </div>
 
 
-    <dd class="item-spec-list">
+    <div class="item-spec-list">
 
 
         <!-- ボードゲーム名 -->
@@ -38,13 +36,17 @@
 
                 </div>
 
-                <%= item.item_body %>
+                <div class="item-list-contents">
+
+                    <%= item.item_body %>
+
+                </div>
 
             </div>
 
 
 
-            <!-- ボードゲームの情報 -->
+            <!-- カテゴリ -->
             <div class="item-list-item">
 
                 <div class="item-icon">
@@ -53,7 +55,12 @@
 
                 </div>
 
-                <%= item.category %>
+                <div class="item-list-contents">
+
+                    <%= item.category %>
+
+                </div>
+
 
             </div>
 
@@ -98,9 +105,6 @@
 
             </div>
 
-
         </div>
 
-    </dd>
-
-</dl>
+    </div>

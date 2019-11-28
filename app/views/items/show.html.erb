@@ -42,22 +42,25 @@
   </div>
 
 
-<div class="show-post-index">
-
-  <div class="title">
-
-    <h2>この商品の口コミ一覧</h2>
-
-  </div>
 
 
-  <% @posts.each do |item_post| %>
 
-    <!----------------------- 口コミ一覧 ---------------------->
-    <%= render partial: 'share/post', locals: { post: item_post } %>
 
-  <% end %>
 
-</div>
+    <div class="titles">
+
+      <h2>この商品の口コミ一覧</h2>
+
+    </div>
+
+
+    <% @posts.each do |item_post| %>
+
+      <!----------------------- 口コミ一覧 ---------------------->
+      <%= render partial: 'share/post', locals: { post: item_post } %>
+
+    <% end %>
+
+
 
 </div>

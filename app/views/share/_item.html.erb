@@ -4,7 +4,7 @@
 
   <div class="post-show-items-index">
 
-    <div class="post-show-items post-show-item-detail-image">
+    <p class="post-show-items post-show-item-detail-image">
 
       <% if admin_signed_in? %><!-- 管理者ログイン時 -->
 
@@ -19,16 +19,19 @@
       <% else %> <!-- 管理者ログアウト時 -->
 
 
-        <%= link_to item_path(item) do %>
+        <div class="item-show-image">
 
-          <%= attachment_image_tag @item, :item_image, fallback: "no_image.jpg", :class=>"post-item-image" %>
+          <%= link_to item_path(item) do %>
 
-        <% end %>
+            <%= attachment_image_tag @item, :item_image, fallback: "no_image.jpg", :class=>"post-item-image" %>
 
+          <% end %>
+
+        </div>
 
       <% end %>
 
-    </div>
+    </p>
 
 
     <div class="post-show-items">

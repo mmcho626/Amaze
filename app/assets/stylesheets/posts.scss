@@ -367,12 +367,37 @@
 /* comments.scss に記載 */
 
 
-
-
-
 /* 一覧へ戻るボタン */
 
 .back-button {
     margin-top: 40px;
 }
+
+
+
+
+
+/* --------------------------------------------- */
+/*    ユーザ詳細・ボードゲーム詳細の　口コミ一覧      */
+/* --------------------------------------------- */
+
+
+
+/* 全体の幅、配置 */
+
+.titles {
+    border-bottom: 2px solid #e7e7e7;
+    margin-bottom: 10px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+
+.titles h2 {
+    margin: 80px 0px 30px 0px;
+    font-weight: 400;
+}
+
+
 
