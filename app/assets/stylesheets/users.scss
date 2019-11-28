@@ -64,6 +64,7 @@ dd.user-introduction {
     text-overflow: ellipsis;
     white-space: nowrap;
     text-align: left;
+    font-size: 13px;
 }
 
 
@@ -235,6 +236,24 @@ a.user-edit-button {
     font-size: 17px;
     margin-top: 40px;
 }
+
+
+/* ユーザ紹介文 */
+
+.user-show-introduction {
+    text-align: left;
+    width: 95%;
+    height: 70px;
+    line-height: 22px;
+    font-weight: 300;
+    overflow: hidden;
+    margin-top: 20px;
+    padding: 25px 20px;
+    font-size: 16px;
+}
+
+
+
 
 
 /* 口コミ一覧　配置 */
