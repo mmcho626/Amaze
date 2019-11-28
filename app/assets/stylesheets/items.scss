@@ -79,8 +79,8 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    margin-left: 18px;
 }
-
 
 
 
@@ -90,21 +90,17 @@
 
 
 
-/* 商品部分　全体 */
+/* 商品部分　全体  子要素<p>は除外 */
 
-.post-show-items-index {
+.post-show-items-index :not(p) {
     justify-content: space-between;
-    width: 100%;
+    width: 60%;
     max-width: 1000px;
     text-align: left;
 }
 
 
 
-.post-show-items-index :not(p) {
-    width: 70%;
-    text-align: center;
- }
 
 /* 商品部分　項目横並び */
 
@@ -126,6 +122,7 @@
 /* 商品画像 */
 
 .item-show-image {
+    text-align: center;
     margin: 0 auto;
 }
 
