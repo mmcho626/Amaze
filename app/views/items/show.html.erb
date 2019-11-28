@@ -16,14 +16,14 @@
 
       <div class="edit-button">
 
-        <%= link_to '編集する', edit_admins_post_path(@post) %>
+        <%= link_to '編集する', edit_admins_item_path(@item) %>
 
       </div>
 
 
       <div class="destroy-button">
 
-        <%= link_to '削除する', admins_post_path(@post), method: :delete, data: { confirm: '本当に消しますか'} %>
+        <%= link_to '削除する', admins_item_path(@item), method: :delete, data: { confirm: '本当に消しますか'} %>
 
       </div>
 
@@ -42,9 +42,13 @@
   </div>
 
 
+<div class="show-post-index">
 
+  <div class="title">
 
-  <h2>この商品の口コミ一覧</h2>
+    <h2>この商品の口コミ一覧</h2>
+
+  </div>
 
 
   <% @posts.each do |item_post| %>
@@ -56,3 +60,4 @@
 
 </div>
 
+</div>

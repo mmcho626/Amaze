@@ -1,50 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-
-<h1>New Item</h1>
-
-<%= form_for(@item) do |f| %>
-
-	<!-- 商品画像 -->
-	<%= f.label :item_image %>
-	<%= f.attachment_field :item_image %>
-
-	<!-- 商品名 -->
-	<%= f.label :item_name %>
-	<%= f.text_field :item_name %>
-
-	<!-- カテゴリ -->
-	<%= f.label :category, :class=>'label' %>
-	<%= f.select :category, Item.categories.keys.to_a, {} %>
-
-	<!-- プレイ時間 -->
-	<%= f.label :time, :class=>'label' %>
-	<%= f.select :time, Item.times.keys.to_a, {} %>
-
-	<!-- プレイ人数 -->
-	<%= f.label :person, :class=>'label' %>
-	<%= f.select :person, Item.people.keys.to_a, {} %>
-
-	<!-- 紹介文 -->
-	<%= f.label :item_body %>
-	<%= f.text_area :item_body %>
-
-	<!-- 価格 -->
-	<%= f.label :price %>
-	<%= f.number_field :price %>円
+<div class="contents">
 
 
-    <%= f.submit '保存' %>
+	<div class="title">
 
-<% end %>
+		<h2>ボードゲーム情報の追加</h2>
 
+	</div>
 
-<% if admin_signed_in? %> <!-- 管理者ログイン時 -->
+	<div class="sign-contents">
 
-	<%= link_to 'Back', admins_items_path %>
+		<!-- ボードゲーム情報　入力フォーム -->
+		<%= render partial: 'form' %>
 
-<% else %> <!-- 管理者ログアウト時 -->
+	</div>
 
-	<%= link_to 'Back', items_path %>
-
-<% end %>
+</div>

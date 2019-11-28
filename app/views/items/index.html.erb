@@ -1,71 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="contents">
 
-<h1>Items</h1>
-
-
-<% @items.each do |item| %>
+    <div class="title">
 
 
-    <% if admin_signed_in? %> <!-- 管理者ログイン時 -->
+        <% @items.each do |item| %>
 
 
-        <%= link_to admins_item_path(item) do %>
+            <% if admin_signed_in? %> <!-- 管理者ログイン時 -->
 
-            <!-- 商品画像 -->
-            <%= attachment_image_tag item, :item_image, fallback:"no_image.jpg", size: "165x165" %>
 
-            <!-- 商品名 -->
-            <%= item.item_name %>
+                <%= link_to admins_item_path(item) do %>
 
-            <!-- カテゴリ -->
-            <%= item.category %>
+                    <!-------------------- ボードゲーム一覧 -------------------->
+                    <%= render partial: 'items', locals: { item: item } %>
 
-            <!-- プレイ時間 -->
-            <%= item.time %>
+                <% end %>
 
-            <!-- プレイ人数 -->
-            <%= item.person %>
 
-            <!-- 商品価格 -->
-            <%= item.price %>
+            <% else %> <!-- 管理者ログアウト時 -->
+
+
+                <%= link_to item_path(item) do %>
+
+                    <!-------------------- ボードゲーム一覧 -------------------->
+                    <%= render partial: 'items', locals: { item: item } %>
+
+                <% end %>
+
+
+            <% end %>
+
 
         <% end %>
 
+    </div>
 
-    <% else %> <!-- 管理者ログアウト時 -->
-
-
-        <%= link_to item_path(item) do %>
-
-            <!-- 商品画像 -->
-            <%= attachment_image_tag item, :item_image, fallback:"no_image.jpg", size: "165x165" %>
-
-            <!-- 商品名 -->
-            <%= item.item_name %>
-
-            <!-- カテゴリ -->
-            <%= item.category %>
-
-            <!-- プレイ時間 -->
-            <%= item.time %>
-
-            <!-- プレイ人数 -->
-            <%= item.person %>
-
-            <!-- 商品価格 -->
-            <%= item.price %>
-
-        <% end %>
-
-
-    <% end %>
-
-
-<% end %>
-
-
-<% if admin_signed_in? %> <!-- 管理者ログイン時 -->
-
-    <%= link_to 'New Item', new_admins_item_path %>
-
-<% end %>
+</div>
