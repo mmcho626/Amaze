@@ -2,37 +2,38 @@
 
     <div class="title">
 
+      <h2>ボードゲーム 一覧</h2>
 
-        <% @items.each do |item| %>
-
-
-            <% if admin_signed_in? %> <!-- 管理者ログイン時 -->
+    </div>
 
 
-                <%= link_to admins_item_path(item) do %>
-
-                    <!-------------------- ボードゲーム一覧 -------------------->
-                    <%= render partial: 'items', locals: { item: item } %>
-
-                <% end %>
+    <% @items.each do |item| %>
 
 
-            <% else %> <!-- 管理者ログアウト時 -->
+        <% if admin_signed_in? %> <!-- 管理者ログイン時 -->
 
 
-                <%= link_to item_path(item) do %>
+            <%= link_to admins_item_path(item) do %>
 
-                    <!-------------------- ボードゲーム一覧 -------------------->
-                    <%= render partial: 'items', locals: { item: item } %>
+                <!-------------------- ボードゲーム一覧 -------------------->
+                <%= render partial: 'items/items', locals: { item: item } %>
 
-                <% end %>
+            <% end %>
 
+
+        <% else %> <!-- 管理者ログアウト時 -->
+
+
+            <%= link_to item_path(item) do %>
+
+                <!-------------------- ボードゲーム一覧 -------------------->
+                <%= render partial: 'items', locals: { item: item } %>
 
             <% end %>
 
 
         <% end %>
 
-    </div>
+    <% end %>
 
 </div>
