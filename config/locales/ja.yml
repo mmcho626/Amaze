@@ -1,5 +1,5 @@
 
-# 口コミ
+# 口コミの投稿時間
 
 ja:
   datetime:
@@ -40,11 +40,37 @@ ja:
         other: "%{count}年以上"
 
 
-# 口コミ
+# 口コミ　入力フォーム
 
   activerecord:
   attributes:
-      post1_image: 画像 １
-      post2_image: 画像 ２
+      post1_image: 画像１
+      post2_image: 画像２
       search_item: ボードゲームの名前
       post_body: レビューを追加
+
+
+# 新規登録、サインイン　入力フォーム
+
+      name : 名前
+      email: メールアドレス
+      password_confirmation: パスワード確認
+
+
+# ユーザ編集　入力フォーム
+
+      user_image: 画像
+      sex: 性別
+      age: 年代
+      user_introduction: 自己紹介文
+
+
+# ボードゲーム　追加、編集　入力フォーム
+
+      item_image: 画像
+      item_name: ボードゲーム名
+      category: カテゴリー
+      time: プレイ時間
+      person: プレイ人数
+      item_body: 紹介文
+      price: 価格
