@@ -13,8 +13,15 @@
 <p class="sub-title sub-p">画像を追加</p>
 
 
-<%= render partial: 'form' %>
+<% if admin_signed_in? %> <!-- 管理者ログイン時 -->
 
+	<%= render partial: 'posts/form' %>
+
+<% else %> <!-- 管理者ログアウト時 -->
+
+	<%= render partial: 'form' %>
+
+<% end %>
 
 <%= link_to '← 保存せずにトップに戻る', posts_path,:class=> "post-back" %>
 
