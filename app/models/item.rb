@@ -37,8 +37,8 @@ class Item < ApplicationRecord
   # バリデーション追加。
 
 
-  # 値が空の場合エラー
-  validates :item_name, presence: true
+  # 値が空もしくは重複している場合エラー
+  validates :item_name, presence: true, uniqueness: true
 
 
 
