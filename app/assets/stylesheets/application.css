@@ -73,7 +73,6 @@ label {
     margin: 0 auto;
     display: flex;
     align-items: center;
-    min-width: 1080px;
 }
 
 .header-left{
@@ -91,11 +90,11 @@ label {
 
 /* 検索機能全体 */
 
-.search-bar{
-	width:700px;
-	margin:0 auto;
-
+.search-bar {
+    width: 90%;
+    margin: 0 auto;
 }
+
 
 /* 検索　ユーザor口コミの選択部分 */
 .search-select{
@@ -127,9 +126,7 @@ label {
 .header-right{
 	height: 50px;
 	display: flex;
-	align-items: center;
     width: 34%;
-    text-align: right;
 }
 
 /* 新規登録、ログイン、ログアウトの各ボタン */
@@ -141,11 +138,31 @@ label {
     text-align: center;
 }
 
+/* 投稿ボタン */
 
-/* 新規登録、ログイン、ログアウト、新規投稿　各要素 */
+.header-right-item.new-post {
+    display: flex;
+    align-items: center;
+    background-color: #ffa500;
+    border-radius: 10px;
+    color: #fff;
+    width: 46%;
+    min-width: 120px;
+    line-height: 50px;
+}
 
-.header-right-item {
-    margin: 0 0 0 auto;
+
+/* ヘッダー　投稿ボタン */
+
+a.new-post {
+    color: #fff;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+
+a.new-post:visited {
+    color: #fff;
 }
 
 
@@ -209,20 +226,6 @@ label {
     border-radius: 50%;
     vertical-align: middle;
 }
-
-
-
-/* ヘッダー　投稿ボタン */
-
-a.new-post {
-    background-color: #FFA500;
-    padding: 15px 20px;
-    color: #fff;
-    border-radius: 10px;
-    font-weight: 400;
-    font-size: 15px;
-}
-
 
 
 
