@@ -23,7 +23,7 @@ class Post < ApplicationRecord
 
 
     #検索機能
-    def Post.search(search, user_or_post_or_item)
+    def Post.search(user_or_post_or_item)
 
 	  if user_or_post_or_item == "2"
 
@@ -49,8 +49,8 @@ class Post < ApplicationRecord
 
 	end
 
-	# 口コミ本文（post_body）は 100字以上
-	validates :body, length: { minimum: 100 }
+	# 口コミ本文（post_body）は 1000字以内
+	validates :post_body, length: { maximum: 1000 }
 
 
 end

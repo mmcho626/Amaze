@@ -13,8 +13,8 @@ class Comment < ApplicationRecord
 
 	end
 
-	# コメント本文（post_body）は 100字以上
-	validates :comment, length: { minimum: 100 }
+	# コメント本文（post_body）は 500字以内
+	validates :comment, length: { maximum: 500 }
 
 
 end
