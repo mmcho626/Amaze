@@ -82,12 +82,13 @@ class User < ApplicationRecord
 
 
   # 値が空の場合エラー
-  validates :email, presence: true
+  validates :email,:name, presence: true
+
+  # ユーザ名　2〜20字
+  validates :name, length: { in:2..20 }
 
   # 自己紹介文　100字以内
   validates :user_introduction, length: { maximum: 100 }
-
-
 
 
 end

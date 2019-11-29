@@ -8,6 +8,17 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
 
+
+    <!-- ユーザ名 -->
+    <div class="field">
+
+      <%= f.label :name %><br />
+
+      <%= f.text_field :name, autofocus: true, :placeholder=>"2〜20字", :class=>"sign-form" %>
+
+    </div>
+
+
     <!-- email -->
     <div class="field">
 
