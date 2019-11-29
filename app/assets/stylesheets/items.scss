@@ -94,9 +94,12 @@
 
 .post-show-items-index :not(p) {
     justify-content: space-between;
-    width: 60%;
+    width: 100%;
     max-width: 1000px;
     text-align: left;
+    margin: 0 auto;
+    margin: 18px 0px;
+    border-radius: 10px;
 }
 
 
