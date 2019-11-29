@@ -23,6 +23,7 @@
 
 
 /*子要素をfloat状態にした時、親要素に.clearfixをつけて親要素の高さが0になるのを防ぐ*/
+
 .clearfix::after {
 	content: "";
 	display: block;
@@ -31,6 +32,7 @@
 
 
 /* 全てのリンクのリンク下線をなくす(新規登録、ログイン画面以外) */
+
 a {
 	text-decoration: none;
 }
@@ -49,6 +51,14 @@ label {
 }
 
 
+/* フラッシュメッセージ。サイドバーに設置。 */
+
+#notice {
+    color: #ffa500;
+    text-align: center;
+}
+
+
 /* -------------------------- */
 /*      ▼ ヘッダー部分         */
 /* -------------------------- */
@@ -58,12 +68,6 @@ label {
 	width:100%;
 	margin:50px 0px;
 	height:70px;
-/*
-    position: fixed;
-    top: 0;
-    bottom:0;
-    left:0;
-    right:0;*/
 }
 
 
@@ -88,6 +92,7 @@ label {
 }
 
 /* ロゴ */
+
 .logo{
 	line-height: 50px;
 	width:30%;
@@ -102,6 +107,7 @@ label {
 
 
 /* 検索　ユーザor口コミの選択部分 */
+
 .search-select{
 	width: 20%;
 	height: 32px;
@@ -116,6 +122,7 @@ label {
 
 
 /* 検索フォーム入力部分 */
+
 .search-form{
 	width: 50%;
     border-radius: 4px;
@@ -128,6 +135,7 @@ label {
 }
 
 /* ヘッダー右側　ユーザログイン時 */
+
 .header-right {
     height: 50px;
     display: flex;
@@ -136,6 +144,7 @@ label {
 }
 
 /* ヘッダー右側　各ボタン　ユーザログイン時 */
+
 .header-right a{
 	color: #666;
 	padding: 0px 20px;
@@ -146,6 +155,7 @@ label {
 
 
 /* ヘッダー右側　ユーザログアウト時 */
+
 .header-right-userlogout{
     height: 50px;
     display: flex;
@@ -154,6 +164,7 @@ label {
 }
 
 /* ヘッダー右側　各ボタン　ユーザログアウト時 */
+
 .header-right-userlogout a{
     color: #666;
     padding: 0px 20px;
@@ -197,6 +208,7 @@ a.new-post:visited {
 
 
 /* プルダウン表示部分 */
+
 .menu{
 	display:inline-block;
 }
@@ -208,6 +220,7 @@ span.menu {
 
 
 /* マイページ、ログアウトボタン */
+
 .my-link {
     color: #000;
     display: inline-block;
@@ -215,6 +228,7 @@ span.menu {
 
 
 /* プルダウンリストの装飾 */
+
 .user-item {
 	background: #FFF;
 	color: #000;
@@ -225,7 +239,8 @@ span.menu {
 }
 
 
-/* こんにちは　"ユーザ名"さん　の部分 */
+/* ユーザ名 */
+
 .user-link {
 	color: #fff;
 	display: inline-block;
@@ -233,6 +248,7 @@ span.menu {
 }
 
 /* プルダウンリスト　全体 */
+
 .user-sub-list {
     background: #fff;
     display: none;
@@ -241,6 +257,7 @@ span.menu {
 }
 
 /* プルダウンリスト　個別 */
+
 .sub-user-item {
     border-bottom: 1px solid #e7e7e7;
     color: #666;
@@ -305,6 +322,7 @@ span.menu {
 
 /*サイドバー*/
 
+
 .sidebar {
     width: 250px;
     min-height: 300px;
@@ -320,7 +338,6 @@ span.menu {
 
 
 /* サイドバー中身　幅、配置 */
-
 
 .sidebar-contents {
     width: 90%;
@@ -539,6 +556,7 @@ a.modal-user-my-button:hover {
 
 
 /* 新規登録、ログインページ全体 */
+
 .sign {
     padding-left: 125px;
     max-width: 600px;
@@ -547,6 +565,7 @@ a.modal-user-my-button:hover {
 
 
 /* 新規登録、ログイン　の文字 */
+
 .signup,
 .signin{
 	padding:30px 0px;
@@ -562,6 +581,7 @@ a.modal-user-my-button:hover {
 }
 
 /* 入力フォーム */
+
 .sign-form{
     width: 90%;
     height: 18px;
@@ -598,12 +618,14 @@ a.modal-user-my-button:hover {
 }
 
 /* 上記ボタンのリンク部分 */
+
 .signin-description a{
 	color:#ff4500;
 	text-decoration: underline;
 }
 
 /* 上記ボタンのリンク部分 訪問後 */
+
 .signin-description a :visited{
 	color:#ff4500;
 }
