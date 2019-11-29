@@ -68,15 +68,20 @@ label {
 
 
 .header-contents {
-    width: 80%;
-    height: 70px;
+    width: 93%;
+    height: 150px;
     margin: 0 auto;
     display: flex;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
 }
 
 .header-left{
-	width: 70%;
+	width: 50%;
 	height:50px;
 	display: flex;
 	align-items:center;
@@ -122,14 +127,15 @@ label {
     padding: 10px 16px;
 }
 
-/* 新規登録、ログイン、ログアウト、新規投稿の部分 */
-.header-right{
-	height: 50px;
-	display: flex;
+/* ヘッダー右側　ユーザログイン時 */
+.header-right {
+    height: 50px;
+    display: flex;
     width: 34%;
+    margin: 0 0 0 auto;
 }
 
-/* 新規登録、ログイン、ログアウトの各ボタン */
+/* ヘッダー右側　各ボタン　ユーザログイン時 */
 .header-right a{
 	color: #666;
 	padding: 0px 20px;
@@ -137,6 +143,24 @@ label {
 	align-items: center;
     text-align: center;
 }
+
+
+/* ヘッダー右側　ユーザログアウト時 */
+.header-right-userlogout{
+    height: 50px;
+    display: flex;
+    width: 34%;
+    align-items: center;
+}
+
+/* ヘッダー右側　各ボタン　ユーザログアウト時 */
+.header-right-userlogout a{
+    color: #666;
+    padding: 0px 20px;
+    align-items: center;
+    text-align: center;
+}
+
 
 /* 投稿ボタン */
 
@@ -178,6 +202,11 @@ a.new-post:visited {
 }
 
 
+span.menu {
+    margin: 0 0 0 auto;
+}
+
+
 /* マイページ、ログアウトボタン */
 .my-link {
     color: #000;
@@ -213,8 +242,8 @@ a.new-post:visited {
 
 /* プルダウンリスト　個別 */
 .sub-user-item {
-    border-bottom: 1px solid #222;
-    color: #000;
+    border-bottom: 1px solid #e7e7e7;
+    color: #666;
     padding: 15px 0px;
     list-style: none;
     text-align: center;

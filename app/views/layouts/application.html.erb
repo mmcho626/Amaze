@@ -51,9 +51,9 @@
 
 
 
-        <div class= "header-right">
+        <% if user_signed_in? %><!-- ユーザログイン時 -->
 
-          <% if user_signed_in? %><!-- ユーザログイン時 -->
+          <div class= "header-right">
 
             <span class="menu">
 
@@ -104,27 +104,32 @@
 
             </div>
 
+          </div>
 
 
-          <% elsif admin_signed_in? %> <!-- 管理者ログイン時 -->
-              管理者としてログイン中
-              <%= link_to  destroy_admin_session_path, method: :delete do %>ログアウト<% end %>
+        <% elsif admin_signed_in? %> <!-- 管理者ログイン時 -->
 
+          <div class= "header-right-userlogout">
 
-          <% else %><!-- 管理者、ユーザログアウト時 -->
+            <a class="sign">管理者としてログイン中</a>
 
+            <%= link_to  destroy_admin_session_path, class: "sign", method: :delete do %>ログアウト<% end %>
 
-              <!-- 新規登録ボタン -->
-              <%= link_to  new_user_registration_path, class: "sign" do %>新規登録<% end %>
+          </div>
 
+        <% else %><!-- 管理者、ユーザログアウト時 -->
 
-              <!-- ログインボタン -->
-              <%= link_to  new_user_session_path, class: "sign" do %>ログイン<% end %>
+          <div class= "header-right-userlogout">
 
+            <!-- 新規登録ボタン -->
+            <%= link_to  new_user_registration_path, class: "sign" do %>新規登録<% end %>
 
-          <% end %>
+            <!-- ログインボタン -->
+            <%= link_to  new_user_session_path, class: "sign" do %>ログイン<% end %>
 
-        </div>
+          </div>
+
+        <% end %>
 
       </div>
 
