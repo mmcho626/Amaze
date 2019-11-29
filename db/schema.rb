@@ -39,24 +39,6 @@ ActiveRecord::Schema.define(version: 2019_11_09_171840) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "item_categories", force: :cascade do |t|
-    t.string "item_category_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "item_people", force: :cascade do |t|
-    t.integer "item_person"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "item_times", force: :cascade do |t|
-    t.integer "item_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "items", force: :cascade do |t|
     t.string "item_name"
     t.string "item_image_id"
@@ -69,31 +51,12 @@ ActiveRecord::Schema.define(version: 2019_11_09_171840) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "post_categories", force: :cascade do |t|
-    t.string "post_category_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "post_people", force: :cascade do |t|
-    t.integer "post_person"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "post_times", force: :cascade do |t|
-    t.integer "post_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "posts", force: :cascade do |t|
     t.integer "item_id"
     t.integer "user_id"
     t.string "post1_image_id"
     t.string "post2_image_id"
     t.text "post_body"
-    t.float "star"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -114,7 +77,6 @@ ActiveRecord::Schema.define(version: 2019_11_09_171840) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin", default: false, null: false
     t.string "user_image_id"
     t.text "user_introduction"
     t.integer "age"
