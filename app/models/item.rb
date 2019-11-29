@@ -16,7 +16,7 @@ class Item < ApplicationRecord
 
 
   #検索機能
-  def Item.search(user_or_post_or_ite)
+  def Item.search(user_or_post_or_item)
 
     if user_or_post_or_item == "3"
 
