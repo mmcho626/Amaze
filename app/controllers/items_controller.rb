@@ -10,9 +10,10 @@ class ItemsController < ApplicationController
 	    flash[:notice] = "保存しました."
 	    redirect_to admins_items_path
     else
-	    flash[:notice] = "保存できませんでした."
+	    flash[:notice] = "保存できませんでした.すでに投稿されている可能性があります."
 	    redirect_to new_admins_item_path
     end
+  end
 
 
   def index
@@ -32,7 +33,7 @@ class ItemsController < ApplicationController
       flash[:notice] = "更新しました."
       redirect_to admins_item_path(@item)
     else
-      flash[:notice] = "更新できませんでした."
+      flash[:notice] = "更新されませんでした."
       redirect_to edit_admins_item_path(@item)
     end
   end
