@@ -31,6 +31,11 @@
 }
 
 
+img.attachment.item.item_image {
+    border-radius: 10px;
+}
+
+
 /* ボードゲーム 各項目名 */
 
 .item-spec-list {
@@ -104,7 +109,6 @@
 
 
 
-
 /* 商品部分　項目横並び */
 
 .post-show-items {
@@ -128,9 +132,6 @@
     text-align: center;
     margin: 0 auto;
 }
-
-
-
 
 
 /* テーブル枠 */

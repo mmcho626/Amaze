@@ -59,6 +59,16 @@ label {
 }
 
 
+/* ページネーション */
+
+nav.pagination {
+    text-align: center;
+    font-size: 17px;
+    letter-spacing: 2px;
+    margin: 72px 0px;
+}
+
+
 /* -------------------------- */
 /*      ▼ ヘッダー部分         */
 /* -------------------------- */
