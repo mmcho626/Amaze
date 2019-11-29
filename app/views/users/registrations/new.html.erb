@@ -7,14 +7,6 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-
-    <!-- ユーザ名 -->
-    <div class="field">
-      <%= f.label :name %><br />
-
-     <%= f.text_field :name, autofocus: true, :class=>"sign-form", placeholder: "2〜20字" %>
-
-
     <!-- email -->
     <div class="field">
 
