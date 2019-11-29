@@ -12,7 +12,7 @@
 
         <%= link_to admins_item_path(item) do %>
 
-            <%= attachment_image_tag @item, :item_image, fallback: "no_image.jpg", :class=>"post-item-image"  %>
+            <%= attachment_image_tag item, :item_image, fallback: "no_image.jpg", :class=>"post-item-image"  %>
 
           <% end %>
 
@@ -44,7 +44,7 @@
 
         <dd class="post-item-title">ゲーム名</dt>
 
-        <dd class="post-item-content"><%= @item.item_name %></dd>
+        <dd class="post-item-content"><%= item.item_name %></dd>
 
       </dl>
 
@@ -54,7 +54,7 @@
 
         <dd class="post-item-title">カテゴリ</dt>
 
-        <dd class="post-item-content"><%= @item.category %></dd>
+        <dd class="post-item-content"><%= item.category %></dd>
 
       </dl>
 

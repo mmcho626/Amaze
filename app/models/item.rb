@@ -16,11 +16,11 @@ class Item < ApplicationRecord
 
 
   #検索機能
-  def Item.search(search, user_or_post_or_item)
+  def Item.search(user_or_post_or_ite)
 
     if user_or_post_or_item == "3"
 
-       Item.where(['name LIKE ?', "%#{search}%"]) #前方一致検索
+       Item.where(['item_name LIKE ?', "%#{search}%"]) #前方一致検索
 
     else
 
@@ -30,6 +30,15 @@ class Item < ApplicationRecord
 
   end
 
+
+
+
+  #口コミ投稿時の検索機能
+  def self.search_all(search)
+
+       Item.find_by(['item_name LIKE ?', "%#{search}%"]) #前方一致検索
+
+  end
 
 
 

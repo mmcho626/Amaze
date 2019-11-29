@@ -37,11 +37,11 @@ class PostsController < ApplicationController
 
     #item追加機能ここから
 
-    item = Item.search(params[:post_search_item]) #itemテーブルを参照。searchメソッドはitem.rbに記載。
+    item = Item.search_all(params[:search]) #itemテーブルを参照。searchメソッドはitem.rbに記載。
 
     if item == nil #item_nameカラムの値が空の場合はその値をitemテーブルに追加
       @item = Item.new
-      @item.item_name = params[:post_search_item]
+      @item.item_name = params[:search]
       @item.save
       @post.item_id = @item.id
     else #値がitemテーブルに存在している場合はitem_idを登録
@@ -108,7 +108,7 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:post1_image, :post2_image, :post_body, :star, :post_category_id, :post_person_id, :post_time_id)
+      params.require(:post).permit(:post1_image, :post2_image, :post_body)
     end
 
 
