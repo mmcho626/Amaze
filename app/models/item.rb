@@ -16,7 +16,7 @@ class Item < ApplicationRecord
 
 
   #検索機能
-  def Item.search(user_or_post_or_item)
+  def Item.search(search,user_or_post_or_item)
 
     if user_or_post_or_item == "3"
 
@@ -34,7 +34,7 @@ class Item < ApplicationRecord
 
 
   #口コミ投稿時の検索機能
-  def self.search_all(search)
+  def self.search_all(search_item)
 
        Item.find_by(['item_name LIKE ?', "%#{search}%"]) #前方一致検索
 

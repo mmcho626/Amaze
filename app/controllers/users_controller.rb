@@ -64,7 +64,7 @@ class UsersController < ApplicationController
 
   #検索機能
   def search
-    @user_or_post = params[:option]
+    @user_or_post_or_item = params[:option]
     if @user_or_post_or_item == "1"
       @users = User.search(params[:search], @user_or_post_or_item)
       # Userモデルのsearchメソッドはuser.rbに記載。
@@ -78,6 +78,7 @@ class UsersController < ApplicationController
   end
 
   private
+
 
   def user_params
     params.require(:user).permit(:email, :user_image, :name, :sex, :age, :user_introduction )
