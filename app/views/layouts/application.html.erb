@@ -28,13 +28,17 @@
 
         <div class= "header-left">
 
-          <div class="logo">ロゴ</div>
+          <div class="logo">
+
+            <img src="assets/logo.jpg">
+
+          </div>
 
           <!-- 検索フォーム　ここから -->
 
           <div class= "search-bar">
 
-            <%= form_tag(search_path, :method => 'get') do %>
+            <%= form_tag(search_path, :method => 'get', :class=>"search") do %>
 
               <%= select_tag(:option, options_for_select([["ユーザ", "1"],["口コミ","2"],["ボードゲーム ","3"]]), :class=>"search-select") %>
               <!-- セレクトボックスの作成。optionはプロパティ名。 -->
@@ -111,7 +115,7 @@
 
           <div class= "header-right-userlogout">
 
-            <a class="sign">管理者としてログイン中</a>
+            <a class="admin-sign">管理者として<br>ログイン中</a>
 
             <%= link_to  destroy_admin_session_path, class: "sign", method: :delete do %>ログアウト<% end %>
 

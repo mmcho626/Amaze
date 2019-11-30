@@ -94,18 +94,18 @@ nav.pagination {
     background-color: white;
 }
 
-.header-left{
-	width: 50%;
-	height:50px;
-	display: flex;
-	align-items:center;
+.header-left {
+    width: 70%;
+    height: 50px;
+    display: flex;
+    align-items: center;
 }
 
 /* ロゴ */
 
 .logo{
 	line-height: 50px;
-	width:30%;
+	width:50%;
 }
 
 /* 検索機能全体 */
@@ -113,6 +113,11 @@ nav.pagination {
 .search-bar {
     width: 90%;
     margin: 0 auto;
+}
+
+
+.search{
+    text-align:right;
 }
 
 
@@ -166,22 +171,24 @@ nav.pagination {
 
 /* ヘッダー右側　ユーザログアウト時 */
 
-.header-right-userlogout{
+.header-right-userlogout {
     height: 50px;
     display: flex;
-    width: 34%;
+    width: 30%;
     align-items: center;
+    text-align: right;
+    margin: 0 0 0 auto;
+    font-size: 17px;
 }
 
 /* ヘッダー右側　各ボタン　ユーザログアウト時 */
 
-.header-right-userlogout a{
+.header-right-userlogout a {
     color: #666;
     padding: 0px 20px;
     align-items: center;
-    text-align: center;
+    text-align: right;
 }
-
 
 /* 投稿ボタン */
 
@@ -572,6 +579,15 @@ a.modal-user-my-button:hover {
     max-width: 600px;
     width: 80%;
 }
+
+
+
+.admin-sign{
+    max-width: 600px;
+    width: 100%;
+    text-align:center;
+}
+
 
 
 /* 新規登録、ログイン　の文字 */
