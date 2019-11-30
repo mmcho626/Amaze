@@ -11,7 +11,8 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
- *= require_self*/
+ *= require_self
+ */
 
 
 
@@ -366,16 +367,14 @@ span.menu {
 /* サイドバー　文字 */
 
 .sidebar-contents a {
-    color: #666
     font-size: 17px;
     line-height: 26px;
     letter-spacing: 0;
-    color: #666
+    color: #666;
     padding: 10px 0;
     display: flex;
     align-items: center;
     padding: 15px;
-    font-size: 16px;
 }
 
 
@@ -655,3 +654,4 @@ a.modal-user-my-button:hover {
 .signin-description a :visited{
 	color:#ff4500;
 }
+
