@@ -1,4 +1,6 @@
 
+<!-- 口コミ一覧 -->
+
 <% if admin_signed_in? %> <!-- 管理者ログイン時 -->
 
 	<%= link_to admins_post_path(post) do %>
@@ -7,9 +9,13 @@
 
             <div class="post-index-item">
 
-                <%= attachment_image_tag post, :post1_image, fallback:"no_image.jpg", :class=>"post-index-image-size" %>
+                <div class="post-index-image">
 
-                <%= attachment_image_tag post, :post2_image, fallback:"no_image.jpg", :class=>"post-index-image-size" %>
+                    <%= attachment_image_tag post, :post1_image, fallback:"no_image.jpg", :class=>"post-index-image-size" %>
+
+                    <%= attachment_image_tag post, :post2_image, fallback:"no_image.jpg", :class=>"post-index-image-size" %>
+
+                </div>
 
             </div>
 

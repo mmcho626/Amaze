@@ -131,9 +131,18 @@ f
 
 /* 投稿画像 */
 
+
+.post-index-image {
+    display: flex;
+    min-height: 115px;
+    align-items: center;
+}
+
+
 .post-index-image-size{
     width: 40%;
     height: 40%;
+    margin: 0 auto;
 }
 
 

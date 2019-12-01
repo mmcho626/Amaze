@@ -19,7 +19,6 @@
 *{
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
 }
 
 
@@ -350,7 +349,7 @@ span.menu {
     float: left;
     margin-top: 10px;
     position: fixed;
-    left: 62px;
+    left: 111px;
     top: 242px;
 }
 
@@ -360,7 +359,6 @@ span.menu {
 .sidebar-contents {
     width: 90%;
     margin: 0 auto;
-    padding-left:50px;
 }
 
 
@@ -371,10 +369,9 @@ span.menu {
     line-height: 26px;
     letter-spacing: 0;
     color: #666;
-    padding: 10px 0;
     display: flex;
     align-items: center;
-    padding: 15px;
+    padding: 15px 0px;
 }
 
 
