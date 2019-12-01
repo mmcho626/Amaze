@@ -16,7 +16,7 @@
             <%= link_to admins_item_path(item) do %>
 
                 <!-------------------- ボードゲーム一覧 -------------------->
-                <%= render partial: 'items/items', locals: { item: item } %>
+                <%= render partial: 'share/item_index', locals: { item: item } %>
 
             <% end %>
 
@@ -27,7 +27,7 @@
             <%= link_to item_path(item) do %>
 
                 <!-------------------- ボードゲーム一覧 -------------------->
-                <%= render partial: 'items', locals: { item: item } %>
+                <%= render partial: 'share/item_index', locals: { item: item } %>
 
             <% end %>
 

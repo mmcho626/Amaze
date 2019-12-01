@@ -36,7 +36,7 @@
   <div class="borad-conetnts">
 
     <!-------------------- ボードゲーム詳細 -------------------->
-    <%= render partial: 'share/item', locals: { item: @item } %>
+    <%= render partial: 'share/item_show', locals: { item: @item } %>
 
   </div>
 
@@ -56,7 +56,7 @@
     <% @posts.each do |item_post| %>
 
       <!----------------------- 口コミ一覧 ---------------------->
-      <%= render partial: 'share/post', locals: { post: item_post } %>
+      <%= render partial: 'share/post_index', locals: { post: item_post } %>
 
     <% end %>
 
