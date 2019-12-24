@@ -23,7 +23,7 @@ class Post < ApplicationRecord
 
 
     #検索機能
-    def Post.search(user_or_post_or_item)
+    def Post.search(search, user_or_post_or_item)
 
 	  if user_or_post_or_item == "2"
 

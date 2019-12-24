@@ -18,7 +18,7 @@
         <% @users.each do |user| %>
 
           <!----------------------- ユーザ一覧 ---------------------->
-          <%= render partial: 'share/user', locals: { user: user } %>
+          <%= render partial: 'share/user_index', locals: { user: user } %>
 
         <% end %>
 
@@ -39,18 +39,24 @@
     <% @posts.each do |post| %>
 
       <!----------------------- 口コミ一覧 ---------------------->
-      <%= render partial: 'share/post', locals: { post: post } %>
+      <%= render partial: 'share/post_index', locals: { post: post } %>
 
     <% end %>
 
   <% else %> <!-- @user_or_post_or_item == "3"のとき -->
 
 
+    <div class="title">
+
+        <h2>ボードゲームの検索結果   　<%= @items.count %>件</h2>
+
+    </div>
+
 
     <% @items.each do |item| %>
 
       <!----------------------- 口コミ一覧 ---------------------->
-      <%= render partial: 'items/items', locals: { item: item } %>
+      <%= render partial: 'items/item_index', locals: { item: item } %>
 
     <% end %>
 

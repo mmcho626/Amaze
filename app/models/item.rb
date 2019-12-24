@@ -15,6 +15,16 @@ class Item < ApplicationRecord
 
 
 
+
+
+  #口コミ投稿時の検索機能
+  def self.search_all(search_item)
+
+       Item.find_by(['item_name LIKE ?', "%#{search_item}%"]) #あいまい検索
+
+  end
+
+
   #検索機能
   def Item.search(search,user_or_post_or_item)
 
@@ -30,15 +40,6 @@ class Item < ApplicationRecord
 
   end
 
-
-
-
-  #口コミ投稿時の検索機能
-  def self.search_all(search_item)
-
-       Item.find_by(['item_name LIKE ?', "%#{search}%"]) #前方一致検索
-
-  end
 
 
 
