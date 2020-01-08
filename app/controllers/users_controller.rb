@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def index
     # kaminari。１０件ずつ表示。
     @users = User.all.page(params[:page]).per(10)
+    @users_count = User.all.count
   end
 
   def show
@@ -65,15 +66,23 @@ class UsersController < ApplicationController
   #検索機能
   def search
     @user_or_post_or_item = params[:option]
+
     if @user_or_post_or_item == "1"
+
       @users = User.search(params[:search], @user_or_post_or_item)
       # Userモデルのsearchメソッドはuser.rbに記載。
+      @search_users_count = @users.count
+
     elsif @user_or_post_or_item == "2"
+
       @posts = Post.search(params[:search], @user_or_post_or_item)
       # Postモデルのsearchメソッドはpost.rbに記載。
+      @search_posts_count = @posts.count
+
     else
       @items = Item.search(params[:search], @user_or_post_or_item)
       # Itemモデルのsearchメソッドはitem.rbに記載。
+      @search_items_count = @items.count
     end
   end
 

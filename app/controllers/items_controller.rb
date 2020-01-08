@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
   def index
     # kaminari。１０件ずつ表示。
     @items = Item.all.page(params[:page]).per(10)
+    @items_count = Item.all.count
   end
 
   def show
