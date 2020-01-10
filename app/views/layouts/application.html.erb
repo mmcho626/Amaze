@@ -30,7 +30,9 @@
 
           <div class="logo">
 
-            <%= image_tag('logo.jpg') %>
+            <%= link_to posts_path do %>
+              <%= image_tag('logo.jpg') %>
+            <% end %>
 
           </div>
 
@@ -38,7 +40,7 @@
 
           <div class= "search-bar">
 
-            <%= form_tag(search_path, :method => 'get', :class=>"search") do %>
+            <%= form_tag(root_path, :method => 'get', :class=>"search") do %>
 
               <%= select_tag(:option, options_for_select([["ユーザ", "1"],["口コミ","2"],["ボードゲーム","3"]]), :class=>"search-select") %>
               <!-- セレクトボックスの作成。optionはプロパティ名。 -->
