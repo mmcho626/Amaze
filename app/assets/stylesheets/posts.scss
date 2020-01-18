@@ -121,10 +121,16 @@ f
 
 /* 個別の幅、配置 */
 
-.post-index-list {
-    width: 100%;
-    min-width: 600px;
-    height: auto;
+.post-list-outer {
+    margin: 0 auto;
+}
+
+
+.post-list-inner{
+    margin: 0 0 0 auto;
+    text-align: left;
+    width: 90%;
+    max-width: 1000px;
 }
 
 
