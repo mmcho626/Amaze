@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   def index
     # kaminari。１０件ずつ表示。
-    @posts = Post.all.page(params[:page]).per(2)
+    @posts = Post.all.page(params[:page]).per(8)
     @posts_count = Post.all.count
   end
 
