@@ -372,3 +372,36 @@ a.user-show-unfollow-button:hover{
 user-update {
     text-align:center;
 }
+
+
+/* 退会・ユーザ削除ボタン */
+
+.user-destroy-button {
+    border: solid 1px #ff6347;
+    width: 96%;
+    height: 36px;
+    border-radius: 10px;
+    display: inline-block;
+    align-items: center;
+    line-height: 36px;
+}
+
+
+
+.user-destroy-button a {
+    color: #fff;
+    display:block;
+    text-align: center;
+}
+
+.user-destroy-button a:hover {
+    opacity: 0.8;
+    border-radius: 10px;
+    color: #fff;
+}
+
+
+.user-destroy-button a:visited {
+    color: #ff6347;
+}
+
