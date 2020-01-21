@@ -1,24 +1,25 @@
-# README
+#アプリ名
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Amaze(アメイズ)
 
-Things you may want to cover:
 
-* Ruby version
+#作ったきっかけ
 
-* System dependencies
+作成当時、ボードゲームに興味を抱きましたが、種類が豊富で、難易度の幅も大きく、ネットで探しましたが、レビューが主なサイトがあまり見当たらなかったため、作成しました。
 
-* Configuration
 
-* Database creation
+#説明（何が出来る物なのか）
 
-* Database initialization
+遊んだボードゲームのレビューを投稿できます。
+レビューに対して、コメントやいいねをすることが可能です。
+また、レビューにいいねした人の一覧を見ることもできます。
 
-* How to run the test suite
+また、ユーザをフォローする機能がついており、他のユーザのフォロー・フォロワー一覧を閲覧することができます。
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+#使い方
+
+ヘッダー右上の新規投稿から、画像を選択し、遊んだボードゲームのレビューを投稿することができます。
+画像追加をしなくても、タイトルとレビュー本文のみで投稿をすることも可能です。
+ぜひ、投稿してみてください。
