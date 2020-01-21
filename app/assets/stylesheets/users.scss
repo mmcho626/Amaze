@@ -384,12 +384,14 @@ user-update {
     display: inline-block;
     align-items: center;
     line-height: 36px;
+    letter-spacing: 3.5px;
+    font-size: 15px;
 }
 
 
 
 .user-destroy-button a {
-    color: #fff;
+    color: #ff6347;
     display:block;
     text-align: center;
 }
