@@ -6,6 +6,7 @@ class Admins::PostsController < ApplicationController
   def index
     # kaminari。１０件ずつ表示。
     @posts = Post.all.page(params[:page]).per(10)
+    @posts_count = Post.all.count
     render 'posts/index'
   end
 

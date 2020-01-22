@@ -5,6 +5,7 @@ class Admins::UsersController < ApplicationController
   def index
     # kaminari。１０件ずつ表示。
     @users = User.all.page(params[:page]).per(10)
+    @users_count = User.all.count
     render 'users/index'
   end
 
